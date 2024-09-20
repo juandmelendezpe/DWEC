@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+}
+html,body{
+    background-color: lightblue;
+    height: 50%;
+}
+.principal{
+    background-color: rgb(240, 83, 109);
+    height: 100%;
+
+}
+.clase{
+   background-color: yellow;
+}
