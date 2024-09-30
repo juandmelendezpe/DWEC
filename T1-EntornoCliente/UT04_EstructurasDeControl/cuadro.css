@@ -15,18 +15,37 @@ html,body{
     background-color: #f8f8f8;
 }
 #botonReglas{
-    width: 30%;
-    background-color: #76d1ec;
-    border: .2rem solid #1b3d14;
+    width: 20%;
+    background-color: #5330ec;
     border-radius: 5px;
     padding: .5rem 1rem;
     cursor: pointer;
     color: white;
-    border-radius: 3rem;
     size: 5rem;
     
 }
 #botonReglas:hover{
     background-color: #1b3d14;
     color: #76d1ec;
+}
+
+#cuadro1{
+    display: flex;
+    width: 50%;
+    height: 50%;
+    background-color: #f8f8f8;
+    justify-content: space-between;
+    border: solid 1px black;
+    padding: 1rem;
+    margin: 10rem   ;
+
+}   
+.cuadrado{
+
+    border: solid 1px black;
+    padding: 1rem;
+    width: 30%;
+    height: 30%;
+    display: inline-block;
+
 }
