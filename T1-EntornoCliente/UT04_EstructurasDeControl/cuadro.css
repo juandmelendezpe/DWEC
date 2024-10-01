@@ -7,14 +7,8 @@ html,body{
     height: 100%;
     font-family: Arial, sans-serif;
 }
-#principal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height:50%;
-    background-color: #f8f8f8;
-}
-#botonReglas{
+
+#botonRellenar{
     width: 20%;
     background-color: #5330ec;
     border-radius: 5px;
@@ -24,28 +18,33 @@ html,body{
     size: 5rem;
     
 }
-#botonReglas:hover{
+#botonRellenar:hover{
     background-color: #1b3d14;
     color: #76d1ec;
 }
 
 #cuadro1{
     display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    height: 60%;
+    background-color: #f8f8f8;
+    border: solid 1px black;
+
+}
+#cuadro2{
+    display: flex;
     width: 50%;
     height: 50%;
     background-color: #f8f8f8;
-    justify-content: space-between;
-    border: solid 1px black;
-    padding: 1rem;
-    margin: 10rem   ;
 
 }   
 .cuadrado{
-
-    border: solid 1px black;
-    padding: 1rem;
+    border: solid 1px rgb(206, 26, 26);
     width: 30%;
     height: 30%;
     display: inline-block;
+    padding: .2rem;
+    margin: .5rem;
 
 }

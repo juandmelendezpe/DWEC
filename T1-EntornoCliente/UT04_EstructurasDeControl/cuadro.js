@@ -1,12 +1,20 @@
-function rellenarCubo (lado) {
-    let valor ;
-    // rellenar el cubo con un valor aletorio del 1 al p
-    for (let i = 0; i < lado; i++) {
-        for (let j = 0; j < lado; j++) {
-            for (let k = 0; k < lado; k++) {
-                valor = Math.floor(Math.random() * lado) + 1;
-                console.log(`Celda (${i},${j},${k}) = ${valor}`);
-            }
-        }
+function rellenarCubo(lado) {
+    // Crear un conjunto para almacenar los valores únicos
+    const valoresUnicos = new Set();
+
+    // Función para generar un valor aleatorio único
+    function generarValorUnico() {
+        let valor;
+        do {
+            valor = Math.floor(Math.random() * 9) + 1;
+        } while (valoresUnicos.has(valor));
+        valoresUnicos.add(valor);
+        return valor;
     }
+}
+window.onload = function() {
+    document.getElementById("botonRellenar").addEventListener("click", function() {
+        const lado = document.getElementById("lado").value;
+        rellenarCubo(lado);
+    });
 }
