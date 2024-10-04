@@ -18,10 +18,10 @@ function tipoDatos(){
     console.log("WeakSet: " + typeof new WeakSet());
     console.log("Date: " + typeof new Date());
     console.log("Function: " + typeof function(){});
-
-    let 
-
+        
 }
 window.onload = function(){
     document.getElementById("tiposDatos").addEventListener("click", tipoDatos);
+
 }
+    

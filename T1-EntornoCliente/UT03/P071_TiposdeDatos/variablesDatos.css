@@ -13,3 +13,8 @@ body{
     color: orange;
 
 }
+p:hover{
+    color: yellow;
+    background: black;
+    font-size: 1.5rem;
+}
