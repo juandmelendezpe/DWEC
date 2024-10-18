@@ -1,0 +1,40 @@
+#barraLarga{
+    margin: 25px;
+    padding: 10px;
+
+}
+.colorVioletaBarraLarga{
+    background-color: violet;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+.colorMarronBarraLarga{
+    background-color: brown;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+.cuadradoColorVerde{
+    background-color: yellowgreen;
+   
+}
+.cuadradoColorAmarillo{
+    background-color: yellow;
+}
+.estiloCuadrado{
+    width: 100px;
+    height: 200px;
+    margin: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

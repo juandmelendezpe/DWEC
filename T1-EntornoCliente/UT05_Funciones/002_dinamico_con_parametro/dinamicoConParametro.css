@@ -1,0 +1,21 @@
+.cuadradoColorVerde{
+    background-color: rgb(58, 75, 25);
+   
+}
+.cuadradoColorAmarillo{
+    background-color: yellow;
+    color: black;
+}
+.Cuadrado{
+    width: 100px;
+    height: 200px;
+    margin: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(57, 11, 223);
+}
