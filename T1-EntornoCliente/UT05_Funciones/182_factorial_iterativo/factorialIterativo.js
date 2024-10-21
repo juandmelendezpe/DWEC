@@ -10,15 +10,14 @@ function calcularFactorial(){
 //funcion para calcular el factorial de un numero
 function factorialIterativo(n){
     let resultado = 1;
-    for(let i = 1; i <= n; i++){
-        cadena = cadena + i + "\n";
-        resultado = resultado * i;
+    while(n >1){
+        resultado *=n;
+        n--;
     }
     return resultado;
-}
+    }
 //callback = funcion que se pasa como parametro a otra funcion
 window.onload = function(){
     document.getElementById("factorialiterativo").
     addEventListener("click", calcularFactorial);
 }
-// Compare this snippet from T1-EntornoCliente/UT05_Funciones/181_factorial_recursivo/factorialRecursivo.html:
