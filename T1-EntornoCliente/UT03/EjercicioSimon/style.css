@@ -50,3 +50,16 @@ main{
     border-radius: 5px;
     cursor: pointer;    
 }
+#bt_result {
+    box-sizing: border-box;
+    left: 39%;
+    width: 22%;
+    border-radius: 8px;
+    background-color: #06000e;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    border: 2px solid #fff;
+}
