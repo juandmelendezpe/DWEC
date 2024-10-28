@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscaminas</title>
+    <script src="buscaminas.js"></script>
+    <style>
+        table { border-collapse: collapse; }
+        td { width: 30px; height: 30px; text-align: center; border: 1px solid #000; }
+        .mine { background-color: red; }
+        .safe { background-color: #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Buscaminas</h1>
+    <label for="size">Tamaño del tablero:</label>
+    <input type="number" id="size" min="1" value="9">
+    <label for="mines">Cantidad de minas:</label>
+    <input type="number" id="mines" min="1" value="16">
+    <button onclick="initializeGame()">Iniciar Juego</button>
+    <div id="game"></div>
+
+    <script src="buscaminas.js"></script>
+</body>
+</html>
