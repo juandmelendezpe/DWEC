@@ -1,6 +1,6 @@
 function crearObjetoEntreComillas() {
     let libro = {
-        titulo: "Manual de UFOlogía",
+        titulo: "Manual de UFOlogía","n-serie":"187C2",
         autores: ["Pedro Martínez", "Ana León"], // Esta propiedad es un array
         editorial: { // La editorial es otro objeto
             nombre: "Inexistente S.A.",
