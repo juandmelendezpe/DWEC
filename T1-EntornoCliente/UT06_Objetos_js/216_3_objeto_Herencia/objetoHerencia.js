@@ -22,7 +22,7 @@ function objetoherencia() {
         introduceSelt(){
             console.log(`Hola, soy ${this.name} y sere tu profesor de : ${this.teaches}`);
         };
-    grade (paper){
+        grade (){
         const nota = Math.floor(Math.random()*(10-1)+1);
         console.log(`Tu nota es ${nota}`);
     }
