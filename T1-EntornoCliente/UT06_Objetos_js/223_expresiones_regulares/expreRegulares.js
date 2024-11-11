@@ -50,6 +50,22 @@ function conMayuscula() {
         console.log("La cadena " + cadena + " no contiene una letra mayuscula");
     }
 }
+function expresionCompleta() {
+    //let cadena = prompt("Introduce una cadena");
+    let expresion = /^[A-Z][a-z]{2}[0-9]*[a-z]+$/; // permite letras mayusculas y minusculas
+    console.log(expresion);
+
+    const valorestest = ["Daa1a","Daa1","Daa1a1","Daa1a1a","Daa44a","Daaa","Daa44","daa44a"];
+    for (testteo of valorestest){
+       if(expresion.test(testteo)){
+           console.log("La cadena " + testteo + " si cumple con la expresion regular");
+       }else{
+               console.log("La cadena " + testteo + " no cumple con la expresion regular");
+           }
+    }
+    
+    }
+
 
 
 
@@ -58,4 +74,5 @@ window.onload = function() {
     document.getElementById("existeCaracter").addEventListener("click",existecaracter);
     document.getElementById("empiezaYTermina").addEventListener("click",empiezaYTermina);
     document.getElementById("conMayuscula").addEventListener("click",conMayuscula);
+    document.getElementById("conMayuscula2").addEventListener("click",expresionCompleta)
 }
