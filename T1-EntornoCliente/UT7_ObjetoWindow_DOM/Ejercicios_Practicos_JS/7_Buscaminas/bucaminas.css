@@ -1,0 +1,15 @@
+table {
+  border-collapse: collapse;
+}
+td {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid #000;
+}
+.mine {
+  background-color: rgb(38, 249, 76);
+}
+.safe {
+  background-color: #97edfc;
+}

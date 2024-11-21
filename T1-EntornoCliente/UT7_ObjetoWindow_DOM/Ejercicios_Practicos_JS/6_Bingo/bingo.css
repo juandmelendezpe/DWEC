@@ -36,6 +36,9 @@ td {
 td.numero {
     background-color: #a5e8ec;
 }
+#numerosSorteados{
+    background-color: #a5e8ec;
+}
 button { 
     margin-top: 20px; 
     padding: 10px 20px;

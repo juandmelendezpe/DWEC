@@ -5,11 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de Bingo</title>
     <link rel="stylesheet" href="bingo.css">
+    <script src="bingo.js"></script>
+
 </head>
 <body>
     <h1>Juego de Bingo</h1>
     <table id="bingoTable"></table>
-    <button onclick="nuevoCarton()">Nuevo Cartón</button>
+    <a href="bingo.html"><button>Nuevo Cartón</button></a>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>B</th>
+                    <th>I</th>
+                    <th>N</th>
+                    <th>G</th>
+                    <th>O</th>
+                </tr>
+            </thead>
+            <tbody id="numerosSorteados">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="rellenar">Rellenar</button> 
+        <button id="borrar">Borrar</button>
+    </div>
     <script src="bingo.js"></script>
 </body>
 </html>
