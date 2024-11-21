@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+}
+
+#game {
+    margin: 20px auto;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#green {
+    background-color: darkgreen;
+    border-top-left-radius: 100%;
+}
+#green.active {
+    background-color: #39ff14; /* Verde neón */
+}
+#red {
+    background-color: darkred;
+    border-top-right-radius: 100%;
+}
+#red.active {
+    background-color: #ff073a; /* Rojo neón */
+}
+
+#yellow {
+    background-color: goldenrod;
+    border-bottom-left-radius: 100%;
+}
+
+#yellow.active {
+    background-color: #ffff33; /* Amarillo neón */
+}
+
+#blue {
+    background-color: darkblue;
+    border-bottom-right-radius: 100%;
+}
+
+#blue.active {
+    background-color: #0ff; /* Azul neón */
+}
+.color {
+    width: 50%;
+    height: 50%;
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.color:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #555;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
