@@ -1,0 +1,18 @@
+.cuadricula { 
+    display: grid; 
+    grid-template-columns: repeat(10, 30px); 
+    grid-gap: 2px; 
+} 
+    .celda { width: 30px; 
+        height: 30px; background-color: lightblue; 
+        text-align: center; line-height: 30px; 
+        cursor: pointer; 
+    } 
+        .barco { background-color: gray;
+         } 
+        .agua { background-color: blue; 
+        } 
+        .oculto { 
+            background-color: lightblue; 
+        }
+    

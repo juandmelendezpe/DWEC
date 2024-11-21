@@ -3,11 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>figuras</title>
+    <title>Generador de Figuras</title>
     <link rel="stylesheet" href="figura.css">
-    <script src="figura.js"></script>
 </head>
 <body>
-    
+    <h1>Generador de Figuras</h1>
+    <div>
+        <label for="figura">Elige la figura:</label>
+        <select id="figura">
+            <option value="cuadrado">Cuadrado</option>
+            <option value="rectangulo">Rectángulo</option>
+            <option value="triangulo">Triángulo</option>
+        </select>
+    </div>
+    <div>
+        <label for="relleno">Relleno:</label>
+        <select id="relleno">
+            <option value="asteriscos">Asteriscos</option>
+            <option value="bordes">Bordes</option>
+        </select>
+    </div>
+    <div id="inputsDimensiones">
+        <label for="lado">Lado / Alto:</label>
+        <input type="number" id="lado" min="1">
+    </div>
+    <div id="dimensionesRectangulo" style="display: none;">
+        <label for="ancho">Lado:</label>
+        <input type="number" id="ancho" min="1">
+        <label for="alto">Alto:</label>
+        <input type="number" id="alto" min="1">
+    </div>
+    <button onclick="generarFigura()">Generar Figura</button>
+    <pre id="salida"></pre>
+    <script src="script.js"></script>
 </body>
 </html>

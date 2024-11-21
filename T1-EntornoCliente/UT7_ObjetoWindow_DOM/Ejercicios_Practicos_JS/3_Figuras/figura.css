@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+div {
+    margin: 10px 0;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input, select {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+pre {
+    text-align: left;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    margin-top: 20px;
+}
