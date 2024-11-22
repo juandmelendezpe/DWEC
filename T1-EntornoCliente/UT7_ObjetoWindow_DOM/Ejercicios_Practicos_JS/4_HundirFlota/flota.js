@@ -56,7 +56,7 @@ function manejarClic(e) {
         e.target.textContent = '🌊';
     } else {
         e.target.classList.add('barco');
-        e.target.textContent = valorCelda;
+        e.target.textContent = '🚤';
     }
     puntuacion--;
     puntuacionElemento.textContent = puntuacion;
