@@ -1,12 +1,6 @@
 .cuadradoColorVerde{
-    background-color: rgb(58, 75, 25);
-   
-}
-.cuadradoColorAmarillo{
-    background-color: yellow;
+    background-color: rgb(35, 239, 65);
     color: black;
-}
-.cuadrado{
     width: 100px;
     height: 200px;
     margin: 50px;
@@ -17,5 +11,31 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background: rgb(57, 11, 223);
+}
+.cuadradoColorAmarillo{
+    background-color: yellow;
+    color: black;
+    width: 100px;
+    height: 200px;
+    margin: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.cuadrado{
+    width: 100px;
+    height: 200px;
+    margin: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: rgb(238, 58, 58);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
 }

@@ -1,0 +1,99 @@
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 50%;
+  height: 70vh;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+h1 {
+  font-size: 24px;
+  color: #4bf0f6;
+  text-align: center;
+}
+section {
+  width: 60%;
+  height: 80%;
+  margin: auto;
+  display: inline-block;
+  border: solid 1px #49d1f4;
+  border-radius: 5px;
+  padding: 10px;
+}
+section button {
+  width: 80%;
+  height: 10%;
+  margin: 7vh auto;
+  display: block;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(23, 52, 76);
+  color: white;
+}
+.btnSpecial {
+    animation: pulsate 1s infinite;
+    color: white;
+}
+@keyframes pulsate {
+  0% {
+    box-shadow: 0 0 5px rgb(16, 137, 177);
+  }
+  50% {
+    box-shadow: 0 0 25px  rgb(16, 137, 177);
+  }
+  100% {
+    box-shadow: 0 0 5px  rgb(16, 137, 177);
+  }
+}
+.azul {
+  background-color: #49d1f4;
+  color: white;
+}
+.verde {
+  background-color: #4bf0f6;
+  color: white;
+}
+.violeta {
+  background-color: #4b4ff6;
+  color: white;
+}
+.naranja {
+  background-color: #f58610;
+  color: white;
+}
+footer {
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  text-align: center;
+  background-color: #1a4c4e;
+  color: white;
+  margin: auto;
+  bottom: 0;
+}
+.popup-containerRC, .popup-containerRI {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.popup {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}

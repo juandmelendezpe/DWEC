@@ -15,6 +15,4 @@ window.onload = function() {
     document.getElementById("cuadrado1").addEventListener("click", function(){  cambiarColorCuadrados("1")});
 
     document.getElementById("cuadrado2").addEventListener("click", function(){  cambiarColorCuadrados("2")});
-
-
     }

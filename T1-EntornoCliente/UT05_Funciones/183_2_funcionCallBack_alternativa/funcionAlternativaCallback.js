@@ -5,14 +5,14 @@ function llamadaConError(){
     escribe("Adios","error");
 }
 function llamadaConAlert(){
-    escribe("Buenas","Alert");
+    escribe("Buenas","alert");
 }
 function llamadaParametroNo(){
     escribe("Nada","cualquiera");
 }
 
 function escribe(dato,opcion){
-if (Option=="log"){
+if (opcion=="log"){
     console.log(dato);
     
 }else if (opcion=="error"){

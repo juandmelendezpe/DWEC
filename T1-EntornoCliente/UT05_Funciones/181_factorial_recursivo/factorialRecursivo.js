@@ -18,6 +18,5 @@ function factorialRecursivo(n){
 }
 //callback = funcion que se pasa como parametro a otra funcion
 window.onload = function(){
-    document.getElementById("factorialRecursivo").
-    addEventListener("click", calcularFactorial);
+    document.getElementById("factorialRecursivo").addEventListener("click", calcularFactorial);
 }
