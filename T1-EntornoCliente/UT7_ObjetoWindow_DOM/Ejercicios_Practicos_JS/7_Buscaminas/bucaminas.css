@@ -1,3 +1,63 @@
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+section{
+  width: 60%;
+  height: 50%;
+  margin: 1% auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  border: solid 2px #49d1f4;
+}
+h1{
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  background-color: #49d1f4;
+  color: white;
+}
+#formulario{
+  width: 100%;
+  height: 30vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+#form {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px #49d1f4;
+  background-color: #97edfc;
+  border-radius: 10px;
+  text-align: left;
+}
+#circulos{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#circulo{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #dc0cef;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  margin: 10px;
+}
+
 table {
   border-collapse: collapse;
 }
@@ -7,9 +67,23 @@ td {
   text-align: center;
   border: 1px solid #000;
 }
-.mine {
+.minado {
   background-color: rgb(38, 249, 76);
 }
-.safe {
+.casilla {
   background-color: #97edfc;
+}
+footer{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  bottom: 0;
+  background-color: #49d1f4;
+  color: white;
+
+  
+}
+footer p{
+  color: white;
+  margin: 0;
 }

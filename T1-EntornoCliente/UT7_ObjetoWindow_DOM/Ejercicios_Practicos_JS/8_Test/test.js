@@ -20,7 +20,7 @@ function mostrarPopupRespInc() {
 
  //Relaciones entre preguntas y respuestas 
  const preguntasid = [1, 2, 3, 4]; 
- const respuestasid = [5, 6, 7, 8]; 
+ //const respuestasid = [5, 6, 7, 8]; 
  const relaciones = { 1: 7, 2: 8, 3: 6, 4: 5 }; 
  let idPreguntaSeleccionada = null; 
  // Variable para guardar el id del primer botón presionado 
@@ -43,7 +43,32 @@ function mostrarPopupRespInc() {
 
             } 
         }
-     }      
+     }
+     // funcion validar simple 
+     function validarResp(id){
+      var idPreguntaSelec = null;
+      var idRespuesta = id.target.id;
+      const ArraysPreguntas = [1, 2, 3, 4];
+      //const ArraysRespuestas = [5, 6, 7, 8];
+      const ArraysRelaciones = { 1: 7, 2: 8, 3: 6, 4: 5 }; // Relaciones entre preguntas y respuestas
+      if (idPreguntaSelec){
+        if (ArraysRelaciones[idPreguntaSelec] == idRespuesta){  //
+          mostrarPopupRespCo();
+        }else{
+          mostrarPopupRespInc();
+        }
+        idPreguntaSelec = null;
+      }else{
+        if (ArraysPreguntas.includes(parseInt(idRespuesta))){//parseInt convierte el string a entero 
+          idPreguntaSelec = idRespuesta;
+          alert("Pregunta seleccionada: " + idPreguntaSelec);
+        }else{
+          mostrarPopupRespInc();
+        }
+      }
+
+
+     }
 window.onload = function () {
   document.addEventListener("click", validarRespuestaCorrecta);
   cambiarClasePreguntasId();

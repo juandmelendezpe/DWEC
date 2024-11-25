@@ -17,7 +17,7 @@ function rellenarAleatorio() {
   const numeros = Array.from({ length: 9 }, (_, i) => i + 1);
   numeros.sort(() => Math.random() - 0.5);
   
-  divs.forEach((div, index) => {
+  divs.forEach((div, index) => { 
     div.textContent = numeros[index];
   });
 }

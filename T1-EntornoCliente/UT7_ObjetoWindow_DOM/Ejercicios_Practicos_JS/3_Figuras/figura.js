@@ -1,4 +1,5 @@
-document.getElementById('figura').addEventListener('change', function () {
+document.getElementById('figura').addEventListener('change', function () { // Evento change para el select
+    
     const figura = document.getElementById('figura').value;
     if (figura === 'rectangulo') {
         document.getElementById('dimensionesRectangulo').style.display = 'block';
