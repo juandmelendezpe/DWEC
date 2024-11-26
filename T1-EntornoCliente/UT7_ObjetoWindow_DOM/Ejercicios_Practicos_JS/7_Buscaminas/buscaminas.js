@@ -150,6 +150,6 @@ window.onload = function () {
   crearFooter();
   crearFormulario();
   //crearCirculo();
-  document.getElementById("iniciar").addEventListener("click", initializeGame, crearCirculo);
+  document.getElementById("iniciar").addEventListener("click", initializeGame);
   
 };

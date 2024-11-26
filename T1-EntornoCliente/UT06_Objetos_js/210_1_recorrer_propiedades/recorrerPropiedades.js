@@ -13,5 +13,5 @@ function recorrerPropiedades(){
 }
 
 window.onload = function(){
-    document.getElementById("recorrerPropiedades").addEventListener("click",recorrerpropiedades);
+    document.getElementById("recorrerPropiedades").addEventListener("click", recorrerPropiedades);
 }

@@ -1,0 +1,87 @@
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(233, 200, 55);
+}
+#dinoVidas{
+    width: 100%;
+    height: 10%;
+    display: block;
+   
+
+}
+#dinoVidas img{
+    width: 4vw;
+    height: 5vh;
+    margin: 0 auto;
+    display: block;
+    float:right;
+}
+#dino_rojo img{
+    display: none;
+}
+#container{
+    width: 90%;
+    height: 80vh;
+    border: solid 2px blue;
+    border-radius: 10px;
+    margin: 1vh auto;
+}
+#titulo{
+    text-align: center;
+    font-size: 2rem;
+}
+#figuras1{
+    width: 80%;
+    height: 60vh;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: solid 1px rgb(153, 22, 240);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#figuras2{
+    width: 80%;
+    height: 60vh;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: solid 1px rgb(153, 22, 240);
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#figuras3{
+    width: 80%;
+    height: 60vh;
+    margin: 0 auto;
+    border-radius: 5px;
+    border: solid 1px rgb(153, 22, 240);
+    display: none;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#figuras1 div{
+    width: 20vw;
+    height: 15vh;
+    border: solid 1px rgb(153, 22, 240);
+    margin: 5px;
+
+}
+#figuras1 img{
+    width: 100%;
+    height: 100%;
+}
+
+#popupContainer{
+    display: none;
+}
+
+
