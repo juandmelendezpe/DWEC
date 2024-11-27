@@ -5,10 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>obteer hijo dom</title>
     <script src="obtenerHijoDom.js"></script>
+    <style>
+        #p1{
+            background-color: #f0f0f0;
+            padding: 10px;
+            margin: 10px;
+        }
+        #titulo{
+            color: blue;
+        }
+        #parrafo1{
+            color: red;
+        }
+        #parrafo2{
+            color: green;
+        }
+        #parrafo3{
+            color: orange;
+        }
+        section{
+            box-shadow: 0px 0px 10px rgb(31, 159, 168);
+            border-radius: 10px;
+            width: 50%;
+            margin:5% auto;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1 id="recuperarHijoDom">recuperar hijo Dom</h1>
-
-    
+    <h1 id="cargarHijos">recuperar hijo Dom</h1>
+    <p id="cargarHijosElementos">Cargar hijos Elementos</p>
+    <section id="p1">
+        <h1 id="titulo">Quien soy?</h1>
+        <p id="parrafo1">Hola, Soy <strong>Juan</strong> programador web</p>
+        <p id="parrafo2">Estoy aprendiendo <strong>JavaScript</strong> y</p>
+        <p id="parrafo3">Estoy aprendiendo <strong>Php</strong></p>
+    </section>
 </body>
 </html>
