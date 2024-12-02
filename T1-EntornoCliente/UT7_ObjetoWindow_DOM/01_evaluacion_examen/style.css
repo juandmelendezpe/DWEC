@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#dinos{
+    background-color: rgb(255, 255, 196);
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    height: 10%;
+}
+.dino{
+    display: flex;
+    flex-direction: row;
+    height: 6vh;
+    margin: 1vh;
+
+}
+h1{
+    font-size: 5vh;
+    margin-bottom: 4vh;
+   
+}
+#principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    height: 90%;
+}
+.fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.imagen{
+    background-color: black;
+    margin: 2vh;
+    height: 15vh;
+}
+.completado{
+    margin: 0vh;
+}
