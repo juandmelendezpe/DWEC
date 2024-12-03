@@ -58,12 +58,12 @@ function crear_Div_Img() {
   const n = 9;
   const figura1 = document.getElementById("figuras1");
   let arrayId = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  figura1.innerHTML = "";
+  figura1.textContent = "";
   arrayId = mezclarArray(arrayId); // Mezclar los números fuera del bucle
   for (let i = 0; i < n; i++) {
     const div = document.createElement("div");
     const img = document.createElement("img");
-    img.src = "/img/ios_" + arrayId[i] + ".png";
+    img.src = "img/ios_" + arrayId[i] + ".png";
     img.alt = "ios_" + arrayId[i];
     img.id = "ios_" + arrayId[i];
     div.appendChild(img);
