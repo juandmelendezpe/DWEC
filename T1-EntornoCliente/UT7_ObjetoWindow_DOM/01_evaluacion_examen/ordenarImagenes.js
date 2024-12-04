@@ -25,13 +25,24 @@ function comprobarColocadas(){
     }
 }
 function comprobarVidas(imagenUnoLocal,imagenDosLocal) {
-    let pierdeVida = true;
-    let altUno = document.getElementById(imagenUnoLocal).getAttribute(alt);
-    let srcUno = document.getElementById(imagenUnoLocal).getAttribute(src);
-    
-
+    let altUno = document.getElementById(imagenUnoLocal).getAttribute("alt");
+    let srcUno = document.getElementById(imagenUnoLocal).getAttribute("src");
+    let altDos = document.getElementById(imagenDosLocal).getAttribute("alt");
+    let srcDos = document.getElementById(imagenDosLocal).getAttribute("src");
+    if((altUno != srcUno) && (altDos != srcDos)) {
+       document.getElementById("dino"+vidas).setAttribute("src","./imagenes/dino_rojo.png");
+         vidas++;
+    }
+    if(vidas == 4) {
+        cargarImagenes();
+        descolocarImagenes();
+        let imagenesDino = document.getElementsByClassName("dino");
+        for(let i = 1; i<=imagenesDino.length; i++) {
+            document.getElementById("dino"+i).setAttribute("src","./imagenes/dino_verde.png");
+        }
+        vidas = 1;
+    }
 }
-
 function cambiarImagenes(elemento) {
    // let valorRecuperado = elemento.target.id;
    // alert("valor Pulsado : "+ valorRecuperado);
@@ -43,8 +54,9 @@ function cambiarImagenes(elemento) {
         let rutaImagenDos = document.getElementById(imagenDos).getAttribute("src");
         document.getElementById(imagenUno).setAttribute("src",rutaImagenDos);
         document.getElementById(imagenDos).setAttribute("src",rutaImagenUno);
-        imagenUno = "";
-        imagenDos = "";
+        comprobarVidas(imagenUno,imagenDos);
+        imagenUno = " ";
+        imagenDos = " ";
         comprobarColocadas();
     }
 
@@ -52,8 +64,8 @@ function cambiarImagenes(elemento) {
 function cargarImagenes() {
     let numImagen = devolverNumero(1,3);
     let imagenes = document.getElementsByClassName("imagen");
-    for( var i=1; i<=imagenes.length; i++) {
-        let valorImagen = './imagenes/'+tablero[numImagen]+ '_' + i + '.png';
+    for( var i = 1; i<=imagenes.length; i++) {
+        let valorImagen = './imagenes/'+tablero[numImagen-1]+ "_" + i + '.png';
         document.getElementById("imagen"+i).setAttribute("src",valorImagen);
         document.getElementById("imagen"+i).setAttribute("alt",valorImagen);
     }
