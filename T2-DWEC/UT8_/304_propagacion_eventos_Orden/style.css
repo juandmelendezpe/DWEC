@@ -1,0 +1,19 @@
+div{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 50%;
+    width: 50%;
+    background-color: rgb(231, 150, 150);
+}
+p{
+    position: fixed;
+    width: 30%;
+    background-color: blue;
+    padding: auto;
+    margin:5% auto;
+}
+button{
+    margin: 20px;
+    padding: 10px;
+}
