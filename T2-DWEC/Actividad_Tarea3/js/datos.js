@@ -30,7 +30,7 @@ const dni = ["12345678A", "87654321B", "12348765C", "56781234D", "87651234E", "3
 const fechaNacimiento = ["01/01/1990", "02/02/1990", "03/03/1990", "04/04/1990", "05/05/1990", "06/06/1990", "07/07/1990", "08/08/1990", "09/09/1990", "10/10/1990", "11/11/1990", "12/12/1990"];
 
 function CrearDatos(numPersonas){
-    const personas = [];
+    let personas = [];
   //  const numPersonas = 50;
     let id = 1;
     for (let i = 0; i < numPersonas; i++) {
