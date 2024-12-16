@@ -1,0 +1,9 @@
+
+.sinAnular {
+    background-color: rgb(182,255,182);
+}
+
+.anulado {
+    background-color: rgb(255,178,178);
+    text-decoration: line-through;
+}

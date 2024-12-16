@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/generator.css">
+    <script src="js/generator.js"></script>
+    <script src="js/datos.js"></script>
+    <script src="js/personas.js"></script>
+
+    <title>Generador de Bases De Datos</title>
+</head>
+<body>
+    <header><h1>Tablero de Trabajo</h1></header>
+    <main id="container">
+        <section>
+            <h2>Formulario de Datos</h2>
+            <div id="formDatos">
+                <form action="" method="post">
+                    <div id="botonesItens">
+                        <button id="btnCant" disabled >Cantidad de Items</button>
+                        <input type="number" id="cantItems" name="cantItems" >                                
+                        <button id="btnPro">Procesar</button>
+                    </div>
+                    <button id="btnExp">Exportar Datos Obtenidos</button>
+                </form>
+            </div>
+            <div id="DatosCreados">
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido1</th>
+                        <th>Apellido2</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Localidad</th>
+                        <th>Codigo Postal</th>
+                        <th>Provincia</th>
+                        <th>CCAA</th>
+                        <th>Action</th>
+
+
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>Melendez</td>
+                        <td>Alvarez</td>
+                        <td>1995-06-06</td>
+                        <td>Sevilla</td>
+                        <td>41000</td>
+                        <td>Sevilla</td>
+                        <td>Andalucia</td>
+                        <td><button id="btnEli">Eliminar</button></td>
+
+                    </tr>
+                   
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Desarrollado por Juan Melendez</p>
+    </footer>
+</body>
+</html>
