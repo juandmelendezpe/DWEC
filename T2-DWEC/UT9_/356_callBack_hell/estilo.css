@@ -1,0 +1,26 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    justify-content: center;
+    display: flex;
+}
+img{
+    width: 50vw;
+    height: 80vh;
+    border-radius: 90%;
+}
+.animar{
+    transition: margin-right 2s .5s;
+    margin-top: 150px;
+}
+
+#boton{
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
