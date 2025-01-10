@@ -16,7 +16,7 @@
         <section>
             <h2>Formulario de Datos</h2>
             <div id="formDatos">
-                <form action="datos.php" method="post">
+                <form action="" method="post">
                     <div id="botonesItens">
                         <button id="btnCant" disabled >Cantidad de Items</button>
                         <input type="number" id="cantItems" name="cantItems">                                
@@ -53,6 +53,35 @@
                     </tr>
                 </table>
             </div>
+            <div id="DatosExportados">
+                <div id="titulos">
+                    <div id="id">Id</div>
+                    <div id="nombre">Nombre</div>
+                    <div id="apellido1">Apellido1</div>
+                    <div id="apellido2">Apellido2</div>
+                    <div id="fechaNac">Fecha Nacimiento</div>
+                    <div id="edad">Edad</div>
+                    <div id="localidad">Localidad</div>
+                    <div id="codigoPostal">Codigo Postal</div>
+                    <div id="provincia">Provincia</div>
+                    <div id="ccaa">CCAA</div>
+                    <div id="action">action</div>
+                </div>
+                <div id="datos">
+                    <input type="text" name="id" id="id">
+                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="apellido1" id="apellido1">
+                    <input type="text" name="apellido2" id="apellido2">
+                    <input type="date" name="fechaNac" id="fechaNac">
+                    <input type="number" name="edad" id="edad">
+                    <input type="text" name="localidad" id="localidad">
+                    <input type="number" name="codigoPostal" id="codigoPostal">
+                    <input type="text" name="provincia" id="provincia">
+                    <input type="text" name="ccaa" id="ccaa">
+                    <button id="btndrok">eliminar</button>
+                    </div>
+            </div>
+
         </section>
     </main>
     <footer>

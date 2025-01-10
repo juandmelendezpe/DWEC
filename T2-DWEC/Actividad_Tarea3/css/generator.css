@@ -18,14 +18,12 @@ h1{
 }
 #container{
     margin: auto;
-    width: 80%;
     padding: 0;
 }
 section{
-    width: 80vw;
+    width: 95vw;
     height: 80vh;
     margin: 5% auto;
-    padding: 10px;
     background:linear-gradient(to right, #01072f, #035bf3);
     border-radius: 5px;
     box-shadow: 0 0 5px #ccc;
@@ -103,6 +101,46 @@ th{
 td{
     background: #fff;
 }
+#DatosExportados{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    height: auto;
+}
+#titulos{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: #270260;
+    color: #fff;
+}
+#titulos div{
+    padding: 10px;
+    text-align: center;
+}
+#datos{
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    background: #fff;
+}
+#datos input{
+    text-align: center;
+    border: solid 1px #ff7f00;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    border-radius: none;
+
+}
+#datos input:nth-child(1){
+    width: 20%;
+    background-color: white;
+}
+
+
 footer{
     background:linear-gradient(to right, #3dc0fc, #013865);
     color: #fff;
