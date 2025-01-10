@@ -2,9 +2,13 @@ html,body{
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
     justify-content: center;
     display: flex;
+}
+div{
+    text-align: center;
+    margin-top: 10vh;
+    width: 50vw;
 }
 img{
     width: 50vw;
@@ -18,9 +22,13 @@ img{
 
 #boton{
     margin-top: 20px;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
-    background-color: #f0f0f0;
+    background-color: #0a4658;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
+    font-size: 1.2em;
+    height: 2vh;
+    width: 10vw;
 }

@@ -2,7 +2,7 @@ function cargarImagen(componente, callback) {
     alert("Cargando imagen");
     let carga = false;
     if(carga== true){
-        componente.setAtribute("src","./imgSinColorear.jpg");
+        componente.setAtribute("src","imgSinColorear.jpg");
         console.log("Imagen cargada");
         return callback(false);
     }else{
@@ -14,7 +14,7 @@ function colorearImagen(componente, callback) {
     alert("Coloreando imagen");
     let carga = false;
     if(carga== true){
-        componente.setAtribute("src","./imgColoreada.jpg");
+        componente.setAtribute("src","imgColoreada.jpg");
         console.log("Imagen coloreada");
         return callback(false);
     }else{
