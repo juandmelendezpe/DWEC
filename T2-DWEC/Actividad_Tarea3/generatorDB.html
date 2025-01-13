@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/generator.css">
     <script src="js/generator.js"></script>
-    <script src="js/datos.js"></script>
-    <script src="js/personas.js"></script>
-
     <title>Generador de Bases De Datos</title>
 </head>
 <body>
@@ -19,7 +16,7 @@
                 <form action="" method="post">
                     <div id="botonesItens">
                         <button id="btnCant" disabled >Cantidad de Items</button>
-                        <input type="number" id="cantItems" name="cantItems">                                
+                        <input type="number" id="cantItems" name="cantItems" max="10" min="1" required value="" >                                
                         <button id="btnPro">Procesar</button>
                     </div>
                 </form>
@@ -37,9 +34,9 @@
                     <div id="codigoPostal">Codigo Postal</div>
                     <div id="provincia">Provincia</div>
                     <div id="ccaa">CCAA</div>
-                    <div id="action">action</div>
+                    <div id="action">Action</div>
                 </div>
-                <div id="datos">
+                <div id="datos" class="class_1">
                     <input type="text" name="id" id="id">
                     <input type="text" name="nombre" id="nombre">
                     <input type="text" name="apellido1" id="apellido1">
