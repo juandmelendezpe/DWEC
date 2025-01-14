@@ -31,7 +31,7 @@ function animar(componente) {
 }
 
 window.onload = function() {
-    
+
     let boton = document.getElementById("boton");
 
     boton.addEventListener("click", function(ev) {
@@ -53,5 +53,4 @@ window.onload = function() {
         )
     }
     )
-
-}
+};
