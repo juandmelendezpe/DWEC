@@ -34,7 +34,7 @@ window.onload = function() {
 
     let boton = document.getElementById("boton");
 
-    boton.addEventListener("click", function() {
+    boton.addEventListener("click", function(ev) {
         let componente = document.getElementById("mapa");
         cargarImagen(componente,function(error){
             if(error){
