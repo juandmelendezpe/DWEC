@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evento Submit -form </title>
-    <script src="./eventoSubmit.js"></script>
+    <script src="eventoSubmit.js"></script>
     <style>
         form {
             display: flex;
@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <form action="./eventoSubmit.php" method="post" target="_blank">
+    <form action="" method="post" id="formulario">
         <label for="usuario">Nombre:</label>
         <input type="text" name="usuario" id="usuario">
         <br>
@@ -29,5 +29,6 @@
         <input type="submit" value="Enviar">
     </form>
     <div id="mensaje">...</div>
+    <button type="button" id="btn">btn comfirm</button>
 </body>
 </html>

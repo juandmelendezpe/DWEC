@@ -11,13 +11,9 @@ div{
     width: 50vw;
 }
 img{
-    width: 50vw;
-    height: 80vh;
-    border-radius: 90%;
-}
-.animar{
-    transition: margin-right 2s .5s;
-    margin-top: 150px;
+    width: 30vw;
+    height: 30vh;
+    border-radius: 100%;
 }
 
 #boton{
@@ -31,4 +27,8 @@ img{
     font-size: 1.2em;
     height: 2vh;
     width: 10vw;
+}
+.animarComponente{
+    transition: margin-right 2s .5s;
+    margin-right: 150px;
 }

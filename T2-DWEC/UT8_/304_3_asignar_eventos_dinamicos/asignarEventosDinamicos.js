@@ -1,7 +1,7 @@
 function asignarEventosDinamicos() {
-    let parrafos = document.querySelectorAll("p");
-    for (let parrafo of parrafos) {
-        parrafo.addEventListener("click", () => alert(parrafo.textContent));
+    let parrafos = document.querySelectorAll("p"); // Seleccionamos todos los parrafos
+    for (let parrafo of parrafos) { // Recorremos todos los parrafos
+        parrafo.addEventListener("click", () => alert(parrafo.textContent)); // Asignamos el evento click a cada parrafo
     }
 }
 function crearElementos() {

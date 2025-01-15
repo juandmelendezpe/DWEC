@@ -1,40 +1,38 @@
 function cargarImagen(componente, callback) {
-    alert("Cargando imagen");
-    let carga = false;
+    alert("Cargando imagen...");
+    let carga = true;
     if(carga== true){
-        componente.setAtribute("src","imgSinColorear.jpg");
-        console.log("Imagen cargada");
+        componente.setAttribute("src","imgSinColor.jpg"); 
+        console.log("Imagen ...cargada");
         return callback(false);
     }else{
-        console.log("Error al cargar la imagen");
+        console.log("...Error al cargar la imagen");
         return callback(true);
     }
 }
 function colorearImagen(componente, callback) {
-    alert("Coloreando imagen");
-    let carga = false;
-    if(carga== true){
-        componente.setAtribute("src","imgColoreada.jpg");
+    alert("Coloreando imagen...");
+    let color = true;
+    if(color== true){
+        componente.setAttribute("src","imgColor.jpg");
         console.log("Imagen coloreada");
         return callback(false);
     }else{
-        console.log("Error al colorear la imagen");
+        console.log("...Error al colorear la imagen");
         return callback(true);
     }
 }
 function animar(componente) {
-    alert("Animando imagen");
-    componente.classList.add("animar");
-    console.log("Animando imagen");
-
-   
+    alert("Animando imagen...");
+    componente.classList.add("animarComponente");
+    console.log("...imagen animada ");
 }
 
 window.onload = function() {
     
     let boton = document.getElementById("boton");
 
-    boton.addEventListener("click", function(ev) {
+    boton.addEventListener("click", function() {
         let componente = document.getElementById("mapa");
         cargarImagen(componente,function(error){
             if(error){
@@ -47,11 +45,10 @@ window.onload = function() {
                         animar(componente);
                     }
                 }
-                )
+                );
             }
         }
         )
-    }
-    )
+    });
 
 }

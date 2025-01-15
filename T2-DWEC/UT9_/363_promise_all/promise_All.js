@@ -11,17 +11,13 @@ function promiseAll() {
             resolve("estoy en la promesa 3");
         }, 3000);
     });
+    
     let promesaConjunta = Promise.all([promise1, promise2, promise3]);
     console.log("empezamos");
     promesaConjunta.then((values) => {
         console.log(values);
     });
     console.log("terminamos");
-    
-
-
-
-
 }
 
 window.onload = function() {
