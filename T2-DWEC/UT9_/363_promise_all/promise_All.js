@@ -1,6 +1,6 @@
 
 function promiseAll() {
-    let promise1 = new Promise.resolver("estoy en la promesa 1");
+    let promise1 = Promise.resolve("estoy en la promesa 1");
     let promise2 = new Promise((resolve) => {
         setTimeout(() => {
             resolve("estoy en la promesa 2");
@@ -14,10 +14,16 @@ function promiseAll() {
     
     let promesaConjunta = Promise.all([promise1, promise2, promise3]);
     console.log("empezamos");
-    promesaConjunta.then((values) => {
-        console.log(values);
+
+    promesaConjunta.then((resultados) => {
+        let n = 1;
+
+       for (let resultado of resultados) {
+           console.log(`Promesa n2 ${n}: Mensaje: ${resultado}`);
+           n++;
+       }
     });
-    console.log("terminamos");
+   
 }
 
 window.onload = function() {
