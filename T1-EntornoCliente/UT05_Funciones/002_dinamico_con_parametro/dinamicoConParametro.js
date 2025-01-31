@@ -1,15 +1,15 @@
 function cambiarColor(i) {
    // alert("La caja tiene el id -->" + i.target.id);
     //document.getElementById("cuadrado1").innerText = "Este es un mensaje en el elemento HTML";
-    confirm("¿Desea cambiar el color de la caja?" + i.target.id);
-    document.getElementById(i.target.id).classList.toggle("cuadradoColorAmarillo");
+    confirm("¿Desea cambiar el color de la caja?" + i.target.id); //ventana de confirmación
+    document.getElementById(i.target.id).classList.toggle("cuadradoColorAmarillo"); //cambia el color de la caja
     
 }
 
 function asignarEventos() {
     let elementosClaseCaja = document.getElementsByClassName("cuadrado");
 
-    for (let i=0; i < elementosClaseCaja.length; i++) {
+    for (let i=0; i <=elementosClaseCaja.length; i++) {
         elementosClaseCaja[i].addEventListener("click", function(i){ cambiarColor(i); });
     }
 }
