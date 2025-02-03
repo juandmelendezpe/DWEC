@@ -1,0 +1,72 @@
+
+#principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.resultado{
+    background-color: rgb(255, 254, 225);
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 9vh;
+    margin: 2vh;
+    padding: 0.25vh;
+    width: 85vh;
+    height: 10vh;
+    border: 0.75vh solid black;
+    border-radius: 1vh;
+}
+.dosPrimeras{
+    display: flex;    
+}
+.una{
+    background-color: rgb(117, 193, 255);
+    margin: 0.5vh;
+    border-radius: 1vh;
+}
+.elemento{
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 8vh;
+    margin: 2vh;
+    padding: 2vh 5vh;
+    width: 8vh;
+    border-radius: 1vh;
+}
+.medio{
+    justify-content: left;
+}
+#debug{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vh;
+}
+.dato{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.titulo{
+    display: flex;
+    justify-content: right;
+    width: 50vh;
+    padding-right: 0.5vh;
+}
+.valor{
+    display: flex;
+    justify-content: left;
+    width: 50vh;
+    padding-right: 0.5vh;
+}

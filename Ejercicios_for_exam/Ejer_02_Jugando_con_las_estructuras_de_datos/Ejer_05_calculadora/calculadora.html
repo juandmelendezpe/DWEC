@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calculadora.css">
+    <script src="calculadora.js"></script>
+</head>
+<body>
+    <div id="principal">
+        <div id="primera">
+            <div id="resultado" class="resultado">0</div>
+        </div>
+        <div id="segunda" class="fila">
+            <div id="division" class="elemento">%</div>
+            <div id="multiplicacion" class="elemento">x</div>
+            <div id="resta" class="elemento">-</div>
+            <div id="suma" class="elemento">+</div>
+        </div>
+        <div id="dosPrimeras" class="una">
+            <div>
+                <div id="tercera" class="fila">
+                    <div id="siete" class="elemento">7</div>
+                    <div id="ocho" class="elemento">8</div>
+                    <div id="nueve" class="elemento">9</div>
+                    <div id="limpiar" class="elemento elementoC">C</div>
+                </div>
+                <div id="cuarta" class="fila medio">
+                    <div id="cuatro" class="elemento">4</div>
+                    <div id="cinco" class="elemento">5</div>
+                    <div id="seis" class="elemento">6</div>
+                    <div id="limpiar"></div>
+                </div>
+                <div id="quinta" class="fila">
+                    <div id="uno" class="elemento">1</div>
+                    <div id="dos" class="elemento">2</div>
+                    <div id="tres" class="elemento">3</div>
+                    <div id="igual" class="elemento">=</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="debug">
+        <div class="dato">
+            <span class="titulo">valorUno:</span><span id="valorUno" class="valor">...</span>
+        </div>
+        <div class="dato">
+            <span class="titulo">operacion: </span><span id="operacion" class="valor">...</span>
+        </div>
+        <div class="dato">
+            <span class="titulo">valorDos: </span><span id="valorDos" class="valor">...</span>
+        </div>
+    </div>    
+</body>
+</html>

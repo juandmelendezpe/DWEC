@@ -1,0 +1,75 @@
+body{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ca0da4;
+}
+#app{
+    background-color: white;
+    width: 50vw;
+    margin: 2% auto;
+    padding: 20px;
+    border: solid 1px #04265d;
+   
+}
+#tiempo{
+    text-align: center;
+    padding: 20px 0;
+}
+#tiempo #valor{
+    font-size: 3em;
+    color: #04265d;
+    font-weight: bold;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+}
+input[type="text"]{
+    padding: 10px;
+    font-size: 1.2em;
+    border: solid 1px #04265d;
+    width: 20vw;
+    border-radius: 10px;
+}
+button, input[type="submit"]{
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: solid 1px #04265d;
+    background-color: #04265d;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#tareas{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.tarea{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+
+.tarea .completed{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.realizado{
+    display: inline-block;
+    padding: 5px;
+    text-decoration: line-through;
+    color: #04265d;
+    border: solid 1px #04265d;
+}
+.titulo{
+    font-size: 1.2em;
+    color: #04265d;
+
+}

@@ -1,12 +1,12 @@
 function ordenPersonal(){
-    const palabras = ["hola", "adios", "buenos dias", "buenas noches"];
+    const palabras = ["hola", "noches"]; //Array de palabras
     console.log(palabras);
-    palabras.sort((a,b) => a.length - b.length);
-    console.log(palabras.length);
-        
+    palabras.sort((a,b) => a.length - b.length); //Ordena el array de palabras por la longitud de las palabras
+    console.log(palabras.length); //Muestra la longitud del array
+    console.log(palabras); //Muestra el array ordenado
 }
 
 window.onload = function(){
-    documento.getElementById("ordenarArrayLongitud").addEventListener("click", ordenPersonal);
+    document.getElementById("btn-ordenar").addEventListener("click", ordenPersonal);
 
 }

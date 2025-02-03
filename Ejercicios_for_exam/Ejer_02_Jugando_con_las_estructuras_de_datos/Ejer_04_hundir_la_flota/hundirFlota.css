@@ -1,0 +1,82 @@
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5vh;
+    font-weight: bold;
+    color: rgb(62, 62, 62);
+}
+
+html,body{
+    background-color: rgb(255, 255, 227);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+#menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opMenu{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(251, 157, 125, 0.637);
+    border: 0.25vh solid gray;
+    margin: 2vh;
+    padding: 0vh 3vh;
+    border-radius: 0.75vh;    
+    font-size: 1.5vh;
+}
+
+#principal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+#primeraColumna{
+    width: 1.65vh;
+}
+.tituloColumna{
+    display: flex;
+    justify-content: center;
+    width: 6vh;
+    margin-right: 0.8vh;
+}
+.fila{
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 217, 150);
+}
+.celda{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6vh;
+    height: 6vh;
+    background-color: rgb(37, 182, 255);
+    border-radius: 10%;
+    margin: 0.4vh;
+}
+.agua{
+    background-color: rgb(179, 212, 231);
+    font-size: 5vh;
+}
+.barco3{
+    background-color: brown;
+    font-size: 5vh;
+}
+.barco4{
+    background-color: rgb(57, 151, 57);
+    font-size: 5vh;
+}
+.barco5{
+    background-color: chocolate;
+    font-size: 5vh;
+}

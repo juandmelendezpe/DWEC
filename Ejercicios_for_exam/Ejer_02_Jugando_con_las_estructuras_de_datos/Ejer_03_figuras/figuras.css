@@ -1,0 +1,127 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 1.5vh;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+#principal{
+    background-color: rgb(232, 232, 232);
+    height: 100%;
+    width: 100%;
+}
+#pintar{
+    background-color: rgb(254, 254, 183);
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.fila{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+#pintar > .fila > div{
+    border: 0.1vh dotted gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vh;
+    height: 7vh;
+}
+#botones{
+    background-color: rgb(176, 252, 176);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+#elegirFigura{
+    background-color: rgb(196, 196, 252);
+    border-radius: 10%;
+}
+#elegirRelleno{
+    background-color: rgb(252, 196, 212);
+    border-radius: 10%;
+}
+#medida{
+    background-color: rgb(87, 254, 87);
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#alto{
+    background-color: rgb(255, 255, 137);
+    display: flex;
+    margin: 1vh;
+    border-radius: 5vh;
+}
+#ancho{
+    background-color: pink;
+    display: flex;    
+    margin: 1vh;
+    border-radius: 5vh;
+}
+.figura,.relleno,.numero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50vh;
+}
+.figura,.relleno{
+    background-color: rgb(255, 255, 255);
+    width: 10vh;
+    height: 3vh;
+    margin: 1vh;
+}
+.numero{
+    background-color: rgb(190, 178, 255);
+    width: 3vh;
+    height: 3vh;
+    margin: 1vh;
+}
+.figuraSeleccionada,.rellenoSeleccionado,.altoSeleccionado,.anchoSeleccionado{
+    background-color: rgb(255, 252, 46);
+    border: 0.2vh solid black;
+}
+.textoGrande{            
+    font-size: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0.1;
+}
+.bordeSuperior{
+    border-top: 0.4vh  solid red !important;
+}
+.bordeInferior{
+    border-bottom: 0.4vh solid blue !important;
+}
+.bordeIzquierdo{
+    border-left: 0.4vh solid green !important;
+}
+.bordeDerecho{
+    border-right: 0.4vh solid black !important;
+}
+.bordeTriangulo{
+    background: linear-gradient(to bottom left, 
+        transparent 48%, /* Ajuste central */
+        black 48%, 
+        black 52%, 
+        transparent 52%);
+}

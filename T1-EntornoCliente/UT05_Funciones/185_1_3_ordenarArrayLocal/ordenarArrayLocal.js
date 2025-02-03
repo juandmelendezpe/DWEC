@@ -19,6 +19,6 @@ function ordenarArrayLocal(){
 
 window.onload = function() {
 
-document.getElementById("ordenarArrayLocal").addEventListener("click", ordenarArrayLocal);
+document.getElementById("ordenarArrayLocalParametro").addEventListener("click", ordenarArrayLocal);
 document.getElementById("ordenarArrayLocalAnonima").addEventListener("click", ordenarArrayLocalAnonima);
 }

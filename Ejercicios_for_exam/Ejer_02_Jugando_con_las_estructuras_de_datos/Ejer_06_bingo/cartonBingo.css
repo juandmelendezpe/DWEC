@@ -1,0 +1,54 @@
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4vw;
+    font-weight: bold;
+    color: rgb(62, 62, 62);
+}
+
+html,body{
+    background-color: rgb(255, 255, 227);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+#principal{
+    display: flex;
+    justify-content: center;    
+}
+.columna{
+    background-color: rgb(158, 255, 158);
+    border-collapse: separate;
+    border: 0.15vw solid rgb(62, 62, 62);
+    
+}
+.derecha{
+    border-right: 0;
+}
+.separador{
+    border-top: 0.151vw solid rgb(62, 62, 62);
+}
+.numero{
+    background-color: rgb(10, 187, 10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1vw;
+    border: 0.25vw dashed rgb(50, 50, 50);
+    border-style: dashed;
+    border-radius: 50%;
+    width: 7vw;
+    height: 7vw;
+}
+.numPequenio{
+    position: absolute;
+    margin: 0.1vw;
+    font-size: 1.6vw;
+    font-weight: lighter;
+
+}
