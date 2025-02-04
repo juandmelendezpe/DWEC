@@ -4,8 +4,12 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    background-image: url(https://media-cdn.tripadvisor.com/media/photo-m/1280/28/5f/12/8d/caption.jpg);
+    background-size: cover;
+    
 }
 
 .semaforo {

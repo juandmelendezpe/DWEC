@@ -4,6 +4,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const verde = document.getElementById('verde');
     let intervalId;
 
+    // crear una funcion que muestr el tiempo de cada luz
+
+    const tiempoLuz = (luz) => {
+        let tiempo = 0;
+        switch (luz) {
+            case rojo:
+                tiempo = 6000;
+                break;
+            case amarillo:
+                tiempo = 3000;
+                break;
+            case verde:
+                tiempo = 6000;
+                break;
+        }
+        return tiempo;
+    };
+
+   // Asegurarse de que los elementos HTML existan
+const tiempo = document.querySelector('#tiempo');
+const divContenedor = document.querySelector('.contenedor');
+
+if (tiempo && divContenedor) {
+    tiempo.innerHTML = `<p>Tiempo de luz roja: ${tiempoLuz('rojo')} ms</p>`;
+    tiempo.innerHTML += `<p>Tiempo de luz amarilla: ${tiempoLuz('amarillo')} ms</p>`;
+    tiempo.innerHTML += `<p>Tiempo de luz verde: ${tiempoLuz('verde')} ms</p>`;
+    divContenedor.appendChild(tiempo);
+} else {
+    console.error('Elementos HTML no encontrados');
+}
+
+// Fin de la función
+
+
+
     const encenderLuz = (luz) => {
         rojo.classList.remove('encendido', 'parpadeo');
         amarillo.classList.remove('encendido', 'parpadeo');

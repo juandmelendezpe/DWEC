@@ -1,0 +1,79 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#app{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+header{
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+    height: 15vh;
+}
+#barra{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 2% auto;
+    background-color: greenyellow;
+    width: 80%;
+    height: 10vh;
+}
+#barra div{
+    display: flex;
+    margin: 2% auto;
+    width: 20%;
+    height: auto;
+}
+#principal{
+    margin: 2% auto;
+    width: 80%;
+    height: 50vh;
+}
+#secuencia{
+    width: 100%;
+    height: 20vh;
+    background-color: rgba(0, 128, 0, 0.486);
+
+}
+img{
+    width: 100px;
+    height: 100px;
+    margin: 1% auto;
+}
+#principal-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+#principal-sa{
+    display: flex;
+    justify-content: space-around;
+
+}
+#principal-sb{
+    display: flex;
+    justify-content: space-between;
+    margin: 8% auto;
+}
+.secuencia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 2% auto;
+
+}
+.imagen-transparente{
+    opacity: 0.5;
+}
+.oculto-espacio{
+    visibility: hidden;
+}
