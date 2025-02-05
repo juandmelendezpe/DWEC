@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+#vidas , #secuencia{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1vh;
+    background-color: #02d4a7;
+    padding: 10px;
+    height: 20vh;
+    color: white;
+}
+#tablerojuego{
+    display: flex;
+    height: 60vh;
+    justify-content: center;
+}
+.fila{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 33%;
+}
+#fila3{
+    justify-content: space-around;
+}
+.imagen{
+    height: 2vh;
+    margin: 2vh;
+    cursor: pointer;
+}
+#vidas{
+    background-color: #333;
+
+}
+.zonaVidas{
+    padding: 1vh;
+    width: 25%;
+}
+.vidas4{
+    background-color: green;
+}
+.vidas3{
+    background-color: yellow;
+}
+.vidas2{
+    background-color: orange;
+}
+.vidas1{
+    background-color: red;
+}
+.ocultar{
+    visibility: hidden;
+}
+.trasparencia{
+    opacity: 0.5;
+}
