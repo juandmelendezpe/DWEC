@@ -1,0 +1,112 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    margin: 2% auto;
+    padding: 2%;
+}
+
+#container{
+    width: 50vw;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin:  2% auto;
+    padding: 5%;
+    
+}
+#letras{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    div{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: 3rem;
+    border-radius: 10px;
+    border: solid 1px blue;
+        border-radius: 10px;
+    }
+}
+#policia{
+    background-image: url(./imagenes/mostrar.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.letras{
+    background-color: green;
+}
+#Selecciona{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 80vh;
+    padding: 5%;
+    margin: 0 2%;
+}
+#numeros{
+    width: 20vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div{
+        width: 15vw;
+        height: 15vh;
+        text-align: center;
+        font-size: 3rem;
+        margin: 1%;
+        border-radius: 10px;
+        border: solid 1px blue;
+        border-radius: 10px;
+        background-color: pink;
+    }
+}
+#imagenes{
+    width: 60vw;
+    height: 50vh;
+    display: flex;
+    margin-right: 0px;
+    flex-direction: column;
+
+}
+.fila{
+    display: flex;
+    flex-direction: row ;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+     div{
+        width: 40vw;
+        height: 13vh;
+        text-align: center;
+        font-size: 3rem;
+        margin: 1%;
+        border-radius: 10px;
+        border: solid 1px blue;
+        border-radius: 10px;
+    }
+
+}
+.imagen{
+    width: 8vw;
+    height: 8vh;
+    padding: 1%;
+}
+.ocultar{
+    visibility: hidden;
+}
+.trasparente{
+    opacity: 0.25;
+}
