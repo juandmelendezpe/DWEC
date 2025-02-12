@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const intervalo = setInterval(() => {
             distancia += velocidad;
             tortuga.style.left = `${distancia}px`;
-            if (distancia >= 800) { // Ajusta esta distancia según el ancho de la pista
+            if (distancia >= 700) { // Ajusta esta distancia según el ancho de la pista
                 clearInterval(intervalo);
                 alert(`${tortuga.id} ha llegado a la meta!`);
             }
-        }, 100);
+        }, 500);
     };
 
     const iniciarCarrera = () => {
