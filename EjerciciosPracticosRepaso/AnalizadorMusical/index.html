@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #spectrometer {
+            display: flex;
+            gap: 2px;
+            padding: 20px;
+            background: #000;
+            border-radius: 10px;
+            width: 50vw;
+            height: 50vh;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .bar {
+            width: 30px;
+            height: 0;
+            background-color: #3897e0;
+            transition: height 0.3s ease-out;
+            position: relative;
+        }
+        .bar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(56,151,224,0.8), rgba(255,255,255,0.2));
+            transition: height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="spectrometer"></div>
+
+    <script>
+        // Función para generar números aleatorios entre min y max
+        function generarAleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Función para animar entre dos valores
+        function animarTransicion(elemento, valorInicial, valorFinal, callback) {
+            const pasos = Math.abs(valorFinal - valorInicial);
+            const direccion = valorFinal > valorInicial ? 1 : -1;
+            
+            let contador = 0;
+            const intervalo = setInterval(() => {
+                contador++;
+                
+                // Calcular nuevo valor
+                const nuevoValor = valorInicial + (direccion * contador);
+                
+                // Actualizar altura del elemento
+                const altura = Math.min(200, nuevoValor * 20);
+                elemento.style.height = `${altura}px`;
+
+                
+                // Verificar si hemos llegado al final
+                if (contador >= pasos) {
+                    clearInterval(intervalo);
+                    callback();
+                }
+            }, 50);
+        }
+
+        // Crear barras del espectrómetro
+        const numBarras = 10;
+        const spectrometer = document.getElementById('spectrometer');
+        
+        // Inicializar barras
+        let valoresActuales = Array(numBarras).fill(0);
+        let valoresAnteriores = Array(numBarras).fill(0);
+
+        // Crear elementos de las barras
+        for (let i = 0; i < numBarras; i++) {
+            const barra = document.createElement('div');
+            barra.className = 'bar';
+            spectrometer.appendChild(barra);
+        }
+
+        // Función principal del espectrómetro
+        function actualizarEspectro() {
+            const barras = document.getElementsByClassName('bar');
+            
+            // Generar nuevos valores aleatorios
+            const nuevosValores = Array(numBarras).fill(0).map(() => 
+                generarAleatorio(1, 10)
+            );
+
+            // Animar cada barra
+            for (let i = 0; i < numBarras; i++) {
+                animarTransicion(barras[i], valoresActuales[i], nuevosValores[i], () => {
+                    valoresActuales[i] = nuevosValores[i];
+                });
+            }
+        }
+
+        // Iniciar el espectrómetro
+        setInterval(actualizarEspectro, 1000);
+    </script>
+</body>
+</html>
