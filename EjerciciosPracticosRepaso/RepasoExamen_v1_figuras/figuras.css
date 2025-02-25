@@ -1,0 +1,50 @@
+html ,body{
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+#principal{
+    height: 100%;
+}
+#barraVidas{
+    display: flex;
+    width: 100%;
+    background-color: gray;
+    height: 15vh;
+
+}
+#imagenesCentral{
+    width: 100%;
+    background-color: white;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#fila1{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+#fila2{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+}
+#fila3{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+}
+#imagenesAbajo{
+    background-color: greenyellow;
+    height: 15vh;
+    display: flex;
+    justify-content: space-around;
+}
+.imagen{
+    margin: 2vh;
+    height: 10vh;
+}
