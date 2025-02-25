@@ -40,24 +40,18 @@
         function generarAleatorio(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-
         // Función para animar entre dos valores
         function animarTransicion(elemento, valorInicial, valorFinal, callback) {
             const pasos = Math.abs(valorFinal - valorInicial);
             const direccion = valorFinal > valorInicial ? 1 : -1;
-            
             let contador = 0;
             const intervalo = setInterval(() => {
                 contador++;
-                
                 // Calcular nuevo valor
                 const nuevoValor = valorInicial + (direccion * contador);
-                
                 // Actualizar altura del elemento
                 const altura = Math.min(200, nuevoValor * 20);
                 elemento.style.height = `${altura}px`;
-
-                
                 // Verificar si hemos llegado al final
                 if (contador >= pasos) {
                     clearInterval(intervalo);
@@ -65,15 +59,12 @@
                 }
             }, 50);
         }
-
         // Crear barras del espectrómetro
         const numBarras = 10;
         const spectrometer = document.getElementById('spectrometer');
-        
         // Inicializar barras
         let valoresActuales = Array(numBarras).fill(0);
         let valoresAnteriores = Array(numBarras).fill(0);
-
         // Crear elementos de las barras
         for (let i = 0; i < numBarras; i++) {
             const barra = document.createElement('div');

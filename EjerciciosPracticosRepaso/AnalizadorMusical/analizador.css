@@ -12,49 +12,46 @@
     flex-direction: column;
 }
 #container{
-    width: 80%;
+    width: 60%;
     height: auto;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: #27263a;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border: solid 1px #33f8f8;
-    margin-bottom: 2%;
-
 }
 #spectrometer{
-    width: 100%;
     height: 200px;
     background-color: #27263a;
     border-radius: 10px;
-    margin-bottom: 20px;
 }
 #spectrometer div{
     display: inline-block;
-    width: 10px;
+    width: 30px;
+    background-image: linear-gradient(10deg, #ffffff, #01bf20, #04441c);
     height: 100%;
-    background-color: #fff;
-    margin: 0 1px;
+    border: solid 1px #33f8f8;
+    margin: 0 3px;
 }
-#spectrometer div:nth-child(1){
-    height: 50%;
+.bar-lateral{
+    color: white;
 }
-#spectrometer div:nth-child(2){
-    height: 75%;
+.bar-lateral div{
+    width: 30px;
+    height: 100%;
+    margin: 4px 0;
+    
 }
-#spectrometer div:nth-child(3){
-    height: 25%;
+#bar-vertical{
+    display: flex;
+    justify-content: space-around;
+    color: white;
 }
-#spectrometer div:nth-child(4){
-    height: 90%;
+.bar-vert{
+    display: inline-block;
+    width: 30px;
+    margin: 0 3px;
 }
-#spectrometer div:nth-child(5){
-    height: 60%;
-}
+
 #containerBotones{
     display: flex;
     justify-content: center;
