@@ -7,6 +7,7 @@ html ,body{
 }
 #principal{
     height: 100%;
+    background-color: white;
 }
 #barraVidas{
     display: flex;
@@ -16,12 +17,13 @@ html ,body{
 
 }
 #imagenesCentral{
-    width: 100%;
-    background-color: white;
+    width: 90%;
     height: 70vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
+    margin: 0 auto;
+    
 }
 #fila1{
     height: 10vh;
@@ -36,7 +38,7 @@ html ,body{
 #fila3{
     height: 10vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 #imagenesAbajo{
     background-color: greenyellow;
@@ -47,4 +49,10 @@ html ,body{
 .imagen{
     margin: 2vh;
     height: 10vh;
+}
+.ocultar{
+    visibility: hidden;
+}
+.trasparente{
+    opacity: 0.25;
 }
