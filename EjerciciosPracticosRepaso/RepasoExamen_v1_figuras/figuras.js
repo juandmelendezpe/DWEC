@@ -20,13 +20,14 @@ function cargarSecuencia(){
     }
 }
 function cargarImagenesCentral(){
+    completado = 0;
     while( completado < 6){
-        numeroPosicionTablero = devolverNumero(0.5);
-        posicionTablero ="posicion"+numeroPosicionTablero; 
-        posicionSecuencia = "imagenAbajo"+completado;
-        nombreImagenTablero = document.getElementById(posicionSecuencia).setAttribute("src");
-        if(nombreImagenTablero == ""){
-            document.getElementById(imagenesCentral).setAttribute("src",posicionSecuencia);
+      let  numeroPosicionTablero = devolverNumero(0,5);
+      let  posicionTablero ="posicion" + numeroPosicionTablero; 
+      let  posicionSecuencia ="imagenAbajo"+completado;
+      let  nombreImagenTablero = document.getElementById(posicionSecuencia).getAttribute("src");
+        if(document.getElementById(posicionTablero).getAttribute("src")==""){
+            document.getElementById(posicionTablero).setAttribute("src",nombreImagenTablero);
             completado++;
         }
 
