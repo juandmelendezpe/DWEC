@@ -33,16 +33,16 @@ function cargarImagenesCentral(){
         }
     }
 }
-function ocultarFigura(elemento){
-    let valorElemento = elemento.target.id;
-    //alert("has pulsado el elemento :" +valorElemento);
+function ocultarFigura(posicion,secuencia){
     var cont = 0 ;
     var temp = setInterval(
         function(){
             if(cont >=6){
                 clearInterval(temp)
+                document.getElementById(secuencia).classList.add("trasparente");
+                document.getElementById(posicion).classList.add("trasparente");
             }else{
-                document.getElementById(valorElemento).classList.toggle("ocultar");
+                document.getElementById(posicion).classList.toggle("ocultar");
                 cont++;
             }
         },750);
@@ -50,21 +50,32 @@ function ocultarFigura(elemento){
 function comparaFiguras(idPosicion){
     let valorPosicion = idPosicion.target.id;//valorElemento = "posicion0"
     let posicionElemento = document.getElementById(valorPosicion).getAttribute("src");
-    let idPosicion = "imagenAbajo"+ posicionActual;
-    let posicionSecuencia = document.getElementById(idPosicion).getAttribute("src");
+    let valorSecuencia = "imagenAbajo"+ posicionActual;
+    let posicionSecuencia = document.getElementById(valorSecuencia).getAttribute("src");
+    
     if(posicionElemento == posicionSecuencia){
         alert("los elementos son iguales :" +posicionElemento + " = " + posicionSecuencia);
-        //ocultarFigura(idElemento);
-        ocultarFigura(idPosicion);
-        //document.getElementById(idPosicion).classList.toggle("ocultar");
+        ocultarFigura(valorPosicion,valorSecuencia);
+        posicionActual++;
     }else{
         alert("son distintos");
+
     }
+}
+function quitarVidas(vidas){
+    if(vidas==4){
+        document.getElementById("vidas1").classList.add("vidas4");
+        document.getElementById("vidas2").classList.add("vidas4");
+        document.getElementById("vidas3").classList.add("vidas4");
+        document.getElementById("vidas4").classList.add("vidas4");
+    }
+
 }
 window.onload = function() {
     cargarSecuencia();
     cargarImagenesCentral();
-    for(i =0 ; 0 < 6 ; i++){
+    quitarVidas(4);
+    for(i =0 ; i < 6 ; i++){
         let idposicion= "posicion"+i;
         document.getElementById(idposicion).addEventListener("click",comparaFiguras);
     }

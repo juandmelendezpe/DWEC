@@ -59,3 +59,23 @@ html ,body{
 .trasparente{
     opacity: 0.25;
 }
+.zonasVidas{
+    border:solid 1px white;
+}
+.vidas4{
+    background-color: rgb(78, 255, 78);
+    width: 20%;
+    height: 50%;
+}
+.vidas3{
+    background-color: yellow;
+}
+.vidas2{
+    background-color: orange;
+}
+.vidas1{
+    background-color: red;
+}
+.vidas0{
+    background-color: rgb(235, 235, 235);
+}
