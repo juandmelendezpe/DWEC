@@ -11,7 +11,7 @@ h1{
 }
 
 #container{
-    width: 50vw;
+    width: 25vw;
     height: 90%;
     display: flex;
     justify-content: center;
@@ -32,8 +32,8 @@ h1{
         height: 100%;
         text-align: center;
         font-size: 3rem;
-    border-radius: 10px;
-    border: solid 1px blue;
+        border-radius: 10px;
+        border: solid 1px blue;
         border-radius: 10px;
     }
 }
@@ -50,12 +50,10 @@ h1{
     justify-content: center;
     align-items: center;
     height: 50vh;
-    width: 80vh;
     padding: 5%;
     margin: 0 2%;
 }
 #numeros{
-    width: 20vw;
     height: 50vh;
     display: flex;
     flex-direction: column;
@@ -74,7 +72,6 @@ h1{
     }
 }
 #imagenes{
-    width: 60vw;
     height: 50vh;
     display: flex;
     margin-right: 0px;

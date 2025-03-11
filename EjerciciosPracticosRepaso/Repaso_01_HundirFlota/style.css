@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.letras{
+    display: flex;
+    justify-content: space-between;
+}
+.letras div{
+    width: 15vw;
+    height: 10vh;
+    border: solid 2px rgb(255, 42, 149);
+}
+.columnas{
+    display: flex;
+    justify-content: space-between;
+
+}
+.numeros div{
+    border: solid 2px rgb(28, 214, 11);
+    width: 10vw;
+    height: 10vh;
+}
+.imagenes{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.fila0 .fila1 .fila2{
+    width: 90%;
+    height: 10vh;
+
+}
+.imagenes img{
+    border: solid 2px rgb(213, 235, 14);
+    width: 10vw;
+    height: 10vh;
+}
