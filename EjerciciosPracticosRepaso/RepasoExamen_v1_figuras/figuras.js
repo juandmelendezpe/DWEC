@@ -84,6 +84,7 @@ function comparaFiguras(idPosicion){
         ocultarFigura(valorPosicion,valorSecuencia);
         posicionActual++;
         terminado++;
+        puntuacion++;
 
     }else{
         alert("son distintos");
