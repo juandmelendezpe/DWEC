@@ -2,6 +2,9 @@ body{
     margin: 0;
     padding: 0;
 }
+h1{
+    text-align: center;
+}
 #container{
     width: 50vw;
     display: flex;
@@ -12,15 +15,35 @@ body{
 .letras{
     display: flex;
     justify-content: space-between;
+
 }
 .letras div{
     width: 15vw;
     height: 10vh;
     border: solid 1px rgb(255, 42, 149);
+    border-radius:20px;
+}
+.letra{
+    text-align: center;
+    background-color: rgb(66, 131, 66);
+    color: white;
+    font-size: 3rem;
+    border-radius:20px;
+
+
 }
 .columnas{
     display: flex;
     justify-content: space-between;
+
+}
+.numero{
+    text-align: center;
+    background-color: blueviolet;
+    color: white;
+    font-size: 3rem;
+    border-radius:20px;
+
 
 }
 .numeros{
@@ -51,7 +74,13 @@ body{
     border: solid 1px rgb(213, 235, 14);
     width: 13vw;
     height: 10vh;
+    border-radius:20px;
+
 }
 .oculto{
     visibility: hidden;
+}
+.policia{
+    border-radius:20px;
+
 }
