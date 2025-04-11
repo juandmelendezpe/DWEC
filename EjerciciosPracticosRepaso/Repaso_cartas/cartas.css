@@ -39,7 +39,7 @@ body{
     box-shadow: 0 0 7px rgba(0,0,0,0.5);
     overflow: hidden;
     width: 150px;
-    height: 250px;
+    height: 280px;
     background: linear-gradient(75deg, rgb(220, 185, 7) 0%, rgba(9,121,105,1) 50%, rgb(6, 197, 47) 100%);
     margin: 1% auto;
     color: white;
@@ -70,6 +70,17 @@ h2{
     height: 190px;
     margin: 1%;
 }
+.oculta{
+    display: none;
+    
+}
+#btnNext{
+    width: 7vw;
+    height: 5vh;
+    border-radius: 1rem;
+    background-color: aliceblue;
+
+}
 button{
     width: 10%;
     height: 90%;
@@ -87,4 +98,11 @@ button{
 button:hover{
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.carta img{
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+    padding: 2%;
+    margin: 1% auto;
 }
