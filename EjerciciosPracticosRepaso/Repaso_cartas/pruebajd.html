@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Horizontal de Categorías</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Alineación horizontal */
+            background-color: #007BFF;
+        }
+
+        .menu > li {
+            position: relative;
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu > li:hover {
+            background-color: #0056b3;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #004080;
+            list-style: none;
+            padding: 0;
+            min-width: 150px;
+        }
+
+        .submenu li {
+            padding: 10px;
+            color: white;
+            border-bottom: 1px solid white;
+        }
+
+        .submenu li:hover {
+            background-color: #003366;
+        }
+
+        .menu > li:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<ul class="menu">
+    <li>Categoría 1
+        <ul class="submenu">
+            <li>Subcategoría 1.1</li>
+            <li>Subcategoría 1.2</li>
+        </ul>
+    </li>
+    <li>Categoría 2
+        <ul class="submenu">
+            <li>Subcategoría 2.1</li>
+            <li>Subcategoría 2.2</li>
+        </ul>
+    </li>
+    <li>Categoría 3
+        <ul class="submenu">
+            <li>Subcategoría 3.1</li>
+            <li>Subcategoría 3.2</li>
+        </ul>
+    </li>
+</ul>
+
+</body>
+<script>
+    document.querySelectorAll(".menu > li").forEach(item => {
+    item.addEventListener("click", () => {
+        let submenu = item.querySelector(".submenu");
+        if (submenu) {
+            submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+        }
+    });
+});
+
+</script>
+</html>

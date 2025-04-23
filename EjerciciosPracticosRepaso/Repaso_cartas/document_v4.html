@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación del Juego de Cartas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        header {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+        }
+        h4 {
+            color: #16a085;
+            margin-bottom: 5px;
+        }
+        code {
+            background-color: #f8f8f8;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        ul, ol {
+            padding-left: 25px;
+        }
+        .note {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .note-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #3498db;
+        }
+        .class-desc {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Documentación del Juego de Cartas</h1>
+        <p>Esta documentación describe la estructura del HTML y las clases y funciones del JavaScript para el juego de cartas.</p>
+    </header>
+
+    <section>
+        <h2>Estructura HTML</h2>
+        <p>El archivo HTML debe contener la siguiente estructura básica para que funcione correctamente el juego de cartas:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Juego de Cartas&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Contenedor principal del juego --&gt;
+    &lt;div class="juego-container"&gt;
+        &lt;!-- Sección para mostrar el mazo --&gt;
+        &lt;div class="baraja-container"&gt;
+            &lt;img id="barajaImg" src="img/baraja_vacia.png" alt="Baraja"&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Contenedor para las cartas organizadas en filas --&gt;
+        &lt;div id="container-cartas"&gt;
+            &lt;!-- Las filas de cartas se generarán dinámicamente con JavaScript --&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Botones de control --&gt;
+        &lt;div class="controles"&gt;
+            &lt;button id="mostrar"&gt;Mostrar todas&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section>
+        <h2>Estructura del JavaScript</h2>
+        <p>El archivo JavaScript está organizado con un enfoque orientado a objetos utilizando tres clases principales:</p>
+
+        <h3>Clase <code>Carta</code></h3>
+        <p>Representa una carta individual del juego.</p>
+
+        <div class="class-desc">
+            <h4>Propiedades:</h4>
+            <ul>
+                <li><code>numero</code>: El número de la carta (1-7)</li>
+                <li><code>palo</code>: El palo al que pertenece ("uno", "dos", "tres", "cuatro")</li>
+                <li><code>id</code>: Identificador único formado por el palo y el número</li>
+                <li><code>visible</code>: Indica si la carta está visible u oculta</li>
+            </ul>
+
+            <h4>Métodos:</h4>
+            <ul>
+                <li><code>crearElemento()</code>: Crea el elemento DOM para la carta</li>
+                <li><code>mostrar()</code>: Hace visible la carta cambiando sus clases CSS</li>
+                <li><code>ocultar()</code>: Oculta la carta cambiando sus clases CSS</li>
+            </ul>
+        </div>
+
+        <h3>Clase <code>Baraja</code></h3>
+        <p>Administra todas las cartas del juego.</p>
+
+        <div class="class-desc">
+            <h4>Propiedades:</h4>
+            <ul>
+                <li><code>palos</code>: Array con los tipos de palos ("uno", "dos", "tres", "cuatro")</li>
+                <li><code>elementos</code>: Array con nombres de elementos ("fuego", "agua", "tierra", "aire")</li>
+                <li><code>cartas</code>: Array que almacena las instancias de <code>Carta</code></li>
+                <li><code>cartaActual</code>: Referencia a la carta seleccionada actualmente</li>
+            </ul>
+
+            <h4>Métodos:</h4>
+            <ul>
+                <li><code>generarCartas()</code>: Crea todas las cartas de la baraja</li>
+                <li><code>mezclar()</code>: Desordena aleatoriamente las cartas</li>
+                <li><code>ordenar()</code>: Ordena las cartas por palo y número</li>
+                <li><code>seleccionarCartaAleatoria()</code>: Elige una carta al azar de la baraja</li>
+                <li><code>encontrarCartaPorId(id)</code>: Busca una carta específica por su ID</li>
+                <li><code>quitarCarta(carta)</code>: Elimina una carta de la baraja</li>
+                <li><code>obtenerPrimeraCarta()</code>: Devuelve la primera carta de la baraja</li>
+            </ul>
+        </div>
+
+        <h3>Clase <code>Juego</code></h3>
+        <p>Maneja la lógica principal del juego y la interacción con el usuario.</p>
+
+        <div class="class-desc">
+            <h4>Propiedades:</h4>
+            <ul>
+                <li><code>baraja</code>: Instancia de la clase <code>Baraja</code></li>
+                <li><code>contenedores</code>: Objeto que almacena referencias a los contenedores DOM de cada palo</li>
+            </ul>
+
+            <h4>Métodos:</h4>
+            <ul>
+                <li><code>inicializar()</code>: Configura el juego al inicio</li>
+                <li><code>distribuirCartas()</code>: Coloca las cartas en sus respectivos contenedores</li>
+                <li><code>configurarEventListeners()</code>: Establece los manejadores de eventos</li>
+                <li><code>mostrarTodasCartas()</code>: Hace visibles todas las cartas</li>
+                <li><code>seleccionarCartaDelMazo()</code>: Selecciona la carta actual del mazo basada en el <code>data-carta-id</code></li>
+                <li><code>desordenarCartas(event)</code>: Desordena las cartas de una fila específica</li>
+                <li><code>actualizarImagenBaraja()</code>: Actualiza la imagen y datos del mazo</li>
+                <li><code>recogerYBarajarCartas()</code>: Reinicia el juego con una nueva baraja mezclada</li>
+            </ul>
+        </div>
+
+        <h3>Funciones Auxiliares</h3>
+        <ul>
+            <li><code>crearContenedores()</code>: Crea los contenedores DOM para cada palo</li>
+            <li><code>window.onload</code>: Inicializa el juego cuando la página termina de cargar</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Flujo de Ejecución</h2>
+        <ol>
+            <li>Cuando la página se carga, se ejecuta <code>window.onload</code> que:
+                <ul>
+                    <li>Llama a <code>crearContenedores()</code> para crear los contenedores de las filas</li>
+                    <li>Crea una instancia de <code>Juego</code></li>
+                </ul>
+            </li>
+            <li>El constructor de <code>Juego</code> crea una nueva instancia de <code>Baraja</code> y llama a <code>inicializar()</code></li>
+            <li>El método <code>inicializar()</code>:
+                <ul>
+                    <li>Configura los contenedores para cada palo</li>
+                    <li>Distribuye las cartas</li>
+                    <li>Configura los event listeners</li>
+                    <li>Actualiza la imagen de la baraja</li>
+                </ul>
+            </li>
+            <li>Interacciones del usuario:
+                <ul>
+                    <li>Al hacer clic en el mazo (<code>barajaImg</code>), se ejecuta <code>seleccionarCartaDelMazo()</code></li>
+                    <li>Al hacer clic en un contenedor de fila, se ejecuta <code>desordenarCartas()</code></li>
+                    <li>Al hacer clic en el botón "Mostrar todas", se ejecuta <code>mostrarTodasCartas()</code></li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Estructura de Archivos</h2>
+        <p>Para que el juego funcione correctamente, necesitas:</p>
+        <ol>
+            <li><b>HTML</b>: La estructura básica descrita anteriormente</li>
+            <li><b>CSS</b>: Estilos para las cartas y contenedores (no incluido en esta documentación)</li>
+            <li><b>JavaScript</b>: El código explicado anteriormente</li>
+            <li><b>Imágenes</b>:
+                <ul>
+                    <li>Imágenes para cada carta: <code>img/uno1.png</code>, <code>img/uno2.png</code>, etc.</li>
+                    <li>Imágenes para los palos: <code>img/uno.png</code>, <code>img/dos.png</code>, etc.</li>
+                    <li>Imagen para la baraja vacía: <code>img/baraja_vacia.png</code></li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Clases CSS Principales</h2>
+        <ul>
+            <li><code>.carta</code>: Estilo para el contenedor de una carta</li>
+            <li><code>.carta-img</code>: Estilo para la imagen de la carta</li>
+            <li><code>.mostrar</code>: Clase para hacer visible una carta</li>
+            <li><code>.ocultar</code>: Clase para ocultar una carta</li>
+            <li><code>.cartas</code>: Estilo para los contenedores de filas de cartas</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Notas Importantes</h2>
+        <div class="note">
+            <div class="note-title">Consideraciones Clave</div>
+            <ol>
+                <li>La variable global <code>numCartas = 7</code> define el número de cartas por palo.</li>
+                <li>Las cartas se identifican con un ID que combina el palo y el número (ej: "uno1").</li>
+                <li>Los palos están definidos como "uno", "dos", "tres" y "cuatro".</li>
+                <li>El atributo <code>data-carta-id</code> en el elemento <code>barajaImg</code> se utiliza para identificar la carta actual.</li>
+                <li>Al hacer clic en una fila, se desordenan solo las cartas de esa fila específica.</li>
+                <li>Al hacer clic en el mazo, se muestra la carta indicada por <code>data-carta-id</code> y se actualiza el mazo.</li>
+            </ol>
+        </div>
+    </section>
+    <section>
+        <p>
+            classDiagram
+    class Carta {
+        -numero: Number
+        -palo: String
+        -id: String
+        -visible: Boolean
+        +constructor(numero, palo)
+        +crearElemento() HTMLDivElement
+        +mostrar() void
+        +ocultar() void
+    }
+    
+    class Baraja {
+        -palos: String[]
+        -elementos: String[]
+        -cartas: Carta[]
+        -cartaActual: Carta
+        +constructor()
+        +generarCartas() void
+        +mezclar() void
+        +ordenar() void
+        +seleccionarCartaAleatoria() Carta
+        +encontrarCartaPorId(id) Carta
+        +quitarCarta(carta) void
+        +obtenerPrimeraCarta() Carta
+    }
+    
+    class Juego {
+        -baraja: Baraja
+        -contenedores: Object
+        +constructor()
+        +inicializar() void
+        +distribuirCartas() void
+        +configurarEventListeners() void
+        +mostrarTodasCartas() void
+        +seleccionarCartaDelMazo() void
+        +desordenarCartas(event) void
+        +actualizarImagenBaraja() void
+        +recogerYBarajarCartas() void
+    }
+    
+    Baraja --> "28" Carta : contiene
+    Juego --> "1" Baraja : usa
+    Juego --> "4" HTMLDivElement : contiene
+
+        </p>
+        
+    </section>
+
+    <footer style="margin-top: 50px; border-top: 1px solid #ddd; padding-top: 20px; text-align: center;">
+        <p>© 2025 - Documentación del Juego de Cartas</p>
+    </footer>
+</body>
+</html>

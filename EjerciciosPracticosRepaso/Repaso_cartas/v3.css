@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#baraja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#barajaImg {
+    width: 150px;
+    cursor: pointer;
+}
+
+#container-cartas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 80%;
+}
+
+.carta {
+    width: 100px;
+    height: 150px;
+    border: 1px solid #000;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.numero {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.arriba {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.abajo {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.figura {
+    font-size: 24px;
+    text-transform: capitalize;
+}

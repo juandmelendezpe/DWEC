@@ -24,10 +24,10 @@
     background-color: #27263a;
     border-radius: 10px;
 }
-#spectrometer div{
+.barras{
     display: inline-block;
     width: 30px;
-    background-image: linear-gradient(10deg, #ffffff, #01bf20, #04441c);
+  /*  background-image: linear-gradient(10deg, #ffffff, #01bf20, #04441c);*/
     height: 100%;
     border: solid 1px #33f8f8;
     margin: 0 3px;
@@ -92,4 +92,8 @@
 }
 #btnPause:hover{
     background-color: #e0e0e0;
+}
+.animacionBarras{
+   transition: all 0.5s ease-in-out;
+   transform: scaleY(1.5);
 }

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación del Juego de Cartas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        h3 {
+            color: #3498db;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            color: #16a085;
+        }
+        .function-section {
+            margin-bottom: 30px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .note {
+            background-color: #fffacd;
+            border-left: 4px solid #f1c40f;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .diagram {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentación del Juego de Cartas</h1>
+    
+    <h2>Descripción General</h2>
+    <p>
+        Este código implementa un juego de cartas interactivo que permite a los usuarios manipular cartas virtuales en un entorno web. 
+        El juego consiste en cuatro palos de cartas, cada uno con siete cartas que pueden mostrarse, ocultarse y reordenarse.
+    </p>
+
+    <h2>Estructura del Código</h2>
+    <p>El código se organiza en varias funciones principales que manejan diferentes aspectos del juego:</p>
+
+    <div class="function-section">
+        <h3>Variables Globales</h3>
+        <pre><code>
+let numCartas = 7;                                    // Número de cartas por palo
+let baraja = ["corazones", "diamantes", "treboles", "picas"];   // Nomenclatura estándar
+let baraja2 = ["uno", "dos", "tres", "cuatro"];       // Nomenclatura usada en el juego
+let elementos = ["fire", "water", "earth", "air"];    // Elementos en inglés
+let elementos2 = ["fuego", "agua", "tierra", "aire"]; // Elementos en español
+let torre = [];                                       // Array para almacenar las cartas de la baraja
+        </code></pre>
+    </div>
+
+    <div class="function-section">
+        <h3>crearCartas()</h3>
+        <p>Esta función genera las cartas en los contenedores HTML correspondientes para cada palo.</p>
+        <pre><code>
+function crearCartas() {
+  // Recorre cada palo de la baraja (uno, dos, tres, cuatro)
+  baraja2.forEach((tipoFigura) => {
+    const divPalo = document.getElementById(tipoFigura);
+    if (!divPalo) {
+      console.error(`No se encontró el div con id "${tipoFigura}"`);
+      return;
+    }
+
+    // Limpia el contenedor
+    divPalo.innerHTML = "";
+
+    // Crea las cartas para el palo actual
+    for (let i = 1; i <= numCartas; i++) {
+      let divElemento = document.createElement("div");
+      divElemento.id = `${tipoFigura}-carta-${i}`;
+      divElemento.classList.add("carta");
+      
+      const img = document.createElement("img");
+      img.src = `img/${tipoFigura}${i}.png`;
+      img.alt = `${tipoFigura}${i}`;
+      img.id = `${tipoFigura}${i}`;
+      img.classList.add("carta-img");
+      img.classList.add("ocultar");
+
+      divElemento.appendChild(img);
+      divPalo.appendChild(divElemento);
+    }
+  });
+}
+        </code></pre>
+        <p><strong>Propósito:</strong> Crear y distribuir las cartas en sus contenedores correspondientes al inicio del juego.</p>
+    </div>
+
+    <div class="function-section">
+        <h3>recogerCartas()</h3>
+        <p>Esta función recopila todas las cartas en el juego y las mezcla para formar una baraja.</p>
+        <pre><code>
+function recogerCartas() {
+  let cartas = document.querySelectorAll(".carta-img");
+  // Reiniciar el array torre
+  torre = [];
+  
+  cartas.forEach((carta) => {
+    let id = carta.id;
+    torre.push(id);
+  });
+
+  // Barajar las cartas
+  let barajaBarajada = [...torre].sort(() => Math.random() - 0.5);
+  console.log("Baraja barajada:", barajaBarajada);
+  
+  // Actualizar la carta visible en la baraja
+  let imgBaraja = document.getElementById("barajaImg");
+  if (imgBaraja && barajaBarajada.length > 0) {
+    imgBaraja.setAttribute("data-carta-id", barajaBarajada[0]);
+    imgBaraja.src = `img/${barajaBarajada[0].split('-')[0]}.png`;
+  }
+}
+        </code></pre>
+        <p><strong>Propósito:</strong> Recolectar todas las cartas, mezclarlas aleatoriamente y actualizar la carta visible de la baraja.</p>
+    </div>
+
+    <div class="function-section">
+        <h3>seleccionarCarta()</h3>
+        <p>Esta función selecciona una carta de la baraja, la muestra y actualiza la baraja con la siguiente carta.</p>
+        <pre><code>
+function seleccionarCarta() {
+  let imgBaraja = document.getElementById("barajaImg");
+  if (!imgBaraja) {
+    console.error("No se encontró el elemento con id 'barajaImg'");
+    return;
+  }
+  
+  let idBaraja = imgBaraja.getAttribute("data-carta-id");
+  if (!idBaraja) {
+    console.error("No hay carta seleccionada actualmente");
+    return;
+  }
+  
+  // Buscar la carta correspondiente y mostrarla
+  let cartaSeleccionada = document.getElementById(idBaraja);
+  if (cartaSeleccionada) {
+    cartaSeleccionada.classList.add("mostrar");
+    cartaSeleccionada.classList.remove("ocultar");
+    
+    // Quitar la carta mostrada de la torre
+    torre = torre.filter(id => id !== idBaraja);
+    
+    // Seleccionar la siguiente carta de la baraja
+    if (torre.length > 0) {
+      let siguienteCarta = torre[Math.floor(Math.random() * torre.length)];
+      console.log("Siguiente carta:", siguienteCarta);
+      imgBaraja.setAttribute("data-carta-id", siguienteCarta);
+      imgBaraja.src = `img/${siguienteCarta.split('-')[0]}.png`;
+    } else {
+      console.log("No quedan más cartas en la baraja");
+    }
+  } else {
+    console.error("No se encontró la carta con id:", idBaraja);
+  }
+}
+        </code></pre>
+        <p><strong>Propósito:</strong> Mostrar la carta seleccionada actualmente y elegir una nueva carta al azar para ser la siguiente.</p>
+    </div>
+
+    <div class="function-section">
+        <h3>mostrarCarta()</h3>
+        <p>Esta función muestra todas las cartas del juego a la vez.</p>
+        <pre><code>
+function mostrarCarta() {
+  let secuencia = document.querySelectorAll(".carta-img"); 
+  secuencia.forEach((carta) => {
+    carta.classList.add("mostrar");
+    carta.classList.remove("ocultar");
+  });
+}
+        </code></pre>
+        <p><strong>Propósito:</strong> Revelar todas las cartas del juego simultáneamente.</p>
+    </div>
+
+    <div class="function-section">
+        <h3>desordenarCartas(event)</h3>
+        <p>Esta función desordena las cartas dentro de un contenedor específico cuando el usuario hace clic en él.</p>
+        <pre><code>
+function desordenarCartas(event) {
+  const filaId = event.currentTarget.id;
+  const filaElemento = document.getElementById(filaId);
+  
+  if (!filaElemento) {
+    console.error(`No se encontró el elemento con id '${filaId}'`);
+    return;
+  }
+  
+  // Recoger todas las cartas de esta fila
+  let cartasEnFila = Array.from(filaElemento.querySelectorAll(".carta"));
+  
+  if (cartasEnFila.length === 0) {
+    console.log(`No hay cartas en la fila ${filaId}`);
+    return;
+  }
+  
+  // Desordenar las cartas
+  cartasEnFila.sort(() => Math.random() - 0.5);
+  
+  // Limpiar el contenedor
+  filaElemento.innerHTML = "";
+  
+  // Reañadir las cartas en el nuevo orden
+  cartasEnFila.forEach(carta => {
+    filaElemento.appendChild(carta);
+  });
+}
+        </code></pre>
+        <p><strong>Propósito:</strong> Reorganizar aleatoriamente las cartas dentro de un contenedor específico cuando el usuario interactúa con él.</p>
+    </div>
+
+    <div class="function-section">
+        <h3>window.onload</h3>
+        <p>Este bloque de código se ejecuta cuando la página se carga completamente.</p>
+        <pre><code>
+window.onload = function() {
+  // Crear las cartas
+  crearCartas();
+  
+  // Recoger y barajar las cartas
+  recogerCartas();
+   
+  // Añadir los event listeners
+  const btnMostrar = document.getElementById("mostrar");
+  if (btnMostrar) {
+    btnMostrar.addEventListener("click", mostrarCarta);
+  } else {
+    alert("No se encontró el elemento con id 'mostrar'");
+  }
+  
+  const btnNext = document.getElementById("btnNext");
+  if (btnNext) {
+    btnNext.addEventListener("click", seleccionarCarta);
+  } else {
+    alert("No se encontró el elemento con id 'btnNext'");
+  }
+  
+  // Añadir event listeners a los contenedores de las filas
+  baraja2.forEach(id => {
+    let elemento = document.getElementById(id);
+    if (elemento) {
+      elemento.addEventListener("click", desordenarCartas);
+    } else {
+      alert(`No se encontró el elemento con id '${id}'`);
+    }
+  });
+}
+        </code></pre>
+        <p><strong>Propósito:</strong> Inicializar el juego, crear las cartas y configurar todos los event listeners necesarios.</p>
+    </div>
+
+    <h2>Diagrama de Flujo del Juego</h2>
+    <div class="diagram">
+        <p><strong>Inicialización:</strong></p>
+        <ol>
+            <li>La página se carga</li>
+            <li>Se ejecuta la función <code>crearCartas()</code> para generar todas las cartas</li>
+            <li>Se ejecuta <code>recogerCartas()</code> para barajar y preparar la baraja</li>
+            <li>Se configuran los event listeners para los botones y contenedores</li>
+        </ol>
+        
+        <p><strong>Interacción:</strong></p>
+        <ul>
+            <li>Clic en el botón "mostrar": Revela todas las cartas mediante <code>mostrarCarta()</code></li>
+            <li>Clic en el botón "btnNext": Selecciona y muestra la carta actual con <code>seleccionarCarta()</code></li>
+            <li>Clic en un contenedor de cartas: Desordena las cartas en ese contenedor con <code>desordenarCartas()</code></li>
+        </ul>
+    </div>
+
+    <h2>Elementos HTML Requeridos</h2>
+    <p>Para que el juego funcione correctamente, se necesitan los siguientes elementos en el HTML:</p>
+    
+    <table>
+        <tr>
+            <th>ID del Elemento</th>
+            <th>Tipo</th>
+            <th>Propósito</th>
+        </tr>
+        <tr>
+            <td>"uno", "dos", "tres", "cuatro"</td>
+            <td>div</td>
+            <td>Contenedores para las cartas de cada palo</td>
+        </tr>
+        <tr>
+            <td>"mostrar"</td>
+            <td>button</td>
+            <td>Botón para mostrar todas las cartas</td>
+        </tr>
+        <tr>
+            <td>"btnNext"</td>
+            <td>button</td>
+            <td>Botón para seleccionar la siguiente carta</td>
+        </tr>
+        <tr>
+            <td>"barajaImg"</td>
+            <td>img</td>
+            <td>Imagen para mostrar la carta actual de la baraja</td>
+        </tr>
+    </table>
+
+    <h2>Estructura de Archivos</h2>
+    <p>El juego requiere la siguiente estructura de archivos:</p>
+    <pre>
+- index.html (HTML principal con la estructura del juego)
+- script.js (JavaScript con el código del juego)
+- styles.css (Estilos CSS para el juego)
+- img/ (Directorio de imágenes)
+  - uno1.png, uno2.png, ..., uno7.png
+  - dos1.png, dos2.png, ..., dos7.png
+  - tres1.png, tres2.png, ..., tres7.png
+  - cuatro1.png, cuatro2.png, ..., cuatro7.png
+    </pre>
+
+    <div class="note">
+        <p><strong>Nota:</strong> Es importante que todas las imágenes de las cartas sigan el patrón de nomenclatura "palo+número.png" (ej: uno1.png, dos2.png) para que el juego funcione correctamente.</p>
+    </div>
+
+    <h2>Mejoras Potenciales</h2>
+    <ol>
+        <li>Implementar un sistema de puntuación</li>
+        <li>Añadir animaciones para el movimiento de las cartas</li>
+        <li>Mejorar el feedback visual cuando se agota la baraja</li>
+        <li>Implementar diversos modos de juego</li>
+        <li>Añadir soporte para dispositivos móviles con eventos táctiles</li>
+        <li>Refactorizar el código utilizando clases para mejorar la organización</li>
+    </ol>
+
+    <h2>Comparación con la Versión Orientada a Objetos</h2>
+    <p>
+        El código proporcionado utiliza un enfoque de programación funcional. En el repositorio también existe una versión alternativa que implementa el mismo juego utilizando programación orientada a objetos con clases para Carta, Baraja y Juego. Las principales diferencias son:
+    </p>
+    <ul>
+        <li>La versión OOP encapsula mejor los datos y comportamientos</li>
+        <li>La versión funcional es más directa y puede ser más fácil para principiantes</li>
+        <li>La versión OOP facilita la extensibilidad y mantenimiento a largo plazo</li>
+        <li>La versión funcional puede ser más eficiente en términos de memoria para este caso de uso pequeño</li>
+    </ul>
+
+    <h2>Conclusiones</h2>
+    <p>
+        Este juego de cartas es una implementación sencilla pero completa que demuestra cómo manipular elementos DOM para crear una experiencia interactiva. El código está bien estructurado en funciones que manejan diferentes aspectos del juego, lo que facilita su comprensión y mantenimiento.
+    </p>
+    <p>
+        Para proyectos más grandes o complejos, se recomienda considerar la implementación orientada a objetos que también está disponible en el repositorio, ya que ofrece mejor encapsulamiento y facilita futuras expansiones del juego.
+    </p>
+</body>
+</html>

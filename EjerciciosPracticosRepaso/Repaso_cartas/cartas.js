@@ -32,13 +32,13 @@ function crearCartas(){
         let divElemento = document.createElement("div");
         divElemento.id = tipoFigura+i; // Asignar el id correspondiente al palo
         divElemento.classList.add("carta"); // Clase opcional para estilos
-       // divElemento.classList.toggle("oculta"); // Clase opcional para estilos
       const img = document.createElement("img");
       //img.src = `img/${tipoFigura}_${i}.png`; // Ruta de la imagen
       img.src = `img/${tipoFigura}.png`; // Ruta de la imagen
       img.alt = tipoFigura+i; // Texto alternativo
       img.id = tipoFigura+i; // ID único
       img.classList.add("carta-img"); // Clase opcional para estilos
+      img.classList.add("ocultar"); // Clase opcional para estilos
 
       //divElemento.textContent =i; // Texto alternativo
 
@@ -110,17 +110,61 @@ function recogerCartas() {
     });
   }
 
-function alertarBaraja() {
-  let btnNext = document.getElementById("btnNext");
-  let secuencia = document.querySelector(".carta img").id;   
-  let idElemento = document.querySelector("#barajaOriginal img").id; // Obtener el id del elemento
-    alert("Baraja de cartas con id :" + idElemento); // Mostrar el id en un alert
-    //idElemento.classList.toggle("oculta"); // Cambiar la clase del elemento
-  }
+  function seleccionarCarta() {
+    // Selecciona la imagen de la baraja
+    let idElementos = document.querySelector(".barajaImg"); 
+    if (!idElementos) {
+        console.error("No se encontró el elemento con la clase 'barajaImg'");
+        return;
+    }
+
+    let idBaraja = idElementos.id; // Obtiene el id de la baraja
+    console.log("ID de la baraja:", idBaraja); // Muestra el id de la baraja en la consola
+
+    // Selecciona todas las imágenes de la secuencia
+    let secuencia = document.querySelectorAll(".carta-img"); 
+
+    // Recorre las imágenes de la secuencia
+    secuencia.forEach((carta) => {
+        if (carta.id === idBaraja) {
+            // Si el id coincide, agrega la clase 'mostrar' y elimina 'ocultar'
+            carta.classList.add("mostrar");
+            carta.classList.remove("ocultar");
+        }
+    });
+}
+function mostrarCarta() {
+  let secuencia = document.querySelectorAll(".carta-img"); 
+  secuencia.forEach((carta)=>{
+    carta.classList.add("mostrar");
+    carta.classList.toggle("ocultar");
+  })
+}
+function desordenarCartas() {
+  let filas = ["uno", "dos", "tres", "cuatro"];
+  let torre = []; // Inicializa el array torre
+  //let filaElementos = document.querySelectorAll("."); // Selecciona todas las cartas
+  filas.forEach((fila) => {
+    let filaElementos = document.getElementById(fila); // Selecciona el div correspondiente a la fila
+    let lista = filaElementos.sort(() => Math.random() - 0.5); // Baraja las cartas de forma aleatoria
+    lista.forEach((carta) => {
+        let id = carta.id;
+        torre.push(id);
+    });
+    console.log(torre); // Muestra el array torre en la consola
+
+  });
+}
 
 window.onload = function() {
     crearCartas(); // Crear las cartas al cargar la página
+    recogerCartas(); // Recoger las cartas al cargar la página
    
-    idElemento.addEventListener("click",alertarBaraja); // Añadir el evento al elemento
-    document.getElementById("btnNext").addEventListener("click",recogerCartas);
+    document.getElementById("mostrar").addEventListener("click", mostrarCarta ); // Añadir evento al botón "Mostrar"
+    document.getElementById("btnNext").addEventListener("click",seleccionarCarta );
+    for(let i= 0; i<baraja2.length; i++){
+        let id = baraja2[i];
+        let img = document.getElementById(id);
+        img.addEventListener("click", desordenarCartas); // Añadir evento al botón "Recoger"
+    }
 }

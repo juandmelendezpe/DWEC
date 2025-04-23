@@ -70,11 +70,16 @@ h2{
     height: 190px;
     margin: 1%;
 }
-.oculta{
-    display: none;
-    
+.fondo{
+    background-image: url(https://wallpapercave.com/wp/wp9286241.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 90%;
+    padding: 1rem;
 }
-#btnNext, #btnReset{
+
+#btnReset{
     width: 7vw;
     height: 5vh;
     border-radius: 1rem;
@@ -107,6 +112,7 @@ button:hover{
 }
 .ocultar{
     visibility: hidden;
+    
 }
 .mostrar{
     visibility: visible;
