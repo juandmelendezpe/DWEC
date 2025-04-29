@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación del Juego del Ahorcado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #6200ea;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            font-weight: bold;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #6200ea;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Documentación del Juego del Ahorcado</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Estructura del Código</h2>
+            <p>El código implementa un juego del ahorcado utilizando JavaScript. Se divide en variables principales, funciones para la lógica del juego y eventos para la interacción con el usuario.</p>
+        </section>
+        <section>
+            <h2>Variables y Objetos</h2>
+            <ul>
+                <li><strong>palabras:</strong> Array de palabras disponibles para el juego.</li>
+                <li><strong>palabraSeleccionada:</strong> Palabra seleccionada aleatoriamente.</li>
+                <li><strong>palabraOculta:</strong> Array que representa la palabra oculta con guiones bajos.</li>
+                <li><strong>intentos:</strong> Número de intentos restantes.</li>
+                <li><strong>elementos:</strong> Referencias a elementos del DOM.</li>
+                <li><strong>contexto:</strong> Contexto del lienzo para dibujar el ahorcado.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Funciones</h2>
+            <ul>
+                <li>
+                    <strong>seleccionarPalabra:</strong>
+                    <p>Este método selecciona aleatoriamente una palabra del array <code>palabras</code>. Utiliza <code>Math.random()</code> para generar un índice aleatorio y devolver la palabra correspondiente. Es crucial para determinar la palabra a adivinar al inicio del juego.</p>
+                </li>
+                <li>
+                    <strong>inicializarPalabraOculta:</strong>
+                    <p>Crea un array de guiones bajos (<code>_</code>) cuya longitud coincide con la palabra seleccionada. Utiliza <code>String.repeat()</code> y <code>String.split()</code> para inicializar la representación oculta de la palabra que el jugador irá descubriendo.</p>
+                </li>
+                <li>
+                    <strong>actualizarVista:</strong>
+                    <p>Actualiza dinámicamente el contenido del DOM para reflejar el estado actual de la palabra oculta. Convierte el array en una cadena con espacios para hacerlo más legible para el jugador.</p>
+                </li>
+                <li>
+                    <strong>procesarIntento:</strong>
+                    <p>Procesa el intento del jugador verificando si la letra ingresada está presente en la palabra seleccionada. Si está, reemplaza los guiones bajos con la letra correspondiente en las posiciones correctas. Si no, decrementa los intentos y llama a la función <code>dibujarAhorcado</code> para agregar una parte al dibujo del ahorcado.</p>
+                </li>
+                <li>
+                    <strong>verificarEstado:</strong>
+                    <p>Evalúa si el juego ha terminado. Si no hay más guiones bajos en la palabra oculta, el jugador ha ganado. Si los intentos se reducen a cero, el jugador pierde. Devuelve un mensaje descriptivo y el estado actual del juego.</p>
+                </li>
+                <li>
+                    <strong>dibujarAhorcado:</strong>
+                    <p>Dibuja el ahorcado en el lienzo HTML5 en función del número de intentos restantes. Utiliza un array de funciones anónimas para agregar progresivamente las partes del dibujo (base, poste, cuerda, cabeza, cuerpo, etc.). Cada parte se dibuja según el índice correspondiente a los intentos restantes.</p>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Eventos</h2>
+            <p>El botón "Comprobar" permite al jugador ingresar una letra para verificar si está en la palabra seleccionada. Se gestionan los intentos, se actualiza la vista y se verifica el estado del juego.</p>
+        </section>
+        <footer>
+            <p>&copy; 2025 Documentación del Juego del Ahorcado. Todos los derechos reservados.</p>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+    color: #333;
+  }
+  
+  h1 {
+    color: #2a7ae4;
+  }
+  
+  #area-entrada {
+    margin-top: 20px;
+  }
+  
+  #entrada-letra {
+    width: 250px;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  canvas {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+  }
