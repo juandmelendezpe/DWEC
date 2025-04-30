@@ -1,8 +1,28 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f0f8ff;
+    background:url(https://media.sketchfab.com/models/967995fb3d184b609574c78bf6c480ba/thumbnails/d23351ea2a5745329cf9dd00da6a4fd1/84f7c07626d5406b8f7ccac13efb7a76.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     color: #333;
+  }
+  #container {
+    width: 40vw;
+    background-color: rgba(255, 255, 255, 0.658);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 10px;
+    margin: 2% auto;
   }
   
   h1 {
@@ -29,5 +49,17 @@ body {
   
   canvas {
     margin-top: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #0a0909;
+    border-radius: 4px;
+  }
+  
+  .juego-ganado {
+    display: none;
+    margin-top: 20px;
+    background: url(https://wallpaperaccess.com/full/251786.jpg) no-repeat center center fixed;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40vw;
+    height: auto;
   }

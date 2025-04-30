@@ -1,4 +1,5 @@
-const palabras = ["javascript", "programacion", "html", "ahorcado", "desarrollo"];
+const palabras = ["javascript", "programacion", "html", "ahorcado", "desarrollo",
+                 "pyton", "java", "css", "typescript", "react", "angular","vue","nodejs","express","mongodb",];
 const palabraSeleccionada = seleccionarPalabra(palabras);
 let palabraOculta = inicializarPalabraOculta(palabraSeleccionada.length);
 let intentos = 6;
@@ -45,12 +46,21 @@ function procesarIntento(letra) {
 
 // Verificar el estado del juego
 function verificarEstado(palabraOculta, intentos, palabraSeleccionada) {
+  let divElemento = document.getElementById("palabra-oculta");
+  let Elemento = document.createElement("div");
+
   if (!palabraOculta.includes("_")) {
-    return { mensaje: "¡Felicidades, ganaste!", juegoTerminado: true };
+    return { 
+      mensaje: "¡Felicidades, ganaste!", juegoTerminado: true 
+      
+
+    };
   } else if (intentos === 0) {
-    return { mensaje: `¡Perdiste! La palabra era: ${palabraSeleccionada}`, juegoTerminado: true };
+    return { 
+      mensaje: `¡Perdiste! La palabra era: ${palabraSeleccionada}`, juegoTerminado: true };
   }
-  return { mensaje: "", juegoTerminado: false };
+  return { 
+    mensaje: "", juegoTerminado: false };
 }
 
 // Dibujar partes del ahorcado
