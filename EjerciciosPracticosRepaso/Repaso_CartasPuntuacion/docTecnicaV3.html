@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Técnica: Juego de Cartas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            margin: 0;
+        }
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #2980b9;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        code {
+            background-color: #f7f7f7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            border-left: 4px solid #3498db;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .note {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #fff5e6;
+            padding: 15px;
+            border-left: 4px solid #e67e22;
+            margin: 20px 0;
+        }
+        .flow-diagram {
+            text-align: center;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Documentación Técnica: Juego de Cartas</h1>
+        <p>Una aplicación web de juego de cartas construida con JavaScript</p>
+    </header>
+
+    <div class="section">
+        <h2>Visión General</h2>
+        <p>
+            Esta aplicación implementa un juego de cartas para dos jugadores donde cada participante crea sus propias cartas 
+            con diferentes estadísticas y las enfrenta en una serie de batallas. El juego se desarrolla por turnos donde un jugador 
+            ataca y el otro defiende utilizando diferentes estadísticas de sus cartas.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Estructura del Código</h2>
+        <p>
+            El código está organizado en tres clases principales:
+        </p>
+        <ul>
+            <li><strong>Carta</strong>: Representa una carta individual con estadísticas.</li>
+            <li><strong>Jugador</strong>: Gestiona la colección de cartas y el estado de un jugador.</li>
+            <li><strong>JuegoCartas</strong>: La clase principal que controla la lógica del juego y la interfaz de usuario.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Clases</h2>
+
+        <div class="subsection">
+            <h3>Clase Carta</h3>
+            <p>
+                Representa una carta individual dentro del juego con sus atributos y estadísticas.
+            </p>
+
+            <h4>Propiedades</h4>
+            <table>
+                <tr>
+                    <th>Propiedad</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>nombre</td>
+                    <td>String</td>
+                    <td>Nombre de la carta</td>
+                </tr>
+                <tr>
+                    <td>fuerza</td>
+                    <td>Number</td>
+                    <td>Valor de fuerza de la carta</td>
+                </tr>
+                <tr>
+                    <td>defensa</td>
+                    <td>Number</td>
+                    <td>Valor de defensa de la carta</td>
+                </tr>
+                <tr>
+                    <td>habilidad</td>
+                    <td>Number</td>
+                    <td>Valor de habilidad de la carta</td>
+                </tr>
+                <tr>
+                    <td>id</td>
+                    <td>Number</td>
+                    <td>Identificador único de la carta (por defecto, timestamp de creación)</td>
+                </tr>
+            </table>
+
+            <h4>Constructor</h4>
+            <pre>constructor(nombre, fuerza, defensa, habilidad, id = Date.now())</pre>
+        </div>
+
+        <div class="subsection">
+            <h3>Clase Jugador</h3>
+            <p>
+                Gestiona la información y acciones relacionadas con un jugador, incluyendo sus cartas y estado durante el juego.
+            </p>
+
+            <h4>Propiedades</h4>
+            <table>
+                <tr>
+                    <th>Propiedad</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>nombre</td>
+                    <td>String</td>
+                    <td>Nombre del jugador</td>
+                </tr>
+                <tr>
+                    <td>cartas</td>
+                    <td>Array</td>
+                    <td>Colección de objetos Carta que posee el jugador</td>
+                </tr>
+                <tr>
+                    <td>cartaSeleccionada</td>
+                    <td>Object|null</td>
+                    <td>Referencia a la carta seleccionada actualmente</td>
+                </tr>
+                <tr>
+                    <td>estadisticaSeleccionada</td>
+                    <td>String|null</td>
+                    <td>La estadística seleccionada para atacar o defender (fuerza, defensa, habilidad)</td>
+                </tr>
+                <tr>
+                    <td>cartasUsadas</td>
+                    <td>Array</td>
+                    <td>IDs de las cartas que ya han sido utilizadas</td>
+                </tr>
+            </table>
+
+            <h4>Métodos</h4>
+            <table>
+                <tr>
+                    <th>Método</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>constructor(nombre = '')</td>
+                    <td>Inicializa un nuevo jugador con el nombre especificado</td>
+                </tr>
+                <tr>
+                    <td>crearCarta(nombre, fuerza, defensa, habilidad)</td>
+                    <td>Crea y añade una nueva carta a la colección del jugador</td>
+                </tr>
+                <tr>
+                    <td>seleccionarCarta(idCarta)</td>
+                    <td>Selecciona una carta por su ID</td>
+                </tr>
+                <tr>
+                    <td>marcarCartaComoUsada(idCarta)</td>
+                    <td>Marca una carta como usada (no disponible para futuras rondas)</td>
+                </tr>
+                <tr>
+                    <td>obtenerCartasRestantes()</td>
+                    <td>Calcula cuántas cartas no usadas le quedan al jugador</td>
+                </tr>
+                <tr>
+                    <td>reiniciar()</td>
+                    <td>Restablece el estado del jugador a valores iniciales</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="subsection">
+            <h3>Clase JuegoCartas</h3>
+            <p>
+                La clase principal que controla la lógica del juego y gestiona la interfaz de usuario.
+            </p>
+
+            <h4>Propiedades</h4>
+            <table>
+                <tr>
+                    <th>Propiedad</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>estadoJuego</td>
+                    <td>Object</td>
+                    <td>Contiene todo el estado actual del juego</td>
+                </tr>
+                <tr>
+                    <td>estadoJuego.faseActual</td>
+                    <td>String</td>
+                    <td>Fase actual del juego ('configuracion', 'crearCartas', 'batalla')</td>
+                </tr>
+                <tr>
+                    <td>estadoJuego.jugador1</td>
+                    <td>Object</td>
+                    <td>Objeto Jugador para el primer jugador</td>
+                </tr>
+                <tr>
+                    <td>estadoJuego.jugador2</td>
+                    <td>Object</td>
+                    <td>Objeto Jugador para el segundo jugador</td>
+                </tr>
+                <tr>
+                    <td>estadoJuego.jugadorActual</td>
+                    <td>Number</td>
+                    <td>Número (1 o 2) del jugador que tiene el turno actual</td>
+                </tr>
+                <tr>
+                    <td>estadoJuego.jugadorAtacante</td>
+                    <td>Number</td>
+                    <td>Número del jugador que es el atacante en el turno actual</td>
+                </tr>
+                <tr>
+                    <td>estadoJuego.jugadorDefensor</td>
+                    <td>Number</td>
+                    <td>Número del jugador que es el defensor en el turno actual</td>
+                </tr>
+                <tr>
+                    <td>estadoJuego.turno</td>
+                    <td>Number</td>
+                    <td>Número del turno actual</td>
+                </tr>
+                <tr>
+                    <td>estadoJuego.turnosTotales</td>
+                    <td>Number</td>
+                    <td>Número total de turnos para el juego</td>
+                </tr>
+                <tr>
+                    <td>elementos</td>
+                    <td>Object</td>
+                    <td>Referencias a los elementos del DOM utilizados en la interfaz</td>
+                </tr>
+            </table>
+
+            <h4>Métodos Principales</h4>
+            <table>
+                <tr>
+                    <th>Método</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td>constructor()</td>
+                    <td>Inicializa el juego, configura las referencias a los elementos DOM y conecta los eventos</td>
+                </tr>
+                <tr>
+                    <td>inicializarEventos()</td>
+                    <td>Configura todos los escuchadores de eventos para los controles del juego</td>
+                </tr>
+                <tr>
+                    <td>iniciarJuego()</td>
+                    <td>Comienza el juego después de la configuración de nombres de jugadores</td>
+                </tr>
+                <tr>
+                    <td>validarPuntos(numeroJugador)</td>
+                    <td>Valida que la distribución de puntos para una carta no exceda el máximo permitido</td>
+                </tr>
+                <tr>
+                    <td>crearCarta(numeroJugador)</td>
+                    <td>Crea una nueva carta para el jugador especificado</td>
+                </tr>
+                <tr>
+                    <td>renderizarCartas(numeroJugador)</td>
+                    <td>Actualiza la visualización de las cartas de un jugador en la interfaz</td>
+                </tr>
+                <tr>
+                    <td>alternarMostrarCartas(numeroJugador)</td>
+                    <td>Muestra u oculta las cartas de un jugador</td>
+                </tr>
+                <tr>
+                    <td>iniciarFaseBatalla()</td>
+                    <td>Comienza la fase de batalla, configurando el turno y las opciones</td>
+                </tr>
+                <tr>
+                    <td>actualizarIndicadorTurno()</td>
+                    <td>Actualiza el texto que muestra el estado del turno actual</td>
+                </tr>
+                <tr>
+                    <td>seleccionarTipoAtaque(tipo)</td>
+                    <td>Maneja la selección de tipo de ataque por parte del jugador atacante</td>
+                </tr>
+                <tr>
+                    <td>seleccionarCarta(numeroJugador, idCarta)</td>
+                    <td>Maneja la selección de una carta por parte de un jugador</td>
+                </tr>
+                <tr>
+                    <td>resolverBatalla()</td>
+                    <td>Compara las cartas seleccionadas y determina el resultado de la batalla</td>
+                </tr>
+                <tr>
+                    <td>siguienteTurno()</td>
+                    <td>Prepara el juego para el siguiente turno o finaliza si corresponde</td>
+                </tr>
+                <tr>
+                    <td>terminarJuego()</td>
+                    <td>Finaliza el juego y muestra el resultado</td>
+                </tr>
+                <tr>
+                    <td>registrarMensaje(mensaje)</td>
+                    <td>Añade un mensaje al registro del juego</td>
+                </tr>
+                <tr>
+                    <td>mostrarCartas()</td>
+                    <td>Configura la funcionalidad para mostrar todas las cartas al final del juego</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Flujo del Juego</h2>
+        
+        <div class="flow-diagram">
+            <ol>
+                <li><strong>Fase de Configuración</strong>: Los jugadores ingresan sus nombres</li>
+                <li><strong>Fase de Creación de Cartas</strong>:
+                    <ul>
+                        <li>Jugador 1 crea sus cartas (hasta 1 carta)</li>
+                        <li>Jugador 2 crea sus cartas (hasta 1 carta)</li>
+                    </ul>
+                </li>
+                <li><strong>Fase de Batalla</strong>:
+                    <ul>
+                        <li>Se determina el jugador atacante para el turno actual</li>
+                        <li>El atacante selecciona una estadística de ataque (fuerza, defensa, habilidad)</li>
+                        <li>Se determina automáticamente la estadística de defensa según el ataque</li>
+                        <li>El defensor selecciona una carta para defender</li>
+                        <li>Se resuelve la batalla comparando los valores de las estadísticas</li>
+                        <li>La carta perdedora se marca como usada</li>
+                    </ul>
+                </li>
+                <li><strong>Final del Juego</strong>:
+                    <ul>
+                        <li>Después de completar todos los turnos, gana el jugador con más cartas restantes</li>
+                        <li>Se muestra el resultado final y la opción de reiniciar</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Reglas del Juego</h2>
+        
+        <h3>Creación de Cartas</h3>
+        <ul>
+            <li>Cada jugador crea una carta</li>
+            <li>Cada carta tiene tres estadísticas: fuerza, defensa y habilidad</li>
+            <li>El total de puntos distribuidos entre las tres estadísticas no puede superar 30</li>
+        </ul>
+        
+        <h3>Combate</h3>
+        <ul>
+            <li>En cada turno, un jugador ataca y el otro defiende</li>
+            <li>El atacante selecciona una estadística para atacar</li>
+            <li>La estadística de defensa se determina automáticamente:
+                <ul>
+                    <li>Ataque con fuerza → Defensa con defensa</li>
+                    <li>Ataque con defensa → Defensa con fuerza</li>
+                    <li>Ataque con habilidad → Defensa con habilidad</li>
+                </ul>
+            </li>
+            <li>Gana la carta con el valor más alto en su estadística correspondiente</li>
+            <li>La carta perdedora queda fuera del juego</li>
+            <li>En caso de empate, ambas cartas permanecen en juego</li>
+        </ul>
+        
+        <h3>Victoria</h3>
+        <p>
+            Gana el jugador que tenga más cartas restantes al final de los turnos establecidos.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Inicialización</h2>
+        <p>
+            El juego se inicializa automáticamente cuando el DOM está completamente cargado:
+        </p>
+        <pre>document.addEventListener('DOMContentLoaded', () => {
+    const juego = new JuegoCartas();
+});</pre>
+    </div>
+
+    <div class="note">
+        <strong>Nota:</strong> Este juego requiere un archivo HTML correspondiente con los elementos DOM referenciados en el código JavaScript.
+    </div>
+
+</body>
+</html>

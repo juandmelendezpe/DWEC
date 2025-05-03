@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - Juego del Ahorcado</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #343a40;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            color: #495057;
+            margin-top: 30px;
+        }
+        
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            font-size: 0.95em;
+        }
+        
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            line-height: 1.4;
+        }
+        
+        .code-block {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        img {
+            max-width: 100%;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background-color: #e9ecef;
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .section {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .note {
+            background-color: #e7f5ff;
+            border-left: 4px solid #339af0;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        
+        .warning {
+            background-color: #fff3bf;
+            border-left: 4px solid #fab005;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9em;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Documentación: Juego del Ahorcado</h1>
+        <p>Aplicación web interactiva construida con HTML, CSS y JavaScript</p>
+    </header>
+    
+    <div class="section">
+        <h2>1. Descripción General</h2>
+        <p>
+            Esta aplicación web implementa el clásico juego del ahorcado, donde los jugadores intentan adivinar una palabra oculta letra por letra. Con cada error, se va dibujando una parte del "ahorcado" hasta completarlo, momento en el cual el jugador pierde si no ha conseguido adivinar la palabra.
+        </p>
+        <p>
+            La aplicación ha sido desarrollada cumpliendo los requisitos específicos del bloque 3 sobre el uso de Strings, arrays, objetos y manejo de estructuras en JavaScript.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>2. Requisitos Implementados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Requisito</th>
+                    <th>Descripción</th>
+                    <th>Implementación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>3.1</td>
+                    <td>Construcción progresiva del muñeco</td>
+                    <td>Se utiliza un elemento &lt;pre&gt; con representaciones ASCII del ahorcado que se actualiza según los errores.</td>
+                </tr>
+                <tr>
+                    <td>3.2</td>
+                    <td>Espacios para letras acertadas</td>
+                    <td>Se crean cajas dinámicamente para cada letra de la palabra a adivinar.</td>
+                </tr>
+                <tr>
+                    <td>3.3</td>
+                    <td>Visualización de letras introducidas</td>
+                    <td>Las letras pulsadas se muestran en una fila y se actualiza el contador si se repite una letra.</td>
+                </tr>
+                <tr>
+                    <td>3.4</td>
+                    <td>Estructura de muñeco en pre-formato</td>
+                    <td>Se utiliza un elemento &lt;pre&gt; que respeta los saltos de línea y tabulaciones.</td>
+                </tr>
+                <tr>
+                    <td>3.5</td>
+                    <td>Lectura de letras desde teclado</td>
+                    <td>Se implementa el evento keydown para detectar las pulsaciones del teclado.</td>
+                </tr>
+                <tr>
+                    <td>3.6</td>
+                    <td>Estructura HTML estática</td>
+                    <td>Los elementos mantienen sus posiciones durante el juego.</td>
+                </tr>
+                <tr>
+                    <td>3.7</td>
+                    <td>Reinicio del juego</td>
+                    <td>El juego se reinicia al pulsar F5 o mediante un botón al finalizar la partida.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>3. Estructura del Proyecto</h2>
+        <h3>3.1. Estructura HTML</h3>
+        <p>
+            El documento HTML está organizado en las siguientes secciones:
+        </p>
+        <ul>
+            <li><strong>Cabecera</strong>: Contiene metadatos y estilos CSS.</li>
+            <li><strong>Contenedor principal</strong>: Alberga todos los elementos del juego.</li>
+            <li><strong>Figura del ahorcado</strong>: Un elemento &lt;pre&gt; que muestra el estado actual del muñeco.</li>
+            <li><strong>Contenedor de palabra</strong>: Muestra las cajas para las letras a adivinar.</li>
+            <li><strong>Contenedor de letras usadas</strong>: Muestra las letras que el usuario ha introducido.</li>
+            <li><strong>Mensajes del juego</strong>: Área para mostrar mensajes sobre el estado del juego.</li>
+            <li><strong>Botón de reinicio</strong>: Permite reiniciar el juego al finalizar.</li>
+        </ul>
+
+        <h3>3.2. Estilos CSS</h3>
+        <p>
+            Los estilos CSS proporcionan una interfaz visual atractiva y responsiva:
+        </p>
+        <ul>
+            <li>Layout flexible usando Flexbox para adaptarse a diferentes tamaños de pantalla.</li>
+            <li>Estilos específicos para los contenedores, cajas de letras y mensajes.</li>
+            <li>Efectos visuales para mejorar la experiencia de usuario (colores, bordes, etc.).</li>
+        </ul>
+
+        <h3>3.3. Estructura JavaScript</h3>
+        <p>
+            El código JavaScript se organiza de la siguiente manera:
+        </p>
+        <ul>
+            <li><strong>Variables globales</strong>: Para mantener el estado del juego.</li>
+            <li><strong>Inicialización</strong>: Configuración inicial del juego.</li>
+            <li><strong>Gestión de eventos</strong>: Captura y procesamiento de pulsaciones de teclas.</li>
+            <li><strong>Funciones de actualización</strong>: Actualizan la interfaz según las acciones del usuario.</li>
+            <li><strong>Lógica del juego</strong>: Implementa las reglas del juego del ahorcado.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>4. Detalles Técnicos</h2>
+
+        <h3>4.1. Estructuras de Datos</h3>
+        <p>
+            La aplicación utiliza varias estructuras de datos importantes:
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Estructura</th>
+                    <th>Tipo</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>palabras</td>
+                    <td>Array</td>
+                    <td>Almacena las palabras disponibles para el juego.</td>
+                </tr>
+                <tr>
+                    <td>palabraActual</td>
+                    <td>String</td>
+                    <td>Palabra seleccionada para la partida actual.</td>
+                </tr>
+                <tr>
+                    <td>palabraOculta</td>
+                    <td>Array</td>
+                    <td>Representa el estado actual de la palabra a adivinar.</td>
+                </tr>
+                <tr>
+                    <td>letrasIntroducidas</td>
+                    <td>Array</td>
+                    <td>Guarda las letras que el usuario ha introducido.</td>
+                </tr>
+                <tr>
+                    <td>contadorLetras</td>
+                    <td>Objeto</td>
+                    <td>Almacena el número de veces que se ha pulsado cada letra.</td>
+                </tr>
+                <tr>
+                    <td>estadosAhorcado</td>
+                    <td>Array</td>
+                    <td>Contiene las diferentes representaciones ASCII del ahorcado.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.2. Funciones Principales</h3>
+        <p>
+            Las funciones clave de la aplicación son:
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Función</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>iniciarJuego()</code></td>
+                    <td>Inicializa el juego y establece los valores por defecto.</td>
+                </tr>
+                <tr>
+                    <td><code>manejarTecla(evento)</code></td>
+                    <td>Gestiona las pulsaciones de teclas del usuario.</td>
+                </tr>
+                <tr>
+                    <td><code>procesarLetra(letra)</code></td>
+                    <td>Procesa la letra introducida y actualiza el estado del juego.</td>
+                </tr>
+                <tr>
+                    <td><code>actualizarPalabra()</code></td>
+                    <td>Actualiza la visualización de la palabra a adivinar.</td>
+                </tr>
+                <tr>
+                    <td><code>actualizarLetrasUsadas()</code></td>
+                    <td>Actualiza la visualización de las letras utilizadas.</td>
+                </tr>
+                <tr>
+                    <td><code>actualizarAhorcado()</code></td>
+                    <td>Actualiza la visualización del ahorcado según los errores.</td>
+                </tr>
+                <tr>
+                    <td><code>finalizarJuego(hasGanado)</code></td>
+                    <td>Finaliza el juego y muestra el resultado.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>5. Representación del Ahorcado</h2>
+        <p>
+            El ahorcado se representa mediante caracteres ASCII en un elemento &lt;pre&gt;. Los diferentes estados se almacenan en un array y se muestran progresivamente a medida que el jugador comete errores:
+        </p>
+        <div class="code-block">
+<pre>const estadosAhorcado = [
+    `  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========`,
+    `  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========`,
+    // ... más estados ...
+];</pre>
+        </div>
+        <p>
+            En total hay 7 estados que representan: base inicial, cabeza, cuerpo, brazo izquierdo, brazo derecho, pierna izquierda y pierna derecha.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>6. Manejo de Eventos</h2>
+        <p>
+            El juego captura las pulsaciones de teclas mediante el evento <code>keydown</code>:
+        </p>
+        <div class="code-block">
+<pre>document.addEventListener('keydown', manejarTecla);</pre>
+        </div>
+        <p>
+            La función <code>manejarTecla</code> filtra las pulsaciones para aceptar solo letras:
+        </p>
+        <div class="code-block">
+<pre>function manejarTecla(evento) {
+    if (juegoTerminado) return;
+    
+    // Obtener la letra y convertirla a minúscula
+    const tecla = evento.key.toLowerCase();
+    
+    // Verificar si es una letra
+    if (/^[a-z]$/.test(tecla)) {
+        procesarLetra(tecla);
+    }
+}</pre>
+        </div>
+        <p>
+            También se implementa un evento para el botón de reinicio:
+        </p>
+        <div class="code-block">
+<pre>botonReinicio.addEventListener('click', function() {
+    iniciarJuego();
+});</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>7. Flujo del Juego</h2>
+        <p>
+            El flujo del juego sigue estos pasos:
+        </p>
+        <ol>
+            <li><strong>Inicialización</strong>: Se selecciona una palabra aleatoria y se prepara la interfaz.</li>
+            <li><strong>Entrada del usuario</strong>: El jugador pulsa letras en el teclado.</li>
+            <li><strong>Procesamiento</strong>: Se comprueba si la letra está en la palabra y se actualiza el estado del juego.</li>
+            <li><strong>Actualización de la interfaz</strong>: Se actualiza la visualización del ahorcado, la palabra y las letras usadas.</li>
+            <li><strong>Comprobación de fin de juego</strong>: Se verifica si el jugador ha ganado o perdido.</li>
+            <li><strong>Mensaje final</strong>: Se muestra un mensaje indicando el resultado y la opción de reiniciar.</li>
+        </ol>
+        <p>
+            El juego termina cuando:
+        </p>
+        <ul>
+            <li>El jugador adivina todas las letras de la palabra (victoria).</li>
+            <li>El jugador comete suficientes errores para completar el ahorcado (derrota).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>8. Aspectos Destacados de la Implementación</h2>
+        
+        <h3>8.1. Registro de Letras Introducidas</h3>
+        <p>
+            La aplicación mantiene un registro de las letras que el usuario ha introducido y muestra un contador para las letras repetidas:
+        </p>
+        <div class="code-block">
+<pre>// Actualizar contador de letras
+if (contadorLetras[letra]) {
+    contadorLetras[letra]++;
+} else {
+    contadorLetras[letra] = 1;
+    letrasIntroducidas.push(letra);
+}</pre>
+        </div>
+        
+        <h3>8.2. Actualización Dinámica de la Interfaz</h3>
+        <p>
+            La interfaz se actualiza dinámicamente mediante manipulación del DOM:
+        </p>
+        <div class="code-block">
+<pre>function actualizarPalabra() {
+    contenedorPalabra.innerHTML = '';
+    
+    for (let i = 0; i < palabraOculta.length; i++) {
+        const letraBox = document.createElement('div');
+        letraBox.className = 'letter-box';
+        letraBox.textContent = palabraOculta[i] !== '_' ? palabraOculta[i] : '';
+        contenedorPalabra.appendChild(letraBox);
+    }
+}</pre>
+        </div>
+        
+        <h3>8.3. Selección Aleatoria de Palabras</h3>
+        <p>
+            Las palabras se seleccionan aleatoriamente del array de palabras disponibles:
+        </p>
+        <div class="code-block">
+<pre>palabraActual = palabras[Math.floor(Math.random() * palabras.length)];</pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>9. Posibles Mejoras</h2>
+        <p>
+            Algunas mejoras que podrían implementarse en el futuro:
+        </p>
+        <ul>
+            <li>Añadir categorías de palabras (animales, países, etc.).</li>
+            <li>Implementar diferentes niveles de dificultad.</li>
+            <li>Añadir efectos de sonido para aciertos y errores.</li>
+            <li>Implementar un sistema de puntuación.</li>
+            <li>Añadir un temporizador para aumentar la dificultad.</li>
+            <li>Guardar estadísticas del jugador en el almacenamiento local.</li>
+            <li>Implementar un modo multijugador.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>10. Conclusiones</h2>
+        <p>
+            Esta implementación del juego del ahorcado cumple con todos los requisitos especificados, proporcionando una experiencia de juego completa y funcional. Utiliza estructuras de datos como arrays y objetos, y maneja correctamente los strings para implementar la lógica del juego.
+        </p>
+        <p>
+            La aplicación demuestra el uso de técnicas de programación front-end modernas, incluyendo:
+        </p>
+        <ul>
+            <li>Manipulación del DOM de forma dinámica.</li>
+            <li>Gestión de eventos del usuario.</li>
+            <li>Uso de expresiones regulares para validar entrada.</li>
+            <li>Implementación de lógica de juego interactiva.</li>
+            <li>Diseño responsivo con CSS moderno.</li>
+        </ul>
+        <p>
+            El código está estructurado de manera modular, lo que facilita su mantenimiento y extensión en el futuro.
+        </p>
+    </div>
+
+    <footer>
+        <p>Documentación del Juego del Ahorcado - Creado con HTML, CSS y JavaScript</p>
+        <p>© 2025 - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

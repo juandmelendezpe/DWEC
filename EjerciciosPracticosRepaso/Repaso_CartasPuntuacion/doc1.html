@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación del Juego de Cartas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2a5885;
+            border-bottom: 2px solid #2a5885;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        h2 {
+            color: #2a5885;
+            margin-top: 30px;
+            border-left: 4px solid #2a5885;
+            padding-left: 10px;
+        }
+        
+        h3 {
+            color: #444;
+            margin-top: 20px;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .screenshot {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .note {
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .workflow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .workflow-item {
+            text-align: center;
+            width: 150px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #e8f4fc;
+            margin: 10px;
+            position: relative;
+        }
+        
+        .workflow-item:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #2a5885;
+        }
+        
+        .card-example {
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            width: 200px;
+            margin: 20px 0;
+            background-color: white;
+        }
+        
+        .card-stat {
+            margin: 5px 0;
+        }
+        
+        .button-example {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 5px;
+        }
+        
+        .toc {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            text-decoration: none;
+            color: #2a5885;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .workflow-item:not(:last-child)::after {
+                content: "↓";
+                position: absolute;
+                right: 50%;
+                bottom: -25px;
+                top: auto;
+                transform: translateX(50%);
+            }
+            
+            .workflow {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Documentación del Juego de Cartas</h1>
+        
+        <div class="toc">
+            <h2>Índice</h2>
+            <ul>
+                <li><a href="#introduccion">1. Introducción</a></li>
+                <li><a href="#reglas">2. Reglas del Juego</a></li>
+                <li><a href="#interfaz">3. Interfaz de Usuario</a>
+                    <ul>
+                        <li><a href="#configuracion">3.1 Configuración Inicial</a></li>
+                        <li><a href="#creacion">3.2 Creación de Cartas</a></li>
+                        <li><a href="#combate">3.3 Fase de Combate</a></li>
+                    </ul>
+                </li>
+                <li><a href="#flujo">4. Flujo del Juego</a></li>
+                <li><a href="#ejemplos">5. Ejemplos de Uso</a></li>
+                <li><a href="#requisitos">6. Requisitos Técnicos</a></li>
+                <li><a href="#implementacion">7. Detalles de Implementación</a></li>
+                <li><a href="#faq">8. Preguntas Frecuentes</a></li>
+            </ul>
+        </div>
+        
+        <div class="section" id="introduccion">
+            <h2>1. Introducción</h2>
+            <p>El Juego de Cartas es una aplicación web que permite a dos jugadores enfrentarse en un juego de estrategia por turnos utilizando cartas con diferentes estadísticas. Cada jugador crea tres cartas con valores personalizados de fuerza, defensa y habilidad, y luego se enfrentan en batallas donde cada carta tiene fortalezas y debilidades específicas.</p>
+            
+            <div class="note">
+                <strong>Nota:</strong> El juego está diseñado para ser jugado en un mismo dispositivo, donde los jugadores se alternan para realizar sus acciones.
+            </div>
+        </div>
+        
+        <div class="section" id="reglas">
+            <h2>2. Reglas del Juego</h2>
+            <h3>Principios Básicos:</h3>
+            <ul>
+                <li>Participan dos jugadores que se enfrentan en un juego de cartas por turnos.</li>
+                <li>Cada jugador crea 3 cartas personalizadas con valores de fuerza, defensa y habilidad.</li>
+                <li>La suma de los valores de cada carta no puede superar los 30 puntos.</li>
+                <li>Los jugadores se turnan para atacar y defender.</li>
+                <li>Durante el combate, las cartas se enfrentan utilizando diferentes estadísticas.</li>
+                <li>La carta con el valor más bajo pierde la batalla y queda fuera del juego.</li>
+                <li>El juego consiste en 3 turnos. Al finalizar, gana el jugador con más cartas restantes.</li>
+            </ul>
+            
+            <h3>Mecánica de Combate:</h3>
+            <table>
+                <tr>
+                    <th>Si el atacante elige</th>
+                    <th>El defensor utiliza</th>
+                </tr>
+                <tr>
+                    <td>Fuerza</td>
+                    <td>Defensa</td>
+                </tr>
+                <tr>
+                    <td>Defensa</td>
+                    <td>Fuerza</td>
+                </tr>
+                <tr>
+                    <td>Habilidad</td>
+                    <td>Habilidad</td>
+                </tr>
+            </table>
+            
+            <h3>Orden de Turnos:</h3>
+            <ol>
+                <li>En el primer turno, el Jugador 1 ataca y el Jugador 2 defiende.</li>
+                <li>En el segundo turno, el Jugador 2 ataca y el Jugador 1 defiende.</li>
+                <li>En el tercer turno, se elige aleatoriamente qué jugador ataca.</li>
+            </ol>
+        </div>
+        
+        <div class="section" id="interfaz">
+            <h2>3. Interfaz de Usuario</h2>
+            
+            <div class="subsection" id="configuracion">
+                <h3>3.1 Configuración Inicial</h3>
+                <p>Al iniciar el juego, se muestra una pantalla para ingresar los nombres de los dos jugadores:</p>
+                <ul>
+                    <li>Campo de texto para el nombre del Jugador 1</li>
+                    <li>Campo de texto para el nombre del Jugador 2</li>
+                    <li>Botón "Comenzar Juego" para iniciar la partida</li>
+                </ul>
+                
+                <div class="note">
+                    <strong>Nota:</strong> Si no se ingresan nombres, se utilizarán los nombres por defecto "Jugador 1" y "Jugador 2".
+                </div>
+            </div>
+            
+            <div class="subsection" id="creacion">
+                <h3>3.2 Creación de Cartas</h3>
+                <p>Una vez iniciado el juego, los jugadores crean sus cartas por turnos:</p>
+                
+                <h4>Formulario de Creación de Cartas:</h4>
+                <ul>
+                    <li><strong>Nombre:</strong> Campo para ingresar el nombre de la carta</li>
+                    <li><strong>Fuerza:</strong> Campo numérico para el valor de fuerza</li>
+                    <li><strong>Defensa:</strong> Campo numérico para el valor de defensa</li>
+                    <li><strong>Habilidad:</strong> Campo numérico para el valor de habilidad</li>
+                    <li><strong>Puntos disponibles:</strong> Indicador de puntos restantes (máximo 30)</li>
+                    <li><strong>Botón "Crear Carta":</strong> Para finalizar la creación de la carta</li>
+                </ul>
+                
+                <div class="card-example">
+                    <div><strong>Nombre:</strong> Caballero</div>
+                    <div class="card-stat"><strong>Fuerza:</strong> 15</div>
+                    <div class="card-stat"><strong>Defensa:</strong> 10</div>
+                    <div class="card-stat"><strong>Habilidad:</strong> 5</div>
+                </div>
+                
+                <div class="warning">
+                    <strong>Importante:</strong> Si la suma de los valores supera los 30 puntos, no se podrá crear la carta y se mostrará un mensaje de error.
+                </div>
+                
+                <p>Después de crear las 3 cartas, el jugador actual tiene la opción de mostrar u ocultar sus cartas mediante un botón "Mostrar Cartas" / "Ocultar Cartas".</p>
+            </div>
+            
+            <div class="subsection" id="combate">
+                <h3>3.3 Fase de Combate</h3>
+                <p>Una vez que ambos jugadores han creado sus cartas, comienza la fase de combate:</p>
+                
+                <h4>Elementos de la Interfaz de Combate:</h4>
+                <ul>
+                    <li><strong>Indicador de turno:</strong> Muestra de quién es el turno actual</li>
+                    <li><strong>Botones de ataque:</strong> Opciones para elegir el tipo de ataque (fuerza, defensa, habilidad)</li>
+                    <li><strong>Área de cartas:</strong> Muestra las cartas disponibles del jugador actual</li>
+                    <li><strong>Área de batalla:</strong> Muestra las cartas enfrentadas y el resultado</li>
+                    <li><strong>Registro de juego:</strong> Muestra los eventos importantes del juego</li>
+                </ul>
+                
+                <div class="note">
+                    <strong>Nota:</strong> Las cartas que ya han sido utilizadas y perdieron una batalla aparecerán con una opacidad reducida y no podrán ser seleccionadas nuevamente.
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" id="flujo">
+            <h2>4. Flujo del Juego</h2>
+            
+            <div class="workflow">
+                <div class="workflow-item">Configuración Inicial</div>
+                <div class="workflow-item">Creación de Cartas Jugador 1</div>
+                <div class="workflow-item">Creación de Cartas Jugador 2</div>
+                <div class="workflow-item">Fase de Combate</div>
+                <div class="workflow-item">Resultado Final</div>
+            </div>
+            
+            <ol>
+                <li><strong>Configuración Inicial:</strong>
+                    <ul>
+                        <li>Los jugadores ingresan sus nombres</li>
+                        <li>Se presiona "Comenzar Juego"</li>
+                    </ul>
+                </li>
+                <li><strong>Creación de Cartas:</strong>
+                    <ul>
+                        <li>El Jugador 1 crea sus 3 cartas</li>
+                        <li>Las cartas se ocultan automáticamente</li>
+                        <li>El Jugador 2 crea sus 3 cartas</li>
+                        <li>Las cartas se ocultan automáticamente</li>
+                    </ul>
+                </li>
+                <li><strong>Fase de Combate - Primer Turno:</strong>
+                    <ul>
+                        <li>El Jugador 1 (atacante) elige un tipo de ataque</li>
+                        <li>El Jugador 1 selecciona una de sus cartas</li>
+                        <li>El Jugador 2 (defensor) selecciona una de sus cartas</li>
+                        <li>Se determina el ganador y se marca la carta perdedora como usada</li>
+                    </ul>
+                </li>
+                <li><strong>Fase de Combate - Segundo Turno:</strong>
+                    <ul>
+                        <li>El Jugador 2 (atacante) elige un tipo de ataque</li>
+                        <li>El Jugador 2 selecciona una de sus cartas</li>
+                        <li>El Jugador 1 (defensor) selecciona una de sus cartas</li>
+                        <li>Se determina el ganador y se marca la carta perdedora como usada</li>
+                    </ul>
+                </li>
+                <li><strong>Fase de Combate - Tercer Turno:</strong>
+                    <ul>
+                        <li>Se elige aleatoriamente qué jugador ataca</li>
+                        <li>El jugador atacante elige un tipo de ataque</li>
+                        <li>El jugador atacante selecciona una de sus cartas</li>
+                        <li>El jugador defensor selecciona una de sus cartas</li>
+                        <li>Se determina el ganador y se marca la carta perdedora como usada</li>
+                    </ul>
+                </li>
+                <li><strong>Resultado Final:</strong>
+                    <ul>
+                        <li>Se cuentan las cartas restantes de cada jugador</li>
+                        <li>Gana el jugador con más cartas restantes</li>
+                        <li>Se muestra el resultado final y la opción de volver a jugar</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+        
+        <div class="section" id="ejemplos">
+            <h2>5. Ejemplos de Uso</h2>
+            
+            <h3>Ejemplo de Creación de Cartas:</h3>
+            <p>El Jugador 1 (Javier) crea las siguientes cartas:</p>
+            <ul>
+                <li>Carta 1: "Guerrero" - Fuerza: 15, Defensa: 10, Habilidad: 5</li>
+                <li>Carta 2: "Mago" - Fuerza: 8, Defensa: 7, Habilidad: 15</li>
+                <li>Carta 3: "Arquero" - Fuerza: 12, Defensa: 8, Habilidad: 10</li>
+            </ul>
+            
+            <p>El Jugador 2 (Jesús) crea las siguientes cartas:</p>
+            <ul>
+                <li>Carta 1: "Caballero" - Fuerza: 14, Defensa: 12, Habilidad: 4</li>
+                <li>Carta 2: "Druida" - Fuerza: 9, Defensa: 9, Habilidad: 12</li>
+                <li>Carta 3: "Ninja" - Fuerza: 10, Defensa: 5, Habilidad: 15</li>
+            </ul>
+            
+            <h3>Ejemplo de Combate:</h3>
+            <p><strong>Primer Turno:</strong></p>
+            <ul>
+                <li>Javier (atacante) elige atacar con "Fuerza"</li>
+                <li>Javier selecciona su carta "Guerrero" con Fuerza = 15</li>
+                <li>Jesús (defensor) selecciona su carta "Caballero" con Defensa = 12</li>
+                <li>Resultado: 15 > 12, la carta "Caballero" de Jesús es derrotada</li>
+            </ul>
+            
+            <p><strong>Segundo Turno:</strong></p>
+            <ul>
+                <li>Jesús (atacante) elige atacar con "Habilidad"</li>
+                <li>Jesús selecciona su carta "Ninja" con Habilidad = 15</li>
+                <li>Javier (defensor) selecciona su carta "Mago" con Habilidad = 15</li>
+                <li>Resultado: 15 = 15, empate, ambas cartas permanecen en juego</li>
+            </ul>
+            
+            <p><strong>Tercer Turno:</strong></p>
+            <ul>
+                <li>Se elige aleatoriamente, y Javier es seleccionado como atacante</li>
+                <li>Javier elige atacar con "Defensa"</li>
+                <li>Javier selecciona su carta "Arquero" con Defensa = 8</li>
+                <li>Jesús selecciona su carta "Druida" con Fuerza = 9</li>
+                <li>Resultado: 8 < 9, la carta "Arquero" de Javier es derrotada</li>
+            </ul>
+            
+            <p><strong>Resultado Final:</strong></p>
+            <ul>
+                <li>Javier tiene 2 cartas restantes (Guerrero y Mago)</li>
+                <li>Jesús tiene 2 cartas restantes (Druida y Ninja)</li>
+                <li>El juego termina en empate</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="requisitos">
+            <h2>6. Requisitos Técnicos</h2>
+            
+            <h3>Para Usuarios:</h3>
+            <ul>
+                <li>Navegador web moderno (Chrome, Firefox, Safari, Edge)</li>
+                <li>JavaScript habilitado</li>
+                <li>Resolución de pantalla mínima recomendada: 768px de ancho</li>
+            </ul>
+            
+            <h3>Para Desarrolladores:</h3>
+            <ul>
+                <li>Conocimientos básicos de HTML, CSS y JavaScript</li>
+                <li>Editor de código (Visual Studio Code, Sublime Text, etc.)</li>
+                <li>Servidor web local para pruebas (opcional)</li>
+            </ul>
+            
+            <div class="note">
+                <strong>Nota:</strong> La aplicación está desarrollada como un archivo HTML único con JavaScript y CSS incorporados, por lo que no requiere instalación de dependencias adicionales.
+            </div>
+        </div>
+        
+        <div class="section" id="implementacion">
+            <h2>7. Detalles de Implementación</h2>
+            
+            <h3>Estructura del Proyecto:</h3>
+            <p>La aplicación está implementada como un único archivo HTML que contiene todo el código necesario para el funcionamiento del juego:</p>
+            <ul>
+                <li><strong>HTML:</strong> Define la estructura y los elementos de la interfaz de usuario</li>
+                <li><strong>CSS:</strong> Proporciona los estilos visuales de la aplicación</li>
+                <li><strong>JavaScript:</strong> Implementa la lógica del juego y la interactividad</li>
+            </ul>
+            
+            <h3>Componentes Principales:</h3>
+            <ul>
+                <li><strong>Estado del Juego (gameState):</strong> Objeto que almacena toda la información del juego, incluidos los jugadores, cartas, turnos, etc.</li>
+                <li><strong>Elementos DOM (elements):</strong> Referencias a los elementos HTML para manipularlos con JavaScript</li>
+                <li><strong>Funciones de Control:</strong> Funciones para manejar la lógica del juego (crear cartas, seleccionar ataques, resolver batallas, etc.)</li>
+                <li><strong>Manejadores de Eventos:</strong> Funciones que responden a las interacciones del usuario</li>
+            </ul>
+            
+            <h3>Características Técnicas:</h3>
+            <ul>
+                <li>Diseño responsivo que se adapta a diferentes tamaños de pantalla</li>
+                <li>Validación en tiempo real de la suma de puntos de las cartas</li>
+                <li>Sistema de ocultación/visualización de cartas para mantener la privacidad</li>
+                <li>Efectos visuales para indicar el resultado de las batallas</li>
+                <li>Registro de eventos del juego para seguir el progreso</li>
+            </ul>
+        </div>
+        
+        <div class="section" id="faq">
+            <h2>8. Preguntas Frecuentes</h2>
+            
+            <h3>¿Cómo se determina el ganador de una batalla?</h3>
+            <p>El ganador se determina comparando el valor de ataque del jugador atacante con el valor de defensa correspondiente del jugador defensor. La carta con el valor más bajo pierde la batalla y queda fuera del juego.</p>
+            
+            <h3>¿Qué ocurre en caso de empate?</h3>
+            <p>Si los valores son iguales, se produce un empate y ambas cartas permanecen en juego.</p>
+            
+            <h3>¿Puedo usar una carta que ya ha sido derrotada?</h3>
+            <p>No, una vez que una carta ha sido derrotada en una batalla, queda marcada como usada y no puede ser seleccionada nuevamente.</p>
+            
+            <h3>¿Por qué no puedo crear una carta con ciertos valores?</h3>
+            <p>La suma de los valores de fuerza, defensa y habilidad no puede superar los 30 puntos. Si intentas asignar valores que exceden este límite, no podrás crear la carta.</p>
+            
+            <h3>¿Cómo se determina quién ataca en el tercer turno?</h3>
+            <p>En el tercer turno, el jugador atacante se elige de forma aleatoria mediante un algoritmo que da a ambos jugadores un 50% de probabilidad de ser seleccionados.</p>
+            
+            <h3>¿Se puede jugar con más de dos jugadores?</h3>
+            <p>No, actualmente el juego está diseñado exclusivamente para dos jugadores.</p>
+            
+            <h3>¿Qué pasa si se refresca la página durante una partida?</h3>
+            <p>Si la página se refresca, se perderá todo el progreso del juego y será necesario comenzar una nueva partida desde el principio.</p>
+        </div>
+    </div>
+</body>
+</html>

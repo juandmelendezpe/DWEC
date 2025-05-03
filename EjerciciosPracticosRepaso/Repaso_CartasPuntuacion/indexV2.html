@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Cartas</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="scriptV3.js" defer></script>
+    
+</head>
+<body>
+    <div class="container">
+        <h1 class="centered">Juego de Cartas</h1>
+        
+        <!-- Configuración Inicial -->
+        <div id="playerSetup" class="setup">
+            <h2>Ingresar Nombres de Jugadores</h2>
+            <input type="text" id="player1Name" placeholder="Nombre del Jugador 1">
+            <button id="startGame">Ingresar nombres</button>
+            <input type="text" id="player2Name" placeholder="Nombre del Jugador 2">
+        </div>
+
+        <!-- Tablero de Juego -->
+        <div id="gameBoard" class="hidden">
+            <div class="game-board">
+                <div class="player-column">
+                    <div class="player-div">
+                        <div id="player1Cards" class="card-holder">
+                            <!-- <div><strong>Nombre:</strong>Fuego</div>
+                            <div class="stats"><strong>Fuerza:</strong>10</div>
+                            <div class="stats"><strong>Defensa:</strong>10</div>
+                            <div class="stats"><strong>Habilidad:</strong>10</div> -->
+                        </div>
+                        </div>
+                    <div class="player-div">
+                        <div id="player1Header" class="player-name">Jugador 1</div>
+                        <button id="p1ShowCardCreation">Agregar</button>
+                        <button id="p1HideCards" class=" ">Elegir</button>
+                        <button id="p1ShowCards">Mostrar</button>
+                    </div>
+                </div>
+                <div class="player-column columnaCentro">
+                    <div id="player1CardCreation" class="card-creation">
+                        <h3>Crear Carta</h3>
+                        <input type="text" id="p1CardName" placeholder="Nombre">
+                        <input type="number" id="p1CardFuerza" placeholder="Fuerza" min="1" max="28">
+                        <input type="number" id="p1CardDefensa" placeholder="Defensa" min="1" max="28">
+                        <input type="number" id="p1CardHabilidad" placeholder="Habilidad" min="1" max="28">
+                        <div id="p1PointsRemaining">Puntos disponibles: 30</div>
+                        <button id="p1CreateCard">Crear Carta</button>
+                    </div>
+                    <div id="player2CardCreation" class="card-creation hidden">
+                        <h3>Crear Carta</h3>
+                        <input type="text" id="p2CardName" placeholder="Nombre">
+                        <input type="number" id="p2CardFuerza" placeholder="Fuerza" min="1" max="28">
+                        <input type="number" id="p2CardDefensa" placeholder="Defensa" min="1" max="28">
+                        <input type="number" id="p2CardHabilidad" placeholder="Habilidad" min="1" max="28">
+                        <div id="p2PointsRemaining">Puntos disponibles: 30</div>
+                        <button id="p2CreateCard">Crear Carta</button>
+                    </div>
+                    <button id="showAllCards">Mostrar Todas las Cartas</button>
+                    <div id="cartasElegidas">
+                        <h3>Cartas Elegidas</h3>
+                        <div id="cartasElegidasContainer">
+                            <div id="player1Battle" class="card"> Carta Jugador 1</div>
+                            <div id="player2Battle" class="card"> CartaJugador 2</div>
+                        </div>
+                    </div>
+
+                    <div id="battleSection" class="hidden">
+                        <div class="current-turn" id="currentTurn">Turno de: </div>
+                        
+                        <div id="attackOptions" class="centered">
+                            <h3>Elige tu ataque</h3>
+                            <button id="attackFuerza">Atacar con Fuerza</button>
+                            <button id="attackDefensa">Atacar con Defensa</button>
+                            <button id="attackHabilidad">Atacar con Habilidad</button>
+                        </div>
+                        
+                        <div class="battle-area">
+                            <div id="player1Battle" class="battle-card"></div>
+                            <div id="battleResult" class="centered">VS</div>
+                            <div id="player2Battle" class="battle-card"></div>
+                        </div>
+                        
+                        <div class="game-log" id="gameLog"></div>
+                    </div>
+                    
+                </div>
+                <div class="player-column">
+                    <div class="player-div">
+                        <div id="player2Header" class="player-name">Jugador 2</div>
+                        <button id="p2ShowCardCreation">Agregar</button>
+                        <button id="p2HideCards" class=" ">Elegir</button>
+                        <button id="p2ShowCards">Mostrar</button>
+                    </div>
+                    <div class="player-div">
+                        <div id="player2Cards" class="card-holder">
+                            <!-- <div><strong>Nombre:</strong> agua</div>
+                            <div class="stats"><strong>Fuerza:</strong>9</div>
+                            <div class="stats"><strong>Defensa:</strong>9</div>
+                            <div class="stats"><strong>Habilidad:</strong>9</div> -->
+                        </div>
+                        </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+   <footer>
+        <p>&copy; 2025 Juego de Cartas. Todos los derechos reservados.</p>
+        <p>Desarrollado por Juan</p>
+        <p>Versión 1.0</p>
+   </footer>
+</body>
+</html>

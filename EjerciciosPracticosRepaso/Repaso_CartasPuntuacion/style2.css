@@ -1,0 +1,236 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+.container {
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.setup {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.game-board {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.player-column {
+    width: 45%;
+    text-align: center;
+    border: solid 1px #b71818;
+    border-radius: 8px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+}
+.columnaCentro{
+    width: 48%;
+    text-align: center;
+    border: solid 1px #b71818;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#cartasElegidas{
+    width: 90%;
+    text-align: center;
+    border: solid 1px #b71818;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#cartasElegidasContainer{
+    width: 90%;
+    text-align: center;
+    border: solid 1px #b71818;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+#cartasElegidasContainer .card{
+    margin: 5px;
+}
+
+.player-div {
+    width: 80%;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 1px #b71818;
+    border-radius: 8px;
+    margin: 1%;
+}
+.player-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.card-creation {
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 80%;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+.card-creation input {
+    width: 80%;
+    margin: 5px;
+    padding: 8px;
+}
+.card-holder {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #b0da1a;
+}
+.card {
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    width: 150px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.card.selected {
+    border-color: #ffcc00;
+    background-color: #fffacd;
+    box-shadow: 0 0 10px #ffcc00;
+}
+.red{
+    color: red ;
+
+}
+.black{
+    color: black ;
+}
+.card.used {
+    opacity: 0.5;
+    background-color: #ddd;
+}
+.battle-area {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px dashed #999;
+    border-radius: 8px;
+    background-color: #f0f8ff;
+}
+.battle-card {
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 10px;
+    width: 150px;
+    background-color: white;
+}
+.winner {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.loser {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+button {
+    padding: 8px 16px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.centered {
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+}
+.hidden {
+    display: none;
+}
+.game-log {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+.current-turn {
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    font-size: 18px;
+}
+.stats {
+    text-align: left;
+    margin: 5px 0;
+}
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    
+}
+@media (max-width: 600px) {
+    .game-board {
+        flex-direction: column;
+        align-items: center;
+    }
+    .player-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .card-creation {
+        width: 90%;
+    }
+    .battle-area {
+        flex-direction: column;
+    }
+    .battle-card {
+        width: 80%;
+    }
+}
+@media (max-width: 400px) {
+    .card-creation input {
+        width: 100%;
+    }
+    .card {
+        width: 100%;
+    }
+}
