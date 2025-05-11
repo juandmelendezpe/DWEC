@@ -1,9 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Palabras disponibles para el juego
-    const palabras = [
-        'javascript', 'programacion', 'desarrollo', 
-        'aplicacion', 'estructura', 'algoritmo',
-    ];
+    const palabras = ["javascript","html", "pyton", "java", "css", "typescript", "react", "angular","vue","nodejs","express","mongodb",];
     
     // Elementos del DOM
     const figuraAhorcado = document.getElementById('hombrecito-figure');

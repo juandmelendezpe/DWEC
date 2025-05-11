@@ -1,0 +1,131 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background:url(https://media.sketchfab.com/models/967995fb3d184b609574c78bf6c480ba/thumbnails/d23351ea2a5745329cf9dd00da6a4fd1/84f7c07626d5406b8f7ccac13efb7a76.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+    ;
+}
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color:white;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    border : 2px solid #0cbbf6;
+}
+
+.hombrecito-container {
+    border: 2px solid #333;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.697);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#hombrecito-figure {
+    font-family: monospace;
+    white-space: pre;
+    font-size: 18px;
+    margin: 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.palabra-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.697);
+    padding: 10px;
+}
+
+.letraBox{
+    width: 40px;
+    height: 40px;
+    border-bottom: 3px solid #333;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.letrasUsadas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.letrasUsadas {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 2rem;
+    margin: 0 5px 5px 0;
+    padding: 5px 10px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+}
+
+.letrasUsadas .count {
+    margin-left: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: red;
+}
+
+.mensaje {
+    font-size: 24px;
+    text-align: center;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.perdedor {
+    color: red;
+}
+
+.ganador {
+    color: green;
+}
+
+.restart-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: none;
+}
+
+.restart-button:hover {
+    background-color: #45a049;
+}
