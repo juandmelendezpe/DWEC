@@ -315,6 +315,7 @@ function reset(){
 window.onload = function() {
     crearContenedores();
    const juego = new Juego();
+    
   
     
 }

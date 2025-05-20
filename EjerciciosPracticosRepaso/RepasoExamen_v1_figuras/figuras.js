@@ -1,4 +1,4 @@
-let figuras = ["circuloAzul", "circuloRojo", "circuloVerde",
+const figuras = ["circuloAzul", "circuloRojo", "circuloVerde",
     "cuadradoAzul", "cuadradoRojo", "cuadradoVerde",
     "trianguloAzul", "trianguloRojo", "trianguloVerde"
 ];
@@ -38,10 +38,10 @@ function cargarSecuencia(){
         let numPosicion = devolverNumero(0,8);
         let posicionImagen = "imagenAbajo" + completado;
         let nombreImagen = "./imagenes/"+figuras[numPosicion]+".png"; 
-        if(!figurasUsadas.has(figuras[numPosicion])){
-            document.getElementById(posicionImagen).setAttribute("src", nombreImagen);
-            figurasUsadas.add(figuras[numPosicion]);
-            completado++;
+        if(!figurasUsadas.has(figuras[numPosicion])){ // Si no se ha usado la figura
+            document.getElementById(posicionImagen).setAttribute("src", nombreImagen);// Asignar la imagen
+            figurasUsadas.add(figuras[numPosicion]);// Agregar la figura al conjunto
+            completado++; // Incrementar el contador
         }
     }
 }
@@ -76,11 +76,11 @@ function comparaFiguras(idPosicion){
     if( (terminado < 7) && (vidas > 0) ){
     let valorPosicion = idPosicion.target.id;//valorElemento = "posicion0"
     let posicionElemento = document.getElementById(valorPosicion).getAttribute("src");
-    let valorSecuencia = "imagenAbajo"+ posicionActual;
+    let valorSecuencia = "imagenAbajo"+ terminado;
     let posicionSecuencia = document.getElementById(valorSecuencia).getAttribute("src");
     
     if(posicionElemento == posicionSecuencia){
-        //alert("los elementos son iguales :" +posicionElemento + " = " + posicionSecuencia);
+       // alert("los elementos son iguales :" +posicionElemento + " = " + posicionSecuencia + idPosicion.target.id);
         ocultarFigura(valorPosicion,valorSecuencia);
         posicionActual++;
         terminado++;
@@ -104,16 +104,16 @@ function fijarRecord(){
     let nombre = prompt("Ingrese su nombre:");        
     let personaJuega = new RecordsPersonas(nombre,puntuacion);
     let puntuaciones = "PUNTUACIONES JUGADORES \n";
-    records.push(personaJuega);
-    records.sort(function(a,b){        
+    records.push(personaJuega); // Agregar el nuevo jugador a la lista
+    records.sort(function(a,b){     // Ordenar la lista de jugadores por puntuación    
         return b.recuperarPuntuacion()-a.recuperarPuntuacion();
     });
     records.forEach(element => {
         //console.log(element.mostrarDatos());
-        puntuaciones += element.mostrarDatos() + "\n";
+        puntuaciones += element.mostrarDatos() + "\n"; // Mostrar los datos de cada jugador
     })
     alert(puntuaciones);
-    //console.log(records);
+    console.log(records);
     
 }
 function quitarVidas(vidas){
@@ -134,6 +134,8 @@ function quitarVidas(vidas){
         document.getElementById("vidas2 vidas3 vidas4").classList.add("ocultar");
         document.getElementById("vidas1").classList.add("vidas1");
         document.getElementById("vidas1").textContent = "25%";
+        document.getElementById("vidas2").textContent = "";
+
      }else if(vidas ==0 ){
         document.getElementById("vidas1").classList.add("vidas0");
         document.getElementById("vidas2").classList.add("vidas0");
