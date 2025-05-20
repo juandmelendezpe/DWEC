@@ -87,6 +87,9 @@ h1, h3{
 .oculto{
     visibility: hidden;
 }
+.mostrar{
+    visibility: visible;
+}
 .policia{
     border-radius:20px;
 

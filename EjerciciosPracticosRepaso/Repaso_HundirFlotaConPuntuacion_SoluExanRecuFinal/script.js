@@ -1,7 +1,7 @@
 let barcos = ["barco4", "barco1", "barco2", "barco3"];
 let agua = "agua";
 let estrellas = ["estrella", "estrellaBrilla"];
-let puntos = 3;
+let puntosIniciales = 3;
 
 function devolverNumero(minimo, maximo) {
     return Math.floor(Math.random() * (maximo - minimo + 1) + minimo);
@@ -58,16 +58,15 @@ function cargarAgua() {
 }
 
 function ocultarBarcos() {
-    let ocultar = document.getElementsByClassName("imagen");
-    for (let i = 0; i < ocultar.length; i++) {
-        ocultar[i].classList.add("oculto");
+    let elemento = document.getElementsByClassName("imagen");
+    for (let i = 0; i < elemento.length; i++) {
+        elemento[i].classList.add("oculto");
     }
 }
 
 function ocultarImagenes() {
     document.getElementById("play").addEventListener("click", ocultarBarcos);
 }
-
 function comprobarImagenes(idElemento) {
     let elemento = document.getElementById(idElemento);
     let src = elemento.getAttribute("src");
@@ -106,12 +105,13 @@ function comprobarImagenes(idElemento) {
     }
 
     document.getElementById("puntos").textContent = puntosActuales;
-
+    verificarPuntos();
+    // Parpadeo de la imagen
     let contador = 0;
     let intervalo = setInterval(() => {
         elemento.classList.toggle("oculto");
         contador++;
-
+        
         if (contador === 6) {
             clearInterval(intervalo);
             elemento.classList.remove("oculto");
@@ -119,6 +119,32 @@ function comprobarImagenes(idElemento) {
     }, 300);
 }
 
+function verificarPuntos() {
+    let puntosActuales = parseInt(document.getElementById("puntos").textContent);
+    if (puntosActuales >= 10) {
+        alert("¡Has ganado! El juego se reiniciará.");
+        reiniciarJuego();
+    }
+    
+    if (puntosActuales <=0) {
+        alert("¡Has perdido! El juego se reiniciará.");
+        reiniciarJuego();
+    }
+}
+
+function reiniciarJuego() {
+    // Reiniciamos los puntos a 3
+    document.getElementById("puntos").textContent = puntosIniciales;
+    
+    // Volvemos a cargar las imágenes
+    cargarBarcos();
+    cargarEstrellas();
+    cargarAgua();
+    // Ocultamos las imágenes
+    ocultarBarcos();
+    
+
+}
 function ocultarPolicia() {
     let policia = document.getElementById("policia");
     policia.getAttribute("src");
@@ -129,38 +155,13 @@ function ocultarPolicia() {
         policia.setAttribute("src", "./imagenes/mostrar.png");
     }
 }
-function verificarPuntos() {
-    let puntosActuales = parseInt(document.getElementById("puntos").textContent);
-
-    if (puntosActuales <= 0) {
-        alert("¡Has perdido! El juego se reiniciará.");
-        reiniciarJuego();
-    }
-}
-
-function reiniciarJuego() {
-    // Reiniciamos los puntos a 3
-    document.getElementById("puntos").textContent = 3;
-
-    // Volvemos a cargar las imágenes
-    cargarBarcos();
-    cargarEstrellas();
-    cargarAgua();
-
-    // Ocultamos las imágenes nuevamente
-    let imagenes = document.getElementsByClassName("imagen");
-    for (let i = 0; i < imagenes.length; i++) {
-        imagenes[i].classList.add("oculto");
-    }
-}
 
 window.onload = function () {
     cargarBarcos();
     cargarEstrellas();
     cargarAgua();
-    ocultarImagenes();
-    verificarPuntos();
-
+   
+    document.getElementById("play").addEventListener("click", ocultarBarcos);
     document.getElementById("policia").addEventListener("click", ocultarPolicia);
     for (let i = 0; i < 12; i++) {
         document.getElementById("imagen" + i).addEventListener("click", function () {

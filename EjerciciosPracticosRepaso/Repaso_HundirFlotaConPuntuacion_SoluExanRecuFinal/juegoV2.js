@@ -18,13 +18,14 @@ const cargarImagenes = (numBarcos, numEstrellas) => {
 
         while (completado < cantidad) {
             const numPosicion = devolverNumero(0, totalPosiciones - 1);
-            const posicionImagen = `imagen${numPosicion}`;
-            const nombreImagen = `./imagenes/${tipoImagenes[devolverNumero(0, tipoImagenes.length - 1)]}.png`;
+            const posicionImagenId = `imagen${numPosicion}`;
+            //const nombreImagen = `./imagenes/${tipoImagenes[devolverNumero(0, tipoImagenes.length - 1)]}.png`;
+            const nombreImagen = "./imagenes/"+tipoImagenes[devolverNumero(0, tipoImagenes.length - 1)]+".png";
 
-            const elemento = document.getElementById(posicionImagen);
-            if (elemento && !posicionesUsadas.has(posicionImagen)) {
+            const elemento = document.getElementById(posicionImagenId);
+            if (elemento && !posicionesUsadas.has(posicionImagenId)) {
                 elemento.setAttribute("src", nombreImagen);
-                posicionesUsadas.add(posicionImagen);
+                posicionesUsadas.add(posicionImagenId);
                 completado++;
             }
         }
@@ -51,16 +52,17 @@ const ocultarImagenes = () => {
     document.getElementById("play").addEventListener("click", () => {
         const imagenes = document.getElementsByClassName("imagen");
        // Array.from(imagenes).forEach(imagen => imagen.classList.add("oculto"));
-      /*  for (let i = 0; i < imagenes.length; i++) {
+      
+       /*  for (let i = 0; i < imagenes.length; i++) {
             imagenes[i].classList.add("oculto");
         }
         */
        for(const imagen of imagenes){
-           imagen.classList.toogle("oculto");
+           imagen.classList.add("oculto");
+           
        }
     });
 };
-
 // Función para verificar el tipo de imagen y actualizar los puntos
 const comprobarImagenes = idElemento => {
     const elemento = document.getElementById(idElemento);
@@ -74,9 +76,9 @@ const comprobarImagenes = idElemento => {
 
     if (src.includes("barco")) {
         const tipoBarco = barcos.find(barco => src.includes(barco));
-        const puntosBarco = barcos.indexOf(tipoBarco) + 1;
+        const puntosBarco = barcos.indexOf(tipoBarco) + 1;// 1, 2, 3, 4
         alert(`¡Encontraste un ${tipoBarco}!`);
-        puntosActuales += puntosBarco;
+        puntosActuales += puntosBarco; 
     } else if (src.includes("estrella")) {
         const puntosEstrella = src.includes("estrellaBrilla") ? 10 : 5;
         alert(`¡Encontraste una ${src.includes("estrellaBrilla") ? "estrella brillante" : "estrella"}!`);
@@ -86,9 +88,9 @@ const comprobarImagenes = idElemento => {
         puntosActuales -= 3;
     }
 
+    
     document.getElementById("puntos").textContent = puntosActuales;
     verificarPuntos();
-
     // Parpadeo de la imagen
     let contador = 0;
     const intervalo = setInterval(() => {
@@ -117,7 +119,7 @@ const verificarPuntos = () => {
 // Función para reiniciar el juego
 const reiniciarJuego = () => {
     document.getElementById("puntos").textContent = puntosIniciales;
-    cargarImagenes(4, 3);
+    cargarImagenes(4, 4);
     ocultarImagenes();
 };
 
@@ -130,12 +132,13 @@ const ocultarPolicia = () => {
 
 // Inicialización del juego
 window.onload = () => {
-    cargarImagenes(4, 3); // Cargar 4 barcos y 3 estrellas
+    cargarImagenes(4, 4); // Cargar 4 barcos y 3 estrellas
     ocultarImagenes();
 
     document.getElementById("policia").addEventListener("click", ocultarPolicia);
 
     for (let i = 0; i < 12; i++) {
-        document.getElementById(`imagen${i}`).addEventListener("click", () => comprobarImagenes(`imagen${i}`));
+        document.getElementById(`imagen${i}`)
+        .addEventListener("click", () => comprobarImagenes(`imagen${i}`));
     }
 };

@@ -31,7 +31,7 @@ const cargarEstrellas = () => {
     const estrellasUsadas = new Set();
     let completado = 0;
 
-    while (completado < 3) {
+    while (completado < 4) {
         const numPosicion = devolverNumero(0, 11);
         const posicionImagen = `imagen${numPosicion}`;
         const nombreImagenEstrella = `./imagenes/${estrellas[devolverNumero(0, estrellas.length - 1)]}.png`;
@@ -112,6 +112,10 @@ const verificarPuntos = () => {
         alert("¡Has perdido! El juego se reiniciará.");
         reiniciarJuego();
     }
+    if (puntosActuales >= 10) {
+        alert("¡Has ganado! El juego se reiniciará.");
+        reiniciarJuego();
+    }
 };
 
 // Función para reiniciar el juego
@@ -120,7 +124,9 @@ const reiniciarJuego = () => {
     cargarBarcos();
     cargarEstrellas();
     cargarAgua();
-    ocultarBarcos();
+    //ocultarBarcos();
+     ocultarImagenes();
+
 };
 
 // Función para alternar la imagen del policía
@@ -140,6 +146,7 @@ window.onload = () => {
     document.getElementById("policia").addEventListener("click", ocultarPolicia);
 
     for (let i = 0; i < 12; i++) {
-        document.getElementById(`imagen${i}`).addEventListener("click", () => comprobarImagenes(`imagen${i}`));
+        document.getElementById(`imagen${i}`)
+        .addEventListener("click", () => comprobarImagenes(`imagen${i}`));
     }
 };
