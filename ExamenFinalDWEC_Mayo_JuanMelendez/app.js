@@ -48,6 +48,7 @@ const figuras= ["pentagonoAmarillo","cuadradoAzul","circuloVerde","trianguloRojo
          for(let i = 1  ; i < fila1.length;i++){
             let id = fila1[i];
             let img = document.getElementById(id);
+            img.classList.remove("ocultar");
             img.classList.add("mostrar");
          }
 }
