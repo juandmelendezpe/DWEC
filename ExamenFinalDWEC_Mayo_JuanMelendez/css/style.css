@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: beige;
+}
+section{
+    width: 70vw;
+    height:80vh ;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 5vh;
+
+
+}
+h1{
+    width: 100%;
+    text-align: center;
+    height: auto;
+    color: blueviolet
+}
+#cuadros{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 70vh;
+
+}
+.fila{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 70vw;
+}
+.celda{
+    width: 18vw;
+    height: 18vh;
+    display: flex;
+    margin: 0;
+    border: solid 1px rgb(11, 61, 197);
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.celda img{
+    width: 50%;
+    height: 50%;
+    margin: 1%;
+}
+#panelControl{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70vw;
+    height: 15vh;
+    margin: 0 auto;
+}
+#botones{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+button{
+    width: 7vw;
+    height: 4vh;
+    border-radius: 7px;
+    margin: 2% ;
+
+}
+#naranja{
+    background-color: orange;
+}
+#rosa{
+
+    background-color: blueviolet;
+}
+#gray{
+    background-color: gray;
+}
+#figuras{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    height: auto;
+}
+#figuras img{
+    width: 15%;
+    height: 15%;
+    margin: 1%;
+
+}
+.ocultar{
+    visibility: hidden;
+}
+.mostrar{
+    visibility: visible;
+}

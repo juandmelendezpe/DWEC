@@ -130,6 +130,7 @@ const ocultarPolicia = () => {
     policia.setAttribute("src", srcActual === "./imagenes/mostrar.png" ? "./imagenes/ocultar.png" : "./imagenes/mostrar.png");
 };
 
+
 // Inicialización del juego
 window.onload = () => {
     cargarImagenes(4, 4); // Cargar 4 barcos y 3 estrellas
