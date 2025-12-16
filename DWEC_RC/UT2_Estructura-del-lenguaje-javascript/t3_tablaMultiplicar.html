@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Multiplicar</title>
+    <script type="text/javascript" src="js/tablaMultiplicar.js"></script>
+    <!-- Versión 2: listener con preventDefault -->
+    <script type="text/javascript" src="js/tablaMultiplica_v2.js"></script>
+    <!-- Versión 3: funciones y variables globales -->
+    <script type="text/javascript" src="js/tablaMultiplicar_v3.js"></script>
+    <!-- Versión 4: ultra-resumida -->
+    <script type="text/javascript" src="js/tablaMultiplicar_v4.js"></script>
+</head>
+<body>
+    <h1>Tabla de Multiplicar</h1>
+    <form onsubmit="mostrarTabla(); return false;">
+        <label for="numero">Ingrese un número:</label>
+        <input type="number" id="numero" name="numero" required>
+        <input type="submit" value="Mostrar Tabla">
+    </form>
+    <div id="tabla"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apertura y Cierre de ventanas - Objeto Windows</title>
+    <script type="text/javascript">
+        const inicializar = () => {
+            document.getElementById("crear-ventana").onclick = crearNueva;
+            document.getElementById("cerrar-ventana").onclick = cerrarVentana;
+        }
+        let nuevaVentana;
+        const crearNueva = () => {
+            nuevaVentana = window.open("https://google.es", "Nueva Ventana", "width=600,height=400");
+        }
+        const cerrarVentana = () => {
+           if(nuevaVentana){
+           nuevaVentana.close(); nuevaVentana = null;
+        }
+        }
+       
+        
+    </script>
+</head>
+<body onload="inicializar()">
+    <h1>Apertura y Cierre de ventanas - Objeto Windows</h1>
+    <button id="crear-ventana">Crear Ventana</button>
+    <button id="cerrar-ventana">Cerrar Ventana</button>
+</body>
+</html>
