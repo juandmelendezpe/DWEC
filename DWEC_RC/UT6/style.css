@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+#paleta {
+    margin: 20px auto;
+}
+
+#paleta table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#paleta td {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+/* La clase para el color activo de la paleta */
+.seleccionado {
+    border: 3px dashed black !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Clases de colores. La aplicación usa las clases, por lo que los valores pueden cambiar aquí y seguirá funcionando */
+.color1 { background-color: yellow; }
+.color2 { background-color: green; }
+.color3 { background-color: blue; }
+.color4 { background-color: red; }
+.color5 { background-color: purple; }
+.color6 { background-color: white; } /* Este hace de goma de borrar */
+
+#estado-pincel {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #555;
+}
+
+#zonadibujo {
+    margin: 20px auto;
+}
+
+/* Estilos básicos para la celda si quisieran ser modificados desde aquí, 
+   aunque el tamaño se forzará por JS a 10px según el enunciado */
+.celda-tablero {
+    border: 1px solid #eee; /* Borde muy sutil para ver la cuadrícula */
+    box-sizing: border-box;
+}

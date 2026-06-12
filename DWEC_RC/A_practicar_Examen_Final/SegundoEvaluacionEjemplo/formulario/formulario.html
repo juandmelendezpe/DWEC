@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Formulario de Registro</h1>
+
+    <form id="formulario" action="" method="post" novalidate>
+
+        <div class="campo" id="campo-nombre">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan García">
+        </div>
+
+        <div class="campo" id="campo-dni">
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" name="dni" placeholder="Ej: 12345678-A">
+        </div>
+
+        <div class="campo" id="campo-localidad">
+            <label for="localidad">Localidad</label>
+            <input type="text" id="localidad" name="localidad" placeholder="Ej: Madrid">
+        </div>
+
+        <div class="campo" id="campo-telefono">
+            <label for="telefono">Teléfono</label>
+            <input type="text" id="telefono" name="telefono" placeholder="Ej: 612345678">
+        </div>
+
+        <div class="campo" id="campo-fnac">
+            <label for="fnac">Fecha de Nacimiento</label>
+            <input type="text" id="fnac" name="fnac" placeholder="Ej: 15/06/1990">
+        </div>
+
+        <input type="submit" value="Validar">
+    </form>
+
+    <div id="datos"></div>
+
+    <script src="formulario.js"></script>
+</body>
+</html>

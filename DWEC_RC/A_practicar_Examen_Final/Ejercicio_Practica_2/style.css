@@ -1,0 +1,208 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  font-size: 0.82rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+h2 {
+  color: #34495e;
+  font-size: 1rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+/* ===== FILA PRINCIPAL: formulario + tabla ===== */
+.main-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex: 1;           /* ocupa todo el espacio vertical disponible */
+  min-height: 0;     /* permite que los hijos se encojan si hace falta */
+}
+
+/* ===== SECCIONES ===== */
+section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: auto;
+}
+
+/* Formulario: ancho fijo, no crece */
+.form-section {
+  flex: 0 0 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tabla: ocupa el resto del ancho */
+.table-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Exportar: fila completa abajo, altura ajustada al contenido */
+.array-section {
+  flex-shrink: 0;
+}
+
+/* ===== FORMULARIO ===== */
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.4rem;
+}
+
+.field input {
+  padding: 0.45rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  transition: border-color 0.2s;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.field input.input-error {
+  border-color: #e74c3c;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.82rem;
+  margin-top: 0.2rem;
+  min-height: 1rem;
+}
+
+/* ===== BOTONES ===== */
+button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+#btnAnadir {
+  background-color: #3498db;
+  color: #fff;
+  margin-top: auto;   /* empuja el botón al fondo del formulario */
+  width: 100%;
+}
+
+#btnAnadir:hover {
+  background-color: #2980b9;
+}
+
+#btnExportar {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+#btnExportar:hover {
+  background-color: #219a52;
+}
+
+/* ===== TABLA ===== */
+.table-wrapper {
+  flex: 1;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+thead {
+  background-color: #2c3e50;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+thead th {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f7f9fc;
+}
+
+tbody tr:hover {
+  background-color: #eaf4fb;
+}
+
+tbody td {
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+}
+
+.mensaje-vacio {
+  margin-top: 1rem;
+  color: #888;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* ===== SALIDA ARRAY ===== */
+.array-section-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.salida-array {
+  flex: 1;
+  background-color: #1e1e1e;
+  color: #9cdcfe;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 2rem;
+  max-height: 100px;
+  overflow-y: auto;
+}

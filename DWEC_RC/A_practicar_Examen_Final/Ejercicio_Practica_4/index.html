@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Reservas de Hotel</title>
+</head>
+<body>
+  <h1>Gestión de Reservas de Hotel</h1>
+  <p>Abre la consola del navegador (F12) para ver la ejecución del programa.</p>
+
+<script>
+// ============================================================
+// ESTRUCTURAS DE DATOS Y LÓGICA DE NEGOCIO
+// ============================================================
+
+/**
+ * Regímenes disponibles:
+ *   "SA"  - Solo Alojamiento
+ *   "AD"  - Alojamiento y Desayuno
+ *   "MP"  - Media Pensión
+ *   "PC"  - Pensión Completa
+ */
+
+// ---- Constructor del Hotel ----
+function Hotel(nombre, estrellas, numHabitaciones, precios) {
+  // precios: { SA, AD, MP, PC }  → precio por noche para cada régimen
+  this.nombre          = nombre;
+  this.estrellas       = estrellas;
+  this.numHabitaciones = numHabitaciones;
+  this.precios         = precios;   // fijo desde la creación
+  this.reservas        = [];        // array de objetos Reserva
+  this._nextId         = 1;         // contador interno de IDs
+}
+
+// ---- Constructor de Reserva ----
+function Reserva(id, dni, nombre, regimen, fechaInicio, fechaFin, precioPorNoche) {
+  this.id          = id;
+  this.dni         = dni;
+  this.nombre      = nombre;
+  this.regimen     = regimen;
+  this.fechaInicio = new Date(fechaInicio); // se almacena como Date
+  this.fechaFin    = new Date(fechaFin);
+  this.precioFinal = calcularPrecio(this.fechaInicio, this.fechaFin, precioPorNoche);
+}
+
+// ============================================================
+// FUNCIONES AUXILIARES
+// ============================================================
+
+/**
+ * Calcula el número de noches entre dos fechas.
+ */
+function calcularNoches(fechaInicio, fechaFin) {
+  const MS_POR_DIA = 1000 * 60 * 60 * 24;
+  return Math.round((fechaFin - fechaInicio) / MS_POR_DIA);
+}
+
+/**
+ * Calcula el precio final de una estancia.
+ */
+function calcularPrecio(fechaInicio, fechaFin, precioPorNoche) {
+  const noches = calcularNoches(fechaInicio, fechaFin);
+  return noches * precioPorNoche;
+}
+
+/**
+ * Comprueba si dos rangos de fechas se solapan.
+ * Dos estancias se solapan si una empieza antes de que la otra termine
+ * y viceversa (intervalo semiabierto: [inicio, fin) ).
+ */
+function seSolapan(inicio1, fin1, inicio2, fin2) {
+  return inicio1 < fin2 && inicio2 < fin1;
+}
+
+/**
+ * Devuelve cuántas habitaciones están ocupadas en el rango [inicio, fin).
+ */
+function habitacionesOcupadas(hotel, fechaInicio, fechaFin) {
+  return hotel.reservas.filter(function(r) {
+    return seSolapan(r.fechaInicio, r.fechaFin, fechaInicio, fechaFin);
+  }).length;
+}
+
+/**
+ * Valida que el régimen sea uno de los cuatro permitidos.
+ */
+function regimenValido(regimen) {
+  return ["SA", "AD", "MP", "PC"].includes(regimen);
+}
+
+/**
+ * Valida que las fechas sean coherentes (inicio < fin).
+ */
+function fechasValidas(fechaInicio, fechaFin) {
+  return fechaInicio < fechaFin;
+}
+
+// ============================================================
+// MÉTODOS DEL HOTEL
+// ============================================================
+
+/**
+ * CREAR reserva.
+ * Devuelve la reserva creada o null si no hay disponibilidad / datos inválidos.
+ */
+Hotel.prototype.crearReserva = function(dni, nombre, regimen, fechaInicio, fechaFin) {
+  const fInicio = new Date(fechaInicio);
+  const fFin    = new Date(fechaFin);
+
+  // Validaciones básicas
+  if (!regimenValido(regimen)) {
+    console.error("Régimen no válido:", regimen, "→ usa SA, AD, MP o PC");
+    return null;
+  }
+  if (!fechasValidas(fInicio, fFin)) {
+    console.error("Las fechas no son válidas: inicio debe ser anterior a fin.");
+    return null;
+  }
+
+  // Comprobar disponibilidad
+  const ocupadas = habitacionesOcupadas(this, fInicio, fFin);
+  if (ocupadas >= this.numHabitaciones) {
+    console.warn("No hay habitaciones disponibles para las fechas solicitadas.");
+    return null;
+  }
+
+  // Crear la reserva
+  const precioPorNoche = this.precios[regimen];
+  const reserva = new Reserva(
+    this._nextId++,
+    dni,
+    nombre,
+    regimen,
+    fInicio,
+    fFin,
+    precioPorNoche
+  );
+
+  this.reservas.push(reserva);
+  console.log("✅ Reserva creada:", reserva);
+  return reserva;
+};
+
+/**
+ * ANULAR reserva por ID.
+ * Devuelve true si se eliminó, false si no se encontró.
+ */
+Hotel.prototype.anularReserva = function(id) {
+  const idx = this.reservas.findIndex(function(r) { return r.id === id; });
+  if (idx === -1) {
+    console.warn("No se encontró ninguna reserva con id:", id);
+    return false;
+  }
+  const eliminada = this.reservas.splice(idx, 1)[0];
+  console.log("🗑️  Reserva anulada:", eliminada);
+  return true;
+};
+
+/**
+ * MODIFICAR reserva por ID.
+ * Solo se puede cambiar el régimen y/o la fecha de fin.
+ * Devuelve la reserva modificada o null si hay algún problema.
+ */
+Hotel.prototype.modificarReserva = function(id, nuevoRegimen, nuevaFechaFin) {
+  const reserva = this.reservas.find(function(r) { return r.id === id; });
+  if (!reserva) {
+    console.warn("No se encontró ninguna reserva con id:", id);
+    return null;
+  }
+
+  // Determinar los nuevos valores (si no se pasan, se mantienen los actuales)
+  const regimen  = nuevoRegimen  || reserva.regimen;
+  const fFin     = nuevaFechaFin ? new Date(nuevaFechaFin) : reserva.fechaFin;
+
+  // Validaciones
+  if (!regimenValido(regimen)) {
+    console.error("Régimen no válido:", regimen);
+    return null;
+  }
+  if (!fechasValidas(reserva.fechaInicio, fFin)) {
+    console.error("La nueva fecha de fin debe ser posterior a la fecha de inicio.");
+    return null;
+  }
+
+  // Comprobar disponibilidad para el nuevo rango (excluyendo la propia reserva)
+  const reservasSinEsta = this.reservas.filter(function(r) { return r.id !== id; });
+  const ocupadas = reservasSinEsta.filter(function(r) {
+    return seSolapan(r.fechaInicio, r.fechaFin, reserva.fechaInicio, fFin);
+  }).length;
+
+  if (ocupadas >= this.numHabitaciones) {
+    console.warn("No hay disponibilidad para el nuevo rango de fechas.");
+    return null;
+  }
+
+  // Aplicar cambios
+  reserva.regimen     = regimen;
+  reserva.fechaFin    = fFin;
+  reserva.precioFinal = calcularPrecio(reserva.fechaInicio, fFin, this.precios[regimen]);
+
+  console.log("✏️  Reserva modificada:", reserva);
+  return reserva;
+};
+
+/**
+ * Muestra el estado actual del hotel por consola.
+ */
+Hotel.prototype.mostrarEstado = function() {
+  console.log("=".repeat(50));
+  console.log("Hotel:", this.nombre, "(" + this.estrellas + "⭐)");
+  console.log("Habitaciones totales:", this.numHabitaciones);
+  console.log("Precios por noche:", this.precios);
+  console.log("Reservas activas:", this.reservas.length);
+  this.reservas.forEach(function(r) {
+    console.log(
+      "  [" + r.id + "] " + r.nombre +
+      " | DNI: " + r.dni +
+      " | Régimen: " + r.regimen +
+      " | " + r.fechaInicio.toLocaleDateString("es-ES") +
+      " → " + r.fechaFin.toLocaleDateString("es-ES") +
+      " | " + calcularNoches(r.fechaInicio, r.fechaFin) + " noches" +
+      " | Total: " + r.precioFinal + "€"
+    );
+  });
+  console.log("=".repeat(50));
+};
+
+// ============================================================
+// DEMOSTRACIÓN / PRUEBAS EN CONSOLA
+// ============================================================
+
+// Crear el hotel
+const hotel = new Hotel(
+  "Hotel Costa Azul",
+  4,
+  3,   // solo 3 habitaciones para que sea fácil probar la disponibilidad
+  {
+    SA: 50,   // Solo Alojamiento: 50€/noche
+    AD: 70,   // Alojamiento + Desayuno: 70€/noche
+    MP: 90,   // Media Pensión: 90€/noche
+    PC: 120   // Pensión Completa: 120€/noche
+  }
+);
+
+console.log("--- CREACIÓN DE RESERVAS ---");
+
+// Reserva 1
+const r1 = hotel.crearReserva(
+  "12345678A", "Ana García",
+  "PC", "2025-07-01", "2025-07-07"
+);
+
+// Reserva 2 (mismas fechas, distinta persona → ocupa otra habitación)
+const r2 = hotel.crearReserva(
+  "87654321B", "Luis Martínez",
+  "MP", "2025-07-01", "2025-07-05"
+);
+
+// Reserva 3
+const r3 = hotel.crearReserva(
+  "11111111C", "María López",
+  "AD", "2025-07-03", "2025-07-10"
+);
+
+// Reserva 4 → debería fallar (las 3 habitaciones están ocupadas el 1-5 julio)
+const r4 = hotel.crearReserva(
+  "22222222D", "Pedro Sánchez",
+  "SA", "2025-07-02", "2025-07-04"
+);
+
+// Reserva 5 → fechas que no solapan con ninguna de las anteriores → OK
+const r5 = hotel.crearReserva(
+  "33333333E", "Carmen Ruiz",
+  "SA", "2025-07-11", "2025-07-14"
+);
+
+hotel.mostrarEstado();
+
+console.log("\n--- MODIFICACIÓN DE RESERVA ---");
+// Cambiar régimen de r2 a PC y ampliar fecha de fin
+hotel.modificarReserva(r2.id, "PC", "2025-07-08");
+hotel.mostrarEstado();
+
+console.log("\n--- ANULACIÓN DE RESERVA ---");
+hotel.anularReserva(r1.id);
+hotel.mostrarEstado();
+
+// Ahora debería haber disponibilidad para la reserva que antes falló
+console.log("\n--- NUEVA RESERVA TRAS ANULACIÓN ---");
+hotel.crearReserva(
+  "22222222D", "Pedro Sánchez",
+  "SA", "2025-07-02", "2025-07-04"
+);
+hotel.mostrarEstado();
+
+// Prueba de validaciones
+console.log("\n--- PRUEBAS DE VALIDACIÓN ---");
+hotel.crearReserva("99999999Z", "Test Inválido", "XX", "2025-08-01", "2025-08-05"); // régimen inválido
+hotel.crearReserva("99999999Z", "Test Inválido", "SA", "2025-08-10", "2025-08-05"); // fechas invertidas
+</script>
+</body>
+</html>

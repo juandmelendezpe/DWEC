@@ -1,0 +1,133 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  color: #333;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  gap: 1rem;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+}
+
+/* ===== PANELES ===== */
+section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem 1.4rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  width: 100%;
+  max-width: 700px;
+}
+
+/* ===== CONFIG ===== */
+.panel-config {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.panel-config label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.panel-config input[type="number"] {
+  width: 70px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ===== JUEGO ===== */
+.panel-juego {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.busqueda-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.busqueda-row input[type="text"] {
+  flex: 1;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.resultado {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  min-height: 1.2rem;
+}
+
+/* ===== BOTONES ===== */
+button {
+  padding: 0.45rem 1.1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  color: #fff;
+}
+button:active { transform: scale(0.97); }
+
+#btnIniciar { background: #3498db; }
+#btnIniciar:hover { background: #2980b9; }
+
+#btnBuscar { background: #27ae60; }
+#btnBuscar:hover { background: #219a52; }
+
+/* ===== TABLA SOPA ===== */
+.contenedor-tabla {
+  overflow: auto;
+}
+
+table.sopa {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+table.sopa td {
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  transition: background 0.15s;
+  user-select: none;
+}
+
+table.sopa td.marcada {
+  background: #3498db;
+  color: #fff;
+  border-color: #2980b9;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+    <style>
+        body{
+            width: 100%;
+        }
+        h1{
+            width: 30%;
+            display: flex;
+            flex-direction: row;
+            color: blue;
+            margin: auto;
+        }
+        form{
+            width: 80%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center ;
+            padding: 7px;
+        }
+        input{
+            width: 50%;
+            height: 25px;
+            border: solid 1px blueviolet;
+            border-radius:7px ;
+            margin: auto;
+            padding: 2px;
+                    
+        }
+        input:focus {
+        border-color: #4CAF50;
+        outline: none;
+        }
+        #btnValidar{
+            color: rgb(91, 39, 140);
+            background-color: beige;
+            border-radius: 5px;
+            width: 25%;
+            height: 30px;
+        }
+        #btnValidar:hover{
+            color: aliceblue;
+            background-color: blueviolet;
+        }
+        /* ─── Sección de datos validados ───────────────────────────────────────────── */
+#datos {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.fila-dato {
+    margin: 6px 0;
+    font-size: 16px;
+}
+/* ─── Estados de validación ────────────────────────────────────────────────── */
+input.error {
+    background-color: #ffe0e0;
+    border-color: #e53935;
+}
+
+input.ok {
+    background-color: #e8f5e9;
+    border-color: #43a047;
+}
+
+/* Etiqueta: color normal, no clicable */
+.etiqueta-dato {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Solo el valor: azul, clicable */
+.dato-validado {
+    color: #1565C0;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: background-color 0.15s;
+}
+
+.dato-validado:hover {
+    background-color: #e3f2fd;
+    text-decoration: underline;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Formulario de Registro</h1>
+    <form id="formulario"action="" method="post">
+        <div>
+            <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre:" required>
+        </div>
+        <div>
+
+            <input type="text" name="dni" id="dni" placeholder="Ingrese su dni:" required>
+        </div>
+        <div>
+            <input type="text" name="telefono" id="telefono" placeholder="Ingrese su telefono:" required>
+
+        </div>
+        <div>
+            <input type="text" name="localidad" id="localidad" placeholder="Ingrese su localidad:" required>
+
+        </div>
+        <div>
+            <input type="text" name="fecnac" id="fnac" placeholder="Ingrese su fecha de Nacimiento:21/09/1990" required>
+
+        </div>
+        
+        <input id="btnValidar" type="submit" value="Validar datos">
+
+    </form>
+    <div id="datos" class="datos">
+
+    </div>    <script src="index_v2.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 2 — Gestión de Biblioteca</title>
+    <link rel="stylesheet" href="tarea2.css">
+</head>
+<body>
+
+    <h1>Gestión de Biblioteca</h1>
+
+    <!-- ── Paso 1: crear la biblioteca ──────────────────────────────────────── -->
+    <section id="seccion-crear">
+        <h2>Crear biblioteca</h2>
+        <form id="form-crear">
+            <input type="text" id="input-nombre-bib" placeholder="Nombre de la biblioteca" required>
+            <button type="submit">Crear</button>
+        </form>
+    </section>
+
+    <!-- ── Aplicación principal (oculta hasta crear la biblioteca) ──────────── -->
+    <section id="seccion-app">
+
+        <div id="cabecera-app">
+            Biblioteca: <span id="nombre-biblioteca"></span>
+        </div>
+
+        <!-- Menú de acciones -->
+        <div id="menu-acciones">
+            <button id="btn-agregar-libro"    class="btn-libro">➕ Agregar libro</button>
+            <button id="btn-eliminar-libro"   class="btn-libro">🗑️ Eliminar libro</button>
+            <button id="btn-agregar-socio"    class="btn-socio">➕ Agregar socio</button>
+            <button id="btn-eliminar-socio"   class="btn-socio">🗑️ Eliminar socio</button>
+            <button id="btn-prestar-libro"    class="btn-prestamo">📤 Prestar libro</button>
+            <button id="btn-devolver-libro"   class="btn-prestamo">📥 Devolver libro</button>
+            <button id="btn-ver-libros"       class="btn-ver">📚 Ver libros</button>
+            <button id="btn-ver-socios"       class="btn-ver">👥 Ver socios</button>
+            <button id="btn-ver-prestamos"    class="btn-ver">📋 Ver préstamos</button>
+            <button id="btn-ver-estadisticas" class="btn-stats">📊 Estadísticas</button>
+        </div>
+
+        <!-- Área donde se muestran los resultados de cada acción -->
+        <div id="area-resultado">
+            <p class="aviso">Selecciona una acción del menú.</p>
+        </div>
+
+    </section>
+
+    <script src="tarea2.js"></script>
+</body>
+</html>

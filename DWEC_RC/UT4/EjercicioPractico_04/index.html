@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Edificios - UT4</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            line-height: 1.6; 
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #salida {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="salida"></div>
+
+    <script>
+        // Función auxiliar para mostrar mensajes en la página
+        function mostrar(mensaje) {
+            document.getElementById('salida').innerHTML += mensaje + "<br>";
+        }
+
+        // Definición de la clase Edificio
+        class Edificio {
+            constructor(calle, numero, codigoPostal) {
+                this.calle = calle;
+                this.numero = numero;
+                this.codigoPostal = codigoPostal;
+                this.plantas = []; // Array principal para almacenar las plantas
+                
+                mostrar(`Construido nuevo edificio en calle: ${this.calle}, nº: ${this.numero}, CP: ${this.codigoPostal}.`);
+            }
+
+            agregarPlantasYPuertas(numplantas, puertas) {
+                // Añade nuevas plantas al edificio
+                for (let i = 0; i < numplantas; i++) {
+                    // Crea una nueva planta con 'puertas' número de puertas vacías
+                    let nuevaPlanta = new Array(puertas).fill("");
+                    this.plantas.push(nuevaPlanta);
+                }
+            }
+
+            modificarNumero(numero) {
+                this.numero = numero;
+            }
+
+            modificarCalle(calle) {
+                this.calle = calle;
+            }
+
+            modificarCodigoPostal(codigo) {
+                this.codigoPostal = codigo;
+            }
+
+            imprimeCalle() {
+                return this.calle;
+            }
+
+            imprimeNumero() {
+                return this.numero;
+            }
+
+            imprimeCodigoPostal() {
+                return this.codigoPostal;
+            }
+
+            agregarPropietario(nombre, planta, puerta) {
+                // Comprueba que la planta y la puerta existan (base 1)
+                if (this.plantas[planta - 1] !== undefined && puerta <= this.plantas[planta - 1].length) {
+                    this.plantas[planta - 1][puerta - 1] = nombre;
+                    mostrar(`${nombre} es ahora el propietario de la puerta ${puerta} de la planta ${planta}.`);
+                } else {
+                    mostrar(`Error: La planta ${planta} o la puerta ${puerta} indicada no existe en este edificio.`);
+                }
+            }
+
+            imprimePlantas() {
+                let html = `<strong>Listado de propietarios del edificio calle ${this.calle} número ${this.numero}</strong><br><br>`;
+                
+                for (let i = 0; i < this.plantas.length; i++) {
+                    for (let j = 0; j < this.plantas[i].length; j++) {
+                        let propietario = this.plantas[i][j] ? this.plantas[i][j] : "";
+                        html += `Propietario del piso ${j + 1} de la planta ${i + 1}: ${propietario}<br>`;
+                    }
+                }
+                mostrar(html);
+            }
+        }
+
+        // --- Ejecución del ejemplo solicitado ---
+
+        mostrar("<h3>Trabajando con objetos Javascript:</h3>");
+        
+        mostrar("<strong>Instanciamos 3 objetos edificioA, edificioB y edificioC con estos datos:</strong><br>");
+        let edificioA = new Edificio("Garcia Prieto", "58", "15706");
+        let edificioB = new Edificio("Camino Caneiro", "29", "32004");
+        let edificioC = new Edificio("San Clemente", "s/n", "15705");
+        mostrar(""); // Salto de línea extra
+
+        mostrar(`El código postal del edificio A es: ${edificioA.imprimeCodigoPostal()}`);
+        mostrar(`La calle del edificio C es: ${edificioC.imprimeCalle()}`);
+        mostrar(`El edificio B está situado en la calle ${edificioB.imprimeCalle()} número ${edificioB.imprimeNumero()}.`);
+        mostrar("");
+
+        mostrar("<strong>Agregamos 2 plantas y 3 puertas por planta al edificio A...</strong><br>");
+        edificioA.agregarPlantasYPuertas(2, 3);
+        mostrar("");
+
+        mostrar("<strong>Agregamos 4 propietarios al edificio A...</strong><br>");
+        edificioA.agregarPropietario("Jose Antonio Lopez", 1, 1);
+        edificioA.agregarPropietario("Luisa Martinez", 1, 2);
+        edificioA.agregarPropietario("Marta Castellón", 1, 3);
+        edificioA.agregarPropietario("Antonio Pereira", 2, 2);
+        mostrar("");
+
+        edificioA.imprimePlantas();
+
+        mostrar("<strong>Agregamos 1 planta más al edificio A...</strong><br>");
+        // El ejemplo añade 1 planta con 3 puertas para seguir el modelo
+        edificioA.agregarPlantasYPuertas(1, 3); 
+        mostrar("");
+
+        mostrar("<strong>Agregamos 1 propietario más al edificio A planta 3, puerta 2...</strong><br>");
+        edificioA.agregarPropietario("Pedro Meijide", 3, 2);
+        mostrar("");
+
+        edificioA.imprimePlantas();
+    </script>
+</body>
+</html>

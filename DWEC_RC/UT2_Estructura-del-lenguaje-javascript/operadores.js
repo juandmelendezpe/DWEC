@@ -8,6 +8,6 @@ let sexo = 'M';
 console.log(`su sexo es:${sexo ? `varon` : `mujer`}`);
 console.log("-----------------------------");
 
-function 1calcularAreaRectangulo(base, altura) {
+function calcularAreaRectangulo(base, altura) {
     return base * altura;
 }
